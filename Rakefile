@@ -97,6 +97,7 @@ def install_oh_my_zsh
       else
         puts "installing oh-my-zsh"
         system %Q{wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh}
+      end
     when 'y'
       if RUBY_PLATFORM =~ /darwin/
         puts "installing oh-my-zsh"
@@ -105,6 +106,7 @@ def install_oh_my_zsh
       else
         puts "installing oh-my-zsh"
         system %Q{wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh}
+      end
     when 'q'
       exit
     else
