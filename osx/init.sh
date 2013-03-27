@@ -16,10 +16,9 @@ defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
 
-# Trackpad: enable tap to click for this user and for the login screen
+# Trackpad: enable tap to click for this user
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
@@ -48,8 +47,6 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 # Use a modified version of the Pro theme by default in Terminal.app
 open "$HOME/.dotfiles/osx/bswinnerton.terminal"
 sleep 1 # Wait a bit to make sure the theme is loaded
-defaults write com.apple.terminal "Default Window Settings" -string "bswinnerton"
-defaults write com.apple.terminal "Startup Window Settings" -string "bswinnerton"
+defaults write com.apple.Terminal "Default Window Settings" -string "bswinnerton"
+defaults write com.apple.Terminal "Startup Window Settings" -string "bswinnerton"
 
-# Restart finder for new changes to take effect
-killall Finder
