@@ -6,9 +6,7 @@ task :install do
   install_oh_my_zsh
   switch_to_zsh
   replace_all = false
-  files = Dir['*'] - %w[Rakefile README.rdoc LICENSE oh-my-zsh]
-  files << "oh-my-zsh/custom/plugins/rbates"
-  files << "oh-my-zsh/custom/rbates.zsh-theme"
+  files = Dir['*'] - %w[Rakefile readme.md oh-my-zsh]
   files.each do |file|
     system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
     if File.exist?(File.join(ENV['HOME'], ".#{file.sub(/\.erb$/, '')}"))
@@ -34,6 +32,8 @@ task :install do
       link_file(file)
     end
   end
+  #install_brew
+  #install_rvm
 end
 
 def replace_file(file)
@@ -87,5 +87,16 @@ def install_oh_my_zsh
     else
       puts "skipping oh-my-zsh, you will need to change ~/.zshrc"
     end
+  end
+
+  def install_brew
+    if RUBY_PLATFORM =~ /darwin/
+      %x( curl -fsSL https://raw.github.com/mxcl/homebrew/go )
+    end
+  end
+
+  def install_rvm
+    %x( curl -L https://get.rvm.io | bash -s stable --autolibs=3 --rails )
+    %x( source "$HOME/.rvm/scripts/rvm" )
   end
 end
