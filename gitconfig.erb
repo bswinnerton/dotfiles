@@ -1,13 +1,13 @@
 [user]
-	name = <%= print("Your Name: "); STDOUT.flush; STDIN.gets.chomp %>
-	email = <%= print("Your Email: "); STDOUT.flush; STDIN.gets.chomp %>
+  name = <%= print("Your Name: "); STDOUT.flush; STDIN.gets.chomp %>
+  email = <%= print("Your Email: "); STDOUT.flush; STDIN.gets.chomp %>
 [color]
-	diff = auto
-	status = auto
-	branch = auto
+  diff = auto
+  status = auto
+  branch = auto
 [core]
-	excludesfile = <%= ENV['HOME'] %>/.gitignore
-	editor = vim
+  excludesfile = <%= ENV['HOME'] %>/.gitignore
+  editor = vim
   mergeoptions = --no-ff
 [github]
-	user = <%= print("GitHub Username: "); STDOUT.flush; STDIN.gets.chomp %>
+  user = <%= print("GitHub Username: "); STDOUT.flush; STDIN.gets.chomp %>
