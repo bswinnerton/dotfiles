@@ -95,7 +95,8 @@ def install_oh_my_zsh
         system %Q{git clone https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"}
       else
         puts "installing oh-my-zsh"
-        system %Q{wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh}
+        system %Q{sudo apt-get install zsh}
+        system %Q{curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | zsh}
       end
     when 'y'
       if RUBY_PLATFORM =~ /darwin/
@@ -103,7 +104,8 @@ def install_oh_my_zsh
         system %Q{git clone https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"}
       else
         puts "installing oh-my-zsh"
-        system %Q{wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh}
+        system %Q{sudo apt-get install zsh}
+        system %Q{curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | zsh}
       end
     when 'q'
       exit
