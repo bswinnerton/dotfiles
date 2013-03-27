@@ -1,7 +1,7 @@
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	# Command line sublime
-	alias slime="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
+  # Command line sublime
+  alias slime="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
 
-	# Launch services cleanup
-	alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
+  # Launch services cleanup
+  alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
 fi
