@@ -1,0 +1,23 @@
+# Suppress startup message
+startup_message off
+
+# Fix vim veritcal sizing issues inside screen
+altscreen on
+
+# Make top window cd into folder
+chdir Sites/
+
+# Start screen on top
+shell -$SHELL
+screen -t "Development"
+
+# Confiure bottom screen
+split
+focus
+chdir Sites/
+shell -$SHELL
+screen -t "Console"
+resize 12
+
+# Select top window
+focus up
