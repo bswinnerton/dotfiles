@@ -38,7 +38,9 @@ task :install do
   # TODO:
   #install_brew
   #install_rvm
-  system %Q{$HOME/.dotfiles/osx/init.sh}
+  if RUBY_PLATFORM =~ /darwin/
+    system %Q{$HOME/.dotfiles/osx/init.sh}
+  end
 end
 
 def replace_file(file)
