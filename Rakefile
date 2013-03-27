@@ -16,8 +16,10 @@ task :install do
       elsif replace_all
         replace_file(file)
       else
-        print "overwrite ~/.#{file.sub(/\.erb$/, '')}? [ynaq] "
+        print "overwrite ~/.#{file.sub(/\.erb$/, '')}? [Ynaq] "
         case $stdin.gets.chomp
+        when ''
+          replace_file(file)
         when 'a'
           replace_all = true
           replace_file(file)
@@ -62,8 +64,11 @@ def switch_to_zsh
   if ENV["SHELL"] =~ /zsh/
     puts "using zsh"
   else
-    print "switch to zsh? (recommended) [ynq] "
+    print "switch to zsh? (recommended) [Ynq] "
     case $stdin.gets.chomp
+    when ''
+      puts "switching to zsh"
+      system %Q{chsh -s `which zsh`}
     when 'y'
       puts "switching to zsh"
       system %Q{chsh -s `which zsh`}
@@ -79,8 +84,11 @@ def install_oh_my_zsh
   if File.exist?(File.join(ENV['HOME'], ".oh-my-zsh"))
     puts "found ~/.oh-my-zsh"
   else
-    print "install oh-my-zsh? [ynq] "
+    print "install oh-my-zsh? [Ynq] "
     case $stdin.gets.chomp
+    when ''
+      puts "installing oh-my-zsh"
+      system %Q{git clone https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"}
     when 'y'
       puts "installing oh-my-zsh"
       system %Q{git clone https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"}
