@@ -35,7 +35,9 @@ ZSH_THEME="bswinnerton"
 plugins=(git bundler brew gem screen)
 
 # Customize to your needs...
-export PATH=/Users/brooks/.rvm/gems/ruby-1.9.3-p392/bin:/Users/brooks/.rvm/gems/ruby-1.9.3-p392@global/bin:/Users/brooks/.rvm/rubies/ruby-1.9.3-p392/bin:/Users/brooks/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin
+#export PATH=$HOME/.rvm/gems/ruby-1.9.3-p392/bin:$HOME/.rvm/gems/ruby-1.9.3-p392@global/bin:$HOME/.rvm/rubies/ruby-1.9.3-p392/bin:$HOME/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin
+
+export PATH="/usr/local/heroku/bin:$PATH"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # To load rvm into shell
 
