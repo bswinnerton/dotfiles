@@ -38,7 +38,7 @@ task :install do
   # TODO:
   #install_brew
   #install_rvm
-  system %Q{.osx/init.sh}
+  system %Q{cd $HOME/.dotfiles/osx/ && init.sh}
 end
 
 def replace_file(file)
