@@ -50,3 +50,6 @@ open "$HOME/.dotfiles/osx/bswinnerton.terminal"
 sleep 1 # Wait a bit to make sure the theme is loaded
 defaults write com.apple.terminal "Default Window Settings" -string "bswinnerton"
 defaults write com.apple.terminal "Startup Window Settings" -string "bswinnerton"
+
+# Restart finder for new changes to take effect
+killall Finder
