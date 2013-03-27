@@ -13,3 +13,5 @@ source $HOME/.aliases
 source $HOME/.exports
   
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # To load rvm into shell
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
