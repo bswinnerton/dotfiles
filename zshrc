@@ -41,6 +41,6 @@ export PATH=/Users/brooks/.rvm/gems/ruby-1.9.3-p392/bin:/Users/brooks/.rvm/gems/
 
 source $ZSH/oh-my-zsh.sh
 
-if [ -f ~/.rails-env-variables/* ]; then source $HOME/.rails-env-variables/* fi
+if [ -f ~/.rails-env-variables/ ]; then source $HOME/.rails-env-variables/* fi
 source $HOME/.aliases
 soruce $HOME/.exports
