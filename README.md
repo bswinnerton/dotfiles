@@ -8,7 +8,6 @@ Run the following commands in your terminal. It will prompt you before it does a
 git clone git://github.com/bswinnerton/dotfiles ~/.dotfiles
 cd ~/.dotfiles
 rake install
-osx/init.sh # if on mac
 ```
 
 After installing, open a new terminal window to see the effects.
