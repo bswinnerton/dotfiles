@@ -38,7 +38,9 @@ task :install do
   # TODO:
   #install_brew
   #install_rvm
-  system %Q{$HOME/.dotfiles/osx/init.sh}
+  if RUBY_PLATFORM =~ /darwin/
+    system %Q{$HOME/.dotfiles/osx/init.sh}
+  end
 end
 
 def replace_file(file)
@@ -88,11 +90,23 @@ def install_oh_my_zsh
     print "install oh-my-zsh? [Ynq] "
     case $stdin.gets.chomp
     when ''
-      puts "installing oh-my-zsh"
-      system %Q{git clone https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"}
+      if RUBY_PLATFORM =~ /darwin/
+        puts "installing oh-my-zsh"
+        system %Q{git clone https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"}
+      else
+        puts "installing oh-my-zsh"
+        system %Q{sudo apt-get install zsh}
+        system %Q{curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | zsh}
+      end
     when 'y'
-      puts "installing oh-my-zsh"
-      system %Q{git clone https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"}
+      if RUBY_PLATFORM =~ /darwin/
+        puts "installing oh-my-zsh"
+        system %Q{git clone https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"}
+      else
+        puts "installing oh-my-zsh"
+        system %Q{sudo apt-get install zsh}
+        system %Q{curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | zsh}
+      end
     when 'q'
       exit
     else
