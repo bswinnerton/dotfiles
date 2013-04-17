@@ -41,8 +41,6 @@ unsetopt correct
 
 export PATH="/usr/local/heroku/bin:$PATH"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # To load rvm into shell
-
 source $ZSH/oh-my-zsh.sh
 
 if [ -f ~/.rails-env-variables/ ]; then 
