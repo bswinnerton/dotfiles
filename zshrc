@@ -35,7 +35,7 @@ ZSH_THEME="bswinnerton"
 plugins=(git bundler brew gem screen)
 
 # Customize to your needs...
-unsetopt correct
+unsetopt correct_all
 
 #export PATH=$HOME/.rvm/gems/ruby-1.9.3-p392/bin:$HOME/.rvm/gems/ruby-1.9.3-p392@global/bin:$HOME/.rvm/rubies/ruby-1.9.3-p392/bin:$HOME/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin
 
