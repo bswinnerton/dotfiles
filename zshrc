@@ -48,3 +48,6 @@ if [ -f ~/.rails-env-variables/ ]; then
 fi
 source $HOME/.aliases
 source $HOME/.exports
+
+# rbenv requirement
+eval "$(rbenv init -)"
