@@ -12,3 +12,5 @@ fi
 source $HOME/.aliases
 source $HOME/.exports
 
+# For rbenv
+eval "$(rbenv init -)"
