@@ -6,7 +6,7 @@ task :install do
   install_oh_my_zsh
   switch_to_zsh
   replace_all = false
-  files = Dir['*'] - %w[Rakefile readme.md oh-my-zsh tmux-powerline]
+  files = Dir['*'] - %w[Rakefile readme.md oh-my-zsh tmux-powerline PowerlineSymbols.otf]
   files << "oh-my-zsh/custom/bswinnerton.zsh-theme"
   files.each do |file|
     system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
