@@ -37,12 +37,10 @@ plugins=(git bundler brew gem tmux)
 # Customize to your needs...
 unsetopt correct_all
 
-#export PATH=$HOME/.rvm/gems/ruby-1.9.3-p392/bin:$HOME/.rvm/gems/ruby-1.9.3-p392@global/bin:$HOME/.rvm/rubies/ruby-1.9.3-p392/bin:$HOME/.rvm/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin
-
+# Create heroku toolbelt entry in path
 export PATH="/usr/local/heroku/bin:$PATH"
 
-source $ZSH/oh-my-zsh.sh
-
+# Create aliases, exports and rails environment variables
 if [ -f ~/.rails-env-variables/ ]; then 
   source $HOME/.rails-env-variables/* 
 fi
@@ -51,3 +49,15 @@ source $HOME/.exports
 
 # rbenv requirement
 eval "$(rbenv init -)"
+
+# Automatically start tmux
+if which tmux && [[ "$TERM" != "screen" ]]; then
+    WHOAMI=$(whoami)
+    if tmux has-session -t $WHOAMI 2>/dev/null; then
+        tmux -2 attach-session -t $WHOAMI
+    else
+        tmux -2 new-session -s $WHOAMI
+    fi
+fi
+
+source $ZSH/oh-my-zsh.sh
