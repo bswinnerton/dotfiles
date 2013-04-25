@@ -38,6 +38,7 @@ task :install do
   # TODO:
   #install_brew
   #install_rvm
+  #install_tmux
   if RUBY_PLATFORM =~ /darwin/
     system %Q{$HOME/.dotfiles/osx/init.sh}
   end
