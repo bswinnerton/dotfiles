@@ -39,6 +39,7 @@ task :install do
   #install_brew
   #install_rbenv
   #install_tmux
+  #fix_copy_and_paste
   if RUBY_PLATFORM =~ /darwin/
     system %Q{$HOME/.dotfiles/osx/init.sh}
   end
@@ -118,6 +119,12 @@ def install_oh_my_zsh
   def install_brew
     if RUBY_PLATFORM =~ /darwin/
       %x( curl -fsSL https://raw.github.com/mxcl/homebrew/go )
+    end
+  end
+
+  def fix_copy_and_paste
+    if RUBY_PLATFORM =~ /darwin/
+      %x( brew install reattach-to-user-namespace )
     end
   end
 
