@@ -45,8 +45,8 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 # Use a modified version of the Pro theme by default in Terminal.app
-open "$HOME/.dotfiles/osx/bswinnerton.terminal"
-sleep 1 # Wait a bit to make sure the theme is loaded
-defaults write com.apple.Terminal "Default Window Settings" -string "bswinnerton"
-defaults write com.apple.Terminal "Startup Window Settings" -string "bswinnerton"
+#open "$HOME/.dotfiles/osx/bswinnerton.terminal"
+#sleep 1 # Wait a bit to make sure the theme is loaded
+#defaults write com.apple.Terminal "Default Window Settings" -string "bswinnerton"
+#defaults write com.apple.Terminal "Startup Window Settings" -string "bswinnerton"
 
