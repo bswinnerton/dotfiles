@@ -32,7 +32,7 @@ ZSH_THEME="bswinnerton"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler brew gem tmux)
+plugins=(git bundler brew gem)
 
 # Customize to your needs...
 unsetopt correct_all
@@ -51,7 +51,7 @@ source $HOME/.exports
 eval "$(rbenv init -)"
 
 # Automatically start tmux
-if which tmux && [[ "$TERM" != "screen" ]]; then
+if which tmux &> /dev/null && [[ "$TERM" != "screen" ]]; then
     WHOAMI=$(whoami)
     if tmux has-session -t $WHOAMI 2>/dev/null; then
         tmux -2 attach-session -t $WHOAMI
