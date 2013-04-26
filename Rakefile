@@ -37,7 +37,7 @@ task :install do
   end
   # TODO:
   #install_brew
-  #install_rvm
+  #install_rbenv
   #install_tmux
   if RUBY_PLATFORM =~ /darwin/
     system %Q{$HOME/.dotfiles/osx/init.sh}
@@ -121,8 +121,4 @@ def install_oh_my_zsh
     end
   end
 
-  def install_rvm
-    %x( curl -L https://get.rvm.io | bash -s stable --autolibs=3 --rails )
-    %x( source "$HOME/.rvm/scripts/rvm" )
-  end
 end
