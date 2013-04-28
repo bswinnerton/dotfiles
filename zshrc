@@ -50,7 +50,7 @@ source $HOME/.exports
 # rbenv requirement
 eval "$(rbenv init -)"
 
-# Automatically start tmux
+# Automatically start tmux if installed
 if which tmux &> /dev/null && [[ "$TERM" != "screen" ]]; then
     WHOAMI=$(whoami)
     if tmux has-session -t $WHOAMI 2>/dev/null; then
