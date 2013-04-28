@@ -2,7 +2,7 @@
 syntax on
  
 " make backspace do what it should
-set backspace=eol,start,indent
+"set backspace=eol,start,indent
  
 " set tab = 4 spaces
 set expandtab
