@@ -19,3 +19,8 @@ set splitbelow
 
 " fix auto-indent pasting
 set paste
+
+" use the mouse
+set ttyfast
+set mouse=a
+set ttymouse=xterm2
