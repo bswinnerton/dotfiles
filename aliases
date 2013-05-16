@@ -1,13 +1,15 @@
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  # Command line sublime
+  ## Command line sublime
   alias slime="/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl"
 
-  # Launch services cleanup
+  ## Launch services cleanup
   alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
+
+  ## Start / stop postgres
+  alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+  alias pg_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+  
+  ## Start / stop tor
+  alias tor_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.tor.plist"
+  alias tor_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.tor.plist"
 fi
-
-alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-alias pg_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
-
-alias tor_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.tor.plist"
-alias tor_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.tor.plist"
