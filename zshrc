@@ -41,9 +41,7 @@ unsetopt correct_all
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # Create aliases, exports and rails environment variables
-if [ -f ~/.rails-env-variables/ ]; then 
-  source $HOME/.rails_env_variables/* 
-fi
+for file in ~/.rails_env_variables/*; do source $file; done
 source $HOME/.aliases
 source $HOME/.exports
 
