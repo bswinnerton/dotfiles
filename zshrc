@@ -42,7 +42,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # Create aliases, exports and rails environment variables
 if [ -f ~/.rails-env-variables/ ]; then 
-  source $HOME/.rails-env-variables/* 
+  source $HOME/.rails_env_variables/* 
 fi
 source $HOME/.aliases
 source $HOME/.exports
