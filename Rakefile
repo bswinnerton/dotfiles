@@ -8,6 +8,7 @@ task :install do
   replace_all = false
   files = Dir['*'] - %w[Rakefile readme.md oh-my-zsh tmux-powerline PowerlineSymbols.otf]
   files << "oh-my-zsh/custom/bswinnerton.zsh-theme"
+  files << "vim/bundle/"
   files.each do |file|
     system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
     if File.exist?(File.join(ENV['HOME'], ".#{file.sub(/\.erb$/, '')}"))
