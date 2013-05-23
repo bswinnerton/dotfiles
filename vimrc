@@ -36,6 +36,7 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
+Bundle 'scrooloose/nerdtree'
 
 " My Bundles here:
 "
@@ -52,3 +53,6 @@ filetype plugin indent on     " required!
 "
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle command are not allowed..
+
+" NerdTree
+autocmd vimenter * if !argc() | NERDTree | endif
