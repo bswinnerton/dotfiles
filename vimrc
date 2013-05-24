@@ -26,24 +26,17 @@ set mouse=a
 set ttymouse=xterm2
 
 
-" Vundle
-set nocompatible  " be iMproved
-filetype off      " required!
-
+"" Vundle
+set nocompatible
+filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" let Vundle manage Vundle
-" required! 
 Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-rails'
 Bundle 'scrooloose/nerdtree'
 
-" My Bundles here:
-"
-" original repos on github
-Bundle 'tpope/vim-rails'
-
-filetype plugin indent on     " required!
+filetype plugin indent on
 "
 " Brief help
 " :BundleList          - list configured bundles
@@ -53,6 +46,7 @@ filetype plugin indent on     " required!
 "
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle command are not allowed..
+"" End Vundle
 
 " NerdTree
 autocmd vimenter * if !argc() | NERDTree | endif
