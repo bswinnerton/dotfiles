@@ -48,6 +48,8 @@ source $HOME/.exports
 # rbenv requirement
 eval "$(rbenv init -)"
 
+source $ZSH/oh-my-zsh.sh
+
 # Automatically start tmux if installed
 if which tmux &> /dev/null && [[ "$TERM" != "screen" ]]; then
     WHOAMI=$(whoami)
@@ -57,5 +59,3 @@ if which tmux &> /dev/null && [[ "$TERM" != "screen" ]]; then
         tmux -2 new-session -s $WHOAMI
     fi
 fi
-
-source $ZSH/oh-my-zsh.sh
