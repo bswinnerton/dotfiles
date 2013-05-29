@@ -11,3 +11,5 @@
   mergeoptions = --no-ff
 [github]
   user = <%= print("GitHub Username: "); STDOUT.flush; STDIN.gets.chomp %>
+[alias]
+	plog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
