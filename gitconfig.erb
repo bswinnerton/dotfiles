@@ -9,7 +9,6 @@
 [core]
   excludesfile = <%= ENV['HOME'] %>/.gitignore
   editor = vim
-  mergeoptions = --no-ff
 [github]
   user = <%= print("GitHub Username: "); STDOUT.flush; STDIN.gets.chomp %>
 [alias]
