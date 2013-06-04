@@ -10,7 +10,7 @@ cd ~/.dotfiles
 rake install
 ```
 
-After installing, open a new terminal window to see the effects.
+Follow the prompts and enter the correct information. After installing, open a new terminal window to see the effects.
 
 Feel free to customize the .zshrc file to match your preference.
 
@@ -24,15 +24,19 @@ unlink ~/.aliases
 unlink ~/.bash_profile
 unlink ~/.bashrc
 unlink ~/.exports
+unlink ~/.functions
 unlink ~/.gemrc
 unlink ~/.gitignore
 unlink ~/.screenrc
+unlink ~/.tmux-powerlinerc
+unlink ~/.tmux.conf
 unlink ~/.vimrc
-rm ~/.zshrc # careful here
+rm ~/.zshrc
 rm ~/.gitconfig
 rm -rf ~/.dotfiles
 rm -rf ~/.oh-my-zsh
-chsh -s /bin/bash # change back to Bash if you want
+rm -rf ~/.vim
+chsh -s /bin/bash # change back to bash if you want
 ```
 
-Then open a new terminal window to see the effects.
+Then open a new terminal window
