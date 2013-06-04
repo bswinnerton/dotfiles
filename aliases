@@ -13,3 +13,16 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   alias tor_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.tor.plist"
   alias tor_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.tor.plist"
 fi
+
+# Git
+alias gst="git status"
+alias gl="git pull"
+alias gp="git push"
+alias gd="git diff | mate"
+alias gc="git commit -v"
+alias gca="git commit -v -a"
+alias gb="git branch"
+alias gba="git branch -a"
+
+# Kill ruby
+alias kill_ruby="killall -9 ruby"

@@ -13,6 +13,7 @@ if [ -f ~/.rails-env-variables/ ]; then
 fi
 source $HOME/.aliases
 source $HOME/.exports
+source $HOME/.functions
 
 # For rbenv
 eval "$(rbenv init -)"

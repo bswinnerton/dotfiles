@@ -44,6 +44,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 for file in ~/.rails_env_variables/*; do source $file; done
 source $HOME/.aliases
 source $HOME/.exports
+source $HOME/.functions
 
 # rbenv requirement
 eval "$(rbenv init -)"
