@@ -35,6 +35,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-rails'
 Bundle 'scrooloose/nerdtree'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
 
 filetype plugin indent on
 "
