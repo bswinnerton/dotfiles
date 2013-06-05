@@ -73,10 +73,7 @@ def switch_to_zsh
   else
     print "switch to zsh? (recommended) [Ynq] "
     case $stdin.gets.chomp
-    when ''
-      puts "switching to zsh"
-      system %Q{chsh -s `which zsh`}
-    when 'y'
+    when '', 'y', 'Y'
       puts "switching to zsh"
       system %Q{chsh -s `which zsh`}
     when 'q'
@@ -93,16 +90,7 @@ def install_oh_my_zsh
   else
     print "install oh-my-zsh? [Ynq] "
     case $stdin.gets.chomp
-    when ''
-      if RUBY_PLATFORM =~ /darwin/
-        puts "installing oh-my-zsh"
-        system %Q{git clone https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"}
-      else
-        puts "installing oh-my-zsh"
-        system %Q{sudo apt-get install zsh}
-        system %Q{curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | zsh}
-      end
-    when 'y'
+    when '', 'y', 'Y'
       if RUBY_PLATFORM =~ /darwin/
         puts "installing oh-my-zsh"
         system %Q{git clone https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"}
