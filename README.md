@@ -5,7 +5,7 @@
 Run the following commands in your terminal. It will prompt you before it does anything destructive. Check out the [Rakefile](https://github.com/ryanb/dotfiles/blob/custom-bash-zsh/Rakefile) to see exactly what it does.
 
 ```
-git clone git@github.com:bswinnerton/dotfiles.git ~/.dotfiles
+git clone https://github.com/bswinnerton/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 rake install
 ```
