@@ -37,9 +37,6 @@ Bundle 'tpope/vim-rails'
 Bundle 'scrooloose/nerdtree'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
 Bundle "tpope/vim-markdown"
 
 filetype plugin indent on
