@@ -49,6 +49,10 @@ source $HOME/.functions
 # rbenv requirement
 eval "$(rbenv init -)"
 
+# rvm requirement
+#PATH=$PATH:$HOME/.rvm/bin
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
 source $ZSH/oh-my-zsh.sh
 
 # Automatically start tmux if installed
@@ -60,3 +64,4 @@ if which tmux &> /dev/null && [[ "$TERM" != "screen" ]]; then
         tmux -2 new-session -s $WHOAMI
     fi
 fi
+
