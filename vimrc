@@ -25,10 +25,9 @@ set ttyfast
 set mouse=a
 set ttymouse=xterm2
 
-
 "" Vundle
 set nocompatible
-filetype off
+"filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -58,3 +57,8 @@ autocmd vimenter * if !argc() | NERDTree | endif
 " gist-vim
 let g:gist_detect_filetype = 1
 let g:gist_post_private = 1
+
+" vim-ruby
+filetype on
+filetype indent on
+filetype plugin on
