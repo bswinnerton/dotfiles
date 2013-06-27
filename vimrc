@@ -37,7 +37,8 @@ Bundle 'tpope/vim-rails'
 Bundle 'scrooloose/nerdtree'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
-Bundle "tpope/vim-markdown"
+Bundle 'tpope/vim-markdown'
+Bundle 'vim-ruby/vim-ruby'
 
 filetype plugin indent on
 "
