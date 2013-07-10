@@ -1,5 +1,5 @@
+PATH="/usr/local/heroku/bin:$PATH"
 export EDITOR=vim # To run gem open [gem]
-export PATH="/usr/local/heroku/bin:$PATH"
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export SSL_CERT_FILE="/usr/local/etc/openssl/certs/cert.pem" # Fix for http://railsapps.github.com/openssl-certificate-verify-failed.html
 fi

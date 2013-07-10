@@ -4,9 +4,6 @@ alias ls="ls -G"
 # Set custom PS1
 PS1='\[\e[0;32m\]\u@\h:\[\e[0;34m\]\w\[\033[1;31m\]♥\[\e[0m\] '
 
-# Create heroku toolbelt entry in path
-export PATH="/usr/local/heroku/bin:$PATH"
-
 # Create aliases, exports and rails environment variables
 if [ -f ~/.rails-env-variables/ ]; then 
   source $HOME/.rails-env-variables/* 

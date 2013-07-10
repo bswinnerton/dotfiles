@@ -37,9 +37,6 @@ plugins=(git bundler brew gem)
 # Customize to your needs...
 unsetopt correct_all
 
-# Create heroku toolbelt entry in path
-export PATH="/usr/local/heroku/bin:$PATH"
-
 # Create aliases, exports and rails environment variables
 for file in ~/.rails_env_variables/*; do source $file; done
 source $HOME/.aliases
