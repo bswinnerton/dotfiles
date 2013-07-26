@@ -29,3 +29,8 @@ if which tmux &> /dev/null && [[ "$TERM" != "screen" ]]; then
     fi
 fi
 
+# Fix SSD symbolic link bug
+PREFIX="/Volumes/Storage/Users/brooks/"
+PWD=`pwd`
+
+[[ ${PWD} =~ ${PREFIX}* ]] && cd ~/"${PWD#${PREFIX}}"
