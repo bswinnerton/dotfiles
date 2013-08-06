@@ -83,7 +83,6 @@ tmp
 .yardoc
 _yardoc
 doc/
-Guardfile
 
 
 #### CodeIgniter ####
