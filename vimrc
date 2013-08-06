@@ -27,7 +27,7 @@ set ttymouse=xterm2
 
 "" Vundle
 set nocompatible
-"filetype off
+filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
