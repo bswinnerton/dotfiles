@@ -50,9 +50,6 @@ filetype plugin indent on
 " NOTE: comments after Bundle command are not allowed..
 "" End Vundle
 
-" NerdTree
-autocmd vimenter * if !argc() | NERDTree | endif
-
 " gist-vim
 let g:gist_detect_filetype = 1
 let g:gist_post_private = 1
