@@ -10,15 +10,9 @@ set sw=2
 set sts=2
 set ts=2
  
-" set tab = 2 spaces if ruby file
-"autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
- 
 " fix splitting from opening in the wrong place
 set splitright
 set splitbelow
-
-" fix auto-indent pasting
-set paste
 
 " use the mouse
 set ttyfast
@@ -37,8 +31,10 @@ Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'tpope/vim-markdown'
 Bundle 'vim-ruby/vim-ruby'
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
 
-filetype plugin indent on
 "
 " Brief help
 " :BundleList          - list configured bundles
