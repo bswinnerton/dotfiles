@@ -19,6 +19,9 @@ set ttyfast
 set mouse=a
 set ttymouse=xterm2
 
+" nicer pasting
+set paste
+
 "" Vundle
 set nocompatible
 filetype off
