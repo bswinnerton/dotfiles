@@ -19,3 +19,6 @@ fi
 
 # Kill ruby
 alias kill_ruby="killall -9 ruby"
+
+# Generate ctags
+alias gtags="ctags --exclude=.git --exclude='*.log' -R * \`bundle show --paths\`"
