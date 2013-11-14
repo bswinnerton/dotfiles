@@ -34,3 +34,6 @@ PREFIX="/Volumes/Storage/Users/brooks/"
 PWD=`pwd`
 
 [[ ${PWD} =~ ${PREFIX}* ]] && cd ~/"${PWD#${PREFIX}}"
+
+# added by travis gem
+[ -f /Users/brooks/.travis/travis.sh ] && source /Users/brooks/.travis/travis.sh
