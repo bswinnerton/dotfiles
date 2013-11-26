@@ -13,7 +13,7 @@ source $HOME/.exports
 source $HOME/.functions
 
 # rbenv requirement
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
 
 # rvm requirement
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
