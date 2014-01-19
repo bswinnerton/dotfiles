@@ -15,6 +15,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
   # Mou
   alias mou="open -a Mou"
+
+  # Javascript Console
+  alias jsc="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc"
 fi
 
 # Kill ruby
