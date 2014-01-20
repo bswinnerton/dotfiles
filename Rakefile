@@ -36,7 +36,6 @@ task :install do
       link_file(file)
     end
   end
-  download_git_submodules
   # TODO:
   #install_brew
   #install_rbenv
@@ -105,10 +104,6 @@ def install_oh_my_zsh
       puts "skipping oh-my-zsh, you will need to change ~/.zshrc"
     end
   end
-end
-
-def download_git_submodules
-  %x( cd ~/.dotfiles/ && git submodule init && git submodule update )
 end
 
 def install_brew
