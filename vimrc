@@ -20,7 +20,7 @@ set mouse=a
 set ttymouse=xterm2
 
 " nicer pasting
-set nopaste
+set paste
 
 "" Vundle
 set nocompatible
