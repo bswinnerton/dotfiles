@@ -34,5 +34,6 @@ Bundle "tpope/vim-bundler"
 Bundle "tpope/vim-rails"
 Bundle "kchmck/vim-coffee-script"
 Bundle "tpope/vim-markdown"
+Bundle "kien/ctrlp.vim"
 
 filetype plugin indent on
