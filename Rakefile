@@ -5,6 +5,12 @@ desc "install the dot files into user's home directory"
 task :install do
   install_oh_my_zsh
   switch_to_zsh
+  # TODO:
+  #install_brew
+  #install_rbenv
+  #install_tmux
+  #install_ctags
+  #fix_copy_and_paste
   replace_all = false
   files = Dir['*'] - %w[Rakefile README.md oh-my-zsh tmux-powerline PowerlineSymbols.otf]
   files << "oh-my-zsh/custom/bswinnerton.zsh-theme"
@@ -36,11 +42,6 @@ task :install do
       link_file(file)
     end
   end
-  # TODO:
-  #install_brew
-  #install_rbenv
-  #install_tmux
-  #fix_copy_and_paste
   if RUBY_PLATFORM =~ /darwin/
     system %Q{$HOME/.dotfiles/osx/init.sh}
   end
@@ -71,7 +72,7 @@ def switch_to_zsh
     puts "using zsh"
   else
     print "switch to zsh? (recommended) [Ynq] "
-    case $stdin.gets.chomp
+    case $stdin.gets.strip
     when '', 'y', 'Y'
       puts "switching to zsh"
       system %Q{chsh -s `which zsh`}
@@ -108,12 +109,47 @@ end
 
 def install_brew
   if RUBY_PLATFORM =~ /darwin/
-    %x( curl -fsSL https://raw.github.com/mxcl/homebrew/go )
+    if `which brew`.empty?
+      %x( curl -fsSL https://raw.github.com/mxcl/homebrew/go )
+    else
+      puts "brew is already installed, fixing permissions"
+      %x( chmod -R g+rwx /usr/local/ )
+      %x( chmod -R g+rwx /Library/Caches/Homebrew )
+    end
+  end
+end
+
+def install_tmux
+  if RUBY_PLATFORM =~ /darwin/
+    if `which tmux`.empty?
+      %x( brew install tmux )
+    else
+      puts "tmux is already installed"
+    end
+  end
+end
+
+def install_rbenv
+  if RUBY_PLATFORM =~ /darwin/
+    if `which rbenv`.empty?
+      %x( brew install rbenv ruby-build )
+    else
+      puts "rbenv is already installed"
+    end
+  end
+end
+
+def install_ctags
+  if RUBY_PLATFORM =~ /darwin/
+    %x( brew install ctags )
   end
 end
 
 def fix_copy_and_paste
   if RUBY_PLATFORM =~ /darwin/
-    %x( brew install reattach-to-user-namespace )
+    if `which reattach-to-user-namespace`.empty?
+      %x( brew install reattach-to-user-namespace )
+    else
+      puts "reattach-to-user-namespace is already installed"
   end
 end
