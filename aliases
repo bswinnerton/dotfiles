@@ -9,10 +9,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
   alias pg_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
   
-  ## Start / stop tor
-  alias tor_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.tor.plist"
-  alias tor_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.tor.plist"
-
   # Mou
   alias mou="open -a Mou"
 
