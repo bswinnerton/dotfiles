@@ -27,6 +27,7 @@ unlink ~/.exports
 unlink ~/.functions
 unlink ~/.gemrc
 unlink ~/.gitignore
+unlink ~/.rspec
 unlink ~/.screenrc
 unlink ~/.tmux-powerlinerc
 unlink ~/.tmux.conf
