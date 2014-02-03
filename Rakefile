@@ -5,26 +5,22 @@ desc "install the dot files into user's home directory"
 task :install do
   install_oh_my_zsh
   switch_to_zsh
-  # TODO:
-  #install_brew
-  #install_rbenv
-  #install_tmux
-  #install_ctags
-  #fix_copy_and_paste
+  install_brew
+  install_brew_packages
   replace_all = false
-  files = Dir['*'] - %w[Rakefile README.md oh-my-zsh tmux-powerline PowerlineSymbols.otf]
-  files << "oh-my-zsh/custom/bswinnerton.zsh-theme"
-  files << "vim/bundle/"
+  files = Dir['*'] - %w( Rakefile README.md oh-my-zsh tmux-powerline PowerlineSymbols.otf Brewfile )
+  files << 'oh-my-zsh/custom/bswinnerton.zsh-theme'
+  files << 'vim/bundle/'
   files.each do |file|
-    system %Q{mkdir -p "$HOME/.#{File.dirname(file)}"} if file =~ /\//
+    %x( mkdir -p "$HOME/.#{File.dirname(file)}" ) if file =~ /\//
     if File.exist?(File.join(ENV['HOME'], ".#{file.sub(/\.erb$/, '')}"))
       if File.identical? file, File.join(ENV['HOME'], ".#{file.sub(/\.erb$/, '')}")
         puts "identical ~/.#{file.sub(/\.erb$/, '')}"
       elsif replace_all
         replace_file(file)
       else
-        print "overwrite ~/.#{file.sub(/\.erb$/, '')}? [Ynaq] "
-        case $stdin.gets.chomp
+        puts "overwrite ~/.#{file.sub(/\.erb$/, '')}? [Ynaq]"
+        case STDIN.gets.chomp
         when ''
           replace_file(file)
         when 'a'
@@ -43,12 +39,12 @@ task :install do
     end
   end
   if RUBY_PLATFORM =~ /darwin/
-    system %Q{$HOME/.dotfiles/osx/init.sh}
+    %x( $HOME/.dotfiles/osx/init.sh )
   end
 end
 
 def replace_file(file)
-  system %Q{rm -rf "$HOME/.#{file.sub(/\.erb$/, '')}"}
+  %x( rm -rf "$HOME/.#{file.sub(/\.erb$/, '')}" )
   link_file(file)
 end
 
@@ -60,49 +56,49 @@ def link_file(file)
     end
   elsif file =~ /zshrc$/ # copy zshrc instead of link
     puts "copying ~/.#{file}"
-    system %Q{cp "$PWD/#{file}" "$HOME/.#{file}"}
+    %x( cp "$PWD/#{file}" "$HOME/.#{file}" )
   else
     puts "linking ~/.#{file}"
-    system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
+    %x( ln -s "$PWD/#{file}" "$HOME/.#{file}" )
   end
 end
 
 def switch_to_zsh
-  if ENV["SHELL"] =~ /zsh/
-    puts "using zsh"
+  if ENV['SHELL'] =~ /zsh/
+    puts 'using zsh'
   else
-    print "switch to zsh? (recommended) [Ynq] "
-    case $stdin.gets.strip
+    puts 'switch to zsh? (recommended) [Ynq]'
+    case STDIN.gets.strip
     when '', 'y', 'Y'
-      puts "switching to zsh"
-      system %Q{chsh -s `which zsh`}
+      puts 'switching to zsh'
+      %x( chsh -s `which zsh` )
     when 'q'
       exit
     else
-      puts "skipping zsh"
+      puts 'skipping zsh'
     end
   end
 end
 
 def install_oh_my_zsh
-  if File.exist?(File.join(ENV['HOME'], ".oh-my-zsh"))
-    puts "found ~/.oh-my-zsh"
+  if File.exist?(File.join(ENV['HOME'], '.oh-my-zsh'))
+    puts 'found ~/.oh-my-zsh'
   else
-    print "install oh-my-zsh? [Ynq] "
-    case $stdin.gets.chomp
+    puts 'install oh-my-zsh? [Ynq]'
+    case STDIN.gets.chomp
     when '', 'y', 'Y'
       if RUBY_PLATFORM =~ /darwin/
-        puts "installing oh-my-zsh"
-        system %Q{git clone https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"}
+        puts 'installing oh-my-zsh'
+        %x( git clone https://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh" )
       else
-        puts "installing oh-my-zsh"
-        system %Q{sudo apt-get install zsh}
-        system %Q{curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | zsh}
+        puts 'installing oh-my-zsh'
+        %x( sudo apt-get install zsh )
+        %x( curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | zsh )
       end
     when 'q'
       exit
     else
-      puts "skipping oh-my-zsh, you will need to change ~/.zshrc"
+      puts 'skipping oh-my-zsh, you will need to change ~/.zshrc'
     end
   end
 end
@@ -112,44 +108,21 @@ def install_brew
     if `which brew`.empty?
       %x( curl -fsSL https://raw.github.com/mxcl/homebrew/go )
     else
-      puts "brew is already installed, fixing permissions"
-      %x( chmod -R g+rwx /usr/local/ )
-      %x( chmod -R g+rwx /Library/Caches/Homebrew )
+      puts 'Brew is already installed. Fix permissions? (yNq)'
+      case STDIN.gets.strip
+      when 'y', 'Y'
+        %x( sudo chmod -R g+rwx /usr/local/ )
+        %x( sudo chmod -R g+rwx /Library/Caches/Homebrew/ )
+      when 'q'
+        exit
+      else
+      end
     end
   end
 end
 
-def install_tmux
+def install_brew_packages
   if RUBY_PLATFORM =~ /darwin/
-    if `which tmux`.empty?
-      %x( brew install tmux )
-    else
-      puts "tmux is already installed"
-    end
-  end
-end
-
-def install_rbenv
-  if RUBY_PLATFORM =~ /darwin/
-    if `which rbenv`.empty?
-      %x( brew install rbenv ruby-build )
-    else
-      puts "rbenv is already installed"
-    end
-  end
-end
-
-def install_ctags
-  if RUBY_PLATFORM =~ /darwin/
-    %x( brew install ctags )
-  end
-end
-
-def fix_copy_and_paste
-  if RUBY_PLATFORM =~ /darwin/
-    if `which reattach-to-user-namespace`.empty?
-      %x( brew install reattach-to-user-namespace )
-    else
-      puts "reattach-to-user-namespace is already installed"
+    %x( brew bundle )
   end
 end
