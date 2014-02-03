@@ -39,7 +39,7 @@ task :install do
     end
   end
   if RUBY_PLATFORM =~ /darwin/
-    %x( $HOME/.dotfiles/osx/init.sh )
+    #%x( $HOME/.dotfiles/osx/init.sh )
   end
 end
 
