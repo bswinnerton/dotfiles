@@ -13,7 +13,7 @@ source $HOME/.exports
 source $HOME/.functions
 
 # rbenv requirement
-#eval "$(rbenv init -)"
+eval "$(rbenv init -)"
 
 # rvm requirement
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
@@ -21,19 +21,16 @@ source $HOME/.functions
 
 # Automatically start tmux if installed
 if which tmux &> /dev/null && [[ "$TERM" != "screen" ]]; then
-    WHOAMI=$(whoami)
-    if tmux has-session -t $WHOAMI 2>/dev/null; then
-        tmux -2 attach-session -t $WHOAMI
-    else
-        tmux -2 new-session -s $WHOAMI
-    fi
+  WHOAMI=$(whoami)
+  if tmux has-session -t $WHOAMI 2>/dev/null; then
+    tmux -2 attach-session -t $WHOAMI
+  else
+    tmux -2 new-session -s $WHOAMI
+  fi
 fi
 
 # Fix SSD symbolic link bug
-PREFIX="/Volumes/Storage/Users/brooks/"
-PWD=`pwd`
-
-[[ ${PWD} =~ ${PREFIX}* ]] && cd ~/"${PWD#${PREFIX}}"
-
-# added by travis gem
-[ -f /Users/brooks/.travis/travis.sh ] && source /Users/brooks/.travis/travis.sh
+#PREFIX="/Volumes/Storage/Users/brooks/"
+#PWD=`pwd`
+#
+#[[ ${PWD} =~ ${PREFIX}* ]] && cd ~/"${PWD#${PREFIX}}"
