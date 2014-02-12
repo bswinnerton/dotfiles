@@ -36,5 +36,6 @@ Bundle "kchmck/vim-coffee-script"
 Bundle "tpope/vim-markdown"
 Bundle "kien/ctrlp.vim"
 Bundle "tpope/vim-fugitive"
+Bundle "mileszs/ack.vim"
 
 filetype plugin indent on
