@@ -41,6 +41,8 @@ Bundle "kien/ctrlp.vim"
 Bundle "tpope/vim-fugitive"
 Bundle "mileszs/ack.vim"
 Bundle "benmills/vimux"
+Bundle "groenewege/vim-less"
+Bundle "tpope/vim-haml"
 
 filetype plugin indent on
 
