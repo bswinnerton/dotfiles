@@ -23,3 +23,5 @@ alias kill_ruby="killall -9 ruby"
 alias gtags="ctags -R --exclude=.git --exclude=log \`bundle show --paths\` *"
 
 alias be="bundle exec"
+
+alias tmux="tmux -2"
