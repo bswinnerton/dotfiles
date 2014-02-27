@@ -11,7 +11,7 @@ set t_Co=16
 " use line numbers
 set number
 highlight LineNr ctermbg=244
-highlight SignColumn ctermbg=244
+highlight SignColumn ctermbg=none
 highlight LineNr ctermfg=252
  
 " set tab = 4 spaces
