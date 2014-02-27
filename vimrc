@@ -4,6 +4,15 @@ set nocompatible
 
 " use syntax highlighting
 syntax on
+
+" only use 16 colors
+set t_Co=16
+
+" use line numbers
+set number
+highlight LineNr ctermbg=244
+highlight SignColumn ctermbg=244
+highlight LineNr ctermfg=252
  
 " set tab = 4 spaces
 set expandtab
@@ -44,6 +53,7 @@ Bundle "benmills/vimux"
 Bundle "groenewege/vim-less"
 Bundle "tpope/vim-haml"
 Bundle "scrooloose/nerdtree"
+Bundle "airblade/vim-gitgutter"
 
 filetype plugin indent on
 
