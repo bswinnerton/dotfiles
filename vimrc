@@ -12,7 +12,7 @@ set t_Co=16
 set number
 highlight LineNr ctermbg=244
 highlight SignColumn ctermbg=none
-highlight LineNr ctermfg=252
+highlight LineNr ctermfg=253
  
 " set tab = 4 spaces
 set expandtab
