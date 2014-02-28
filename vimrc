@@ -55,6 +55,7 @@ Bundle "tpope/vim-haml"
 Bundle "scrooloose/nerdtree"
 Bundle "airblade/vim-gitgutter"
 Bundle "bling/vim-airline"
+Bundle "terryma/vim-multiple-cursors"
 
 filetype plugin indent on
 
@@ -88,3 +89,10 @@ map <Leader>vz :call VimuxZoomRunner()<CR>
 " vim-airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
+
+" vim-multiple-cursors
+let g:multi_cursor_use_default_mapping=0
+let g:multi_cursor_next_key='<C-g>'
+let g:multi_cursor_prev_key='<C-h>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
