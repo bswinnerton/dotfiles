@@ -54,6 +54,7 @@ Bundle "groenewege/vim-less"
 Bundle "tpope/vim-haml"
 Bundle "scrooloose/nerdtree"
 Bundle "airblade/vim-gitgutter"
+Bundle "bling/vim-airline"
 
 filetype plugin indent on
 
@@ -83,3 +84,7 @@ map <Leader>vx :VimuxInterruptRunner<CR>
 
 " Zoom the runner pane (use <bind-key> z to restore runner pane)
 map <Leader>vz :call VimuxZoomRunner()<CR>
+
+" vim-airline
+set laststatus=2
+let g:airline_powerline_fonts = 1
