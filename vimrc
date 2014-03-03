@@ -5,6 +5,9 @@ set nocompatible
 " use syntax highlighting
 syntax on
 
+" make backspace work the way it should
+set backspace=indent,eol,start
+
 " only use 16 colors
 set t_Co=16
 
