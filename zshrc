@@ -61,9 +61,4 @@ if which tmux &> /dev/null && [[ "$TERM" != "screen" ]]; then
         tmux new-session -s $WHOAMI
     fi
 fi
-
-# Fix SSD symbolic link bug
-PREFIX="/Volumes/Storage/Users/brooks/"
-PWD=`pwd`
-
-[[ ${PWD} =~ ${PREFIX}* ]] && cd ~/"${PWD#${PREFIX}}"
+[ -n "$TMUX" ] && export TERM=screen-256color
