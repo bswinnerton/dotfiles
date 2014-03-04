@@ -11,6 +11,9 @@ set backspace=indent,eol,start
 " only use 16 colors
 set t_Co=16
 
+" make backspace work the way it should
+set backspace=indent,eol,start
+
 " use line numbers
 set number
 highlight LineNr ctermbg=244
@@ -59,6 +62,7 @@ Bundle "scrooloose/nerdtree"
 Bundle "airblade/vim-gitgutter"
 Bundle "bling/vim-airline"
 Bundle "terryma/vim-multiple-cursors"
+Bundle "scrooloose/syntastic"
 
 filetype plugin indent on
 
