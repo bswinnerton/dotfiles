@@ -8,6 +8,10 @@ syntax on
 " make backspace work the way it should
 set backspace=indent,eol,start
 
+" highlight for search
+set hlsearch
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
 " don't deselect visual block after indent/unindent
 vnoremap < <gv
 vnoremap > >gv
