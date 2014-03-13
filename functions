@@ -18,3 +18,22 @@ function extract () {
         echo "'$1' is not a valid file"
     fi
 }
+
+function gasql () {
+  if [ -e ".env" ] ; then
+    while read line; do
+      export $line
+    done < ".env"
+
+    case $1 in
+    haskibase)
+      psql $HASKIBASE_PRODUCTION
+      ;;
+    core)
+      psql $CORE_PRODUCTION_FOLLOWER
+      ;;
+    esac
+  else
+    echo "Can't find .env in this folder"
+  fi
+}
