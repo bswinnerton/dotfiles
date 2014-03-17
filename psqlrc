@@ -1,1 +1,8 @@
 \x auto
+\pset linestyle unicode
+\pset border 2
+
+\timing
+
+\set HISTCONTROL ignoredups
+\set COMP_KEYWORD_CASE upper
