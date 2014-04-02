@@ -1,2 +1,5 @@
 vim/bundle/**
 vim/~bundle/vundle
+rbenv
+!rbenv/default-gems
+!rbenv/plugins
