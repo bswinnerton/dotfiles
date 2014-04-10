@@ -86,6 +86,7 @@ Bundle "airblade/vim-gitgutter"
 Bundle "bling/vim-airline"
 Bundle "terryma/vim-multiple-cursors"
 Bundle "scrooloose/syntastic"
+Bundle "christoomey/vim-tmux-navigator"
 
 filetype plugin indent on
 
