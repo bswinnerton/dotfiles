@@ -1,4 +1,4 @@
-" Use Vim settings, rather then Vi settings (much better!).
+" use Vim settings, rather then Vi settings (much better!).
 set nocompatible
 
 " reset leader
@@ -26,7 +26,7 @@ set ts=2
 " highlight for search
 set hlsearch
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
- 
+
 " fix splitting from opening in the wrong place
 set splitright
 set splitbelow
@@ -53,7 +53,14 @@ highlight CursorLineNr ctermfg=green
 highlight CursorLineNr ctermbg=240
 highlight SignColumn ctermbg=none
 
-" Vundle requirements
+" highlight extra whitespace
+highlight ExtraWhitespace ctermbg=red
+match ExtraWhitespace /\s\+$/
+
+" easy access to the shell
+map <Leader><Leader> :!
+
+" vundle requirements
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -87,7 +94,7 @@ map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd vimenter * if !argc() | NERDTree | endif
 
-" Vimux
+" vimux
 map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
 map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vl :VimuxRunLastCommand<CR>
