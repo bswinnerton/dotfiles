@@ -43,14 +43,14 @@ set scrolloff=5
 vnoremap < <gv
 vnoremap > >gv
 
-" use line numbers and colors
+" use line numbers, cursor and colors
 set number
 set cursorline
 highlight LineNr ctermbg=244
 highlight LineNr ctermfg=253
-highlight CursorLine cterm=none
-highlight CursorLineNr ctermfg=green
-highlight CursorLineNr ctermbg=240
+highlight CursorLine cterm=none ctermbg=236
+set lazyredraw " hack to let curosrline bg not redraw every scroll
+highlight CursorLineNr ctermfg=green ctermbg=240
 highlight SignColumn ctermbg=none
 
 " highlight extra whitespace
