@@ -11,6 +11,7 @@ install postgresql
 install rbenv
 install reattach-to-user-namespace
 install ruby-build
+install the_silver_searcher
 install tmate
 install tmux
 install vim

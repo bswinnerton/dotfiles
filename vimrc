@@ -90,6 +90,9 @@ Bundle "christoomey/vim-tmux-navigator"
 
 filetype plugin indent on
 
+" ack-vim
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
