@@ -1,40 +1,31 @@
 " Use Vim settings, rather then Vi settings (much better!).
-" " This must be first, because it changes other options as a side effect.
 set nocompatible
+
+" reset leader
+let mapleader=','
 
 " use syntax highlighting
 syntax on
 
 " make backspace work the way it should
-set backspace=indent,eol,start
-
-" highlight for search
-set hlsearch
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
-
-" don't deselect visual block after indent/unindent
-vnoremap < <gv
-vnoremap > >gv
+set backspace=2
 
 " only use 16 colors
 set t_Co=16
 
-" make backspace work the way it should
-set backspace=indent,eol,start
+" no swp / backup files
+set nobackup
+set nowritebackup
+set noswapfile
 
-" use line numbers
-set number
-highlight LineNr ctermbg=244
-highlight SignColumn ctermbg=none
-highlight LineNr ctermfg=253
- 
-" set tab = 4 spaces
+" set tab
 set expandtab
 set sw=2
 set ts=2
 
-" reset leader
-let mapleader=","
+" highlight for search
+set hlsearch
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
  
 " fix splitting from opening in the wrong place
 set splitright
@@ -44,6 +35,23 @@ set splitbelow
 set ttyfast
 set mouse=a
 set ttymouse=xterm2
+
+" leave a 5 line buffer when scrolling
+set scrolloff=5
+
+" don't deselect visual block after indent/unindent
+vnoremap < <gv
+vnoremap > >gv
+
+" use line numbers and colors
+set number
+set cursorline
+highlight LineNr ctermbg=244
+highlight LineNr ctermfg=253
+highlight CursorLine cterm=none
+highlight CursorLineNr ctermfg=green
+highlight CursorLineNr ctermbg=240
+highlight SignColumn ctermbg=none
 
 " Vundle requirements
 filetype off
@@ -80,25 +88,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
 
 " Vimux
-" Run the current file with rspec
 map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
-
-" Prompt for a command to run
 map <Leader>vp :VimuxPromptCommand<CR>
-
-" Run last command executed by VimuxRunCommand
 map <Leader>vl :VimuxRunLastCommand<CR>
-
-" Inspect runner pane
 map <Leader>vi :VimuxInspectRunner<CR>
-
-" Close vim tmux runner opened by VimuxRunCommand
 map <Leader>vq :VimuxCloseRunner<CR>
-
-" Interrupt any command running in the runner pane
 map <Leader>vx :VimuxInterruptRunner<CR>
-
-" Zoom the runner pane (use <bind-key> z to restore runner pane)
 map <Leader>vz :call VimuxZoomRunner()<CR>
 
 " vim-airline
