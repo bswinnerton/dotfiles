@@ -39,6 +39,9 @@ set ttymouse=xterm2
 " leave a 5 line buffer when scrolling
 set scrolloff=5
 
+" make ctrl-shift-o faster
+set ttimeoutlen=100
+
 " don't deselect visual block after indent/unindent
 vnoremap < <gv
 vnoremap > >gv
