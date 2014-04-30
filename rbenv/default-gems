@@ -1,4 +1,5 @@
 bundler
 gem-ctags
+gist
 powder
 pry
