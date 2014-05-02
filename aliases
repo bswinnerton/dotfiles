@@ -8,7 +8,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   ## Start / stop postgres
   alias pg_start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
   alias pg_stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
-  
+
   # Mou
   alias mou="open -a Mou"
 
@@ -26,6 +26,6 @@ alias be="bundle exec"
 
 alias tmux="tmux -2"
 
-if [[ -e /usr/local/bin/vim ]] then
+if [[ -e /usr/local/bin/vim ]]; then
   alias vi="/usr/local/bin/vim"
 fi
