@@ -32,16 +32,10 @@ ZSH_THEME="bswinnerton"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler brew gem)
+plugins=(git brew gem)
 
 # Customize to your needs...
 unsetopt correct_all
-
-# Create aliases, exports and rails environment variables
-for file in ~/.rails_env_variables/*; do source $file; done
-source $HOME/.aliases
-source $HOME/.exports
-source $HOME/.functions
 
 # rbenv requirement
 eval "$(rbenv init -)"
@@ -49,6 +43,11 @@ eval "$(rbenv init -)"
 # rvm requirement
 #PATH=$PATH:$HOME/.rvm/bin
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Create aliases, exports and rails environment variables
+source $HOME/.aliases
+source $HOME/.exports
+source $HOME/.functions
 
 source $ZSH/oh-my-zsh.sh
 
