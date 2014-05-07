@@ -58,13 +58,22 @@ set lazyredraw " hack to let curosrline bg not redraw every scroll
 highlight CursorLineNr ctermfg=green ctermbg=240
 highlight SignColumn ctermbg=none
 
-" hide cursor when focus changes
+" hide horizontal cursor when focus changes
 augroup CursorLine
     au!
     au VimEnter * setlocal cursorline
     au WinEnter * setlocal cursorline
     au BufWinEnter * setlocal cursorline
     au WinLeave * setlocal nocursorline
+augroup END
+
+" hide vertical cursor when focus changes
+augroup CursorColumn
+    au!
+    au VimEnter * setlocal cursorcolumn
+    au WinEnter * setlocal cursorcolumn
+    au BufWinEnter * setlocal cursorcolumn
+    au WinLeave * setlocal nocursorcolumn
 augroup END
 
 " highlight extra whitespace
