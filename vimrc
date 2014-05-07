@@ -83,6 +83,9 @@ match ExtraWhitespace /\s\+$/
 " easy access to the shell
 map <Leader><Leader> :!
 
+" ignore files
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/bundle/*
+
 " vundle requirements
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
