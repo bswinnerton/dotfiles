@@ -49,9 +49,11 @@ vnoremap > >gv
 " use line numbers, cursor and colors
 set number
 set cursorline
+set cursorcolumn
 highlight LineNr ctermbg=244
 highlight LineNr ctermfg=253
 highlight CursorLine cterm=none ctermbg=236
+highlight CursorColumn cterm=none ctermbg=236
 set lazyredraw " hack to let curosrline bg not redraw every scroll
 highlight CursorLineNr ctermfg=green ctermbg=240
 highlight SignColumn ctermbg=none
