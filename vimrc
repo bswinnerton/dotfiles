@@ -76,8 +76,8 @@ map <Leader><Leader> :!
 
 " vundle requirements
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 Bundle "gmarik/vundle"
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -102,6 +102,7 @@ Bundle "terryma/vim-multiple-cursors"
 Bundle "scrooloose/syntastic"
 Bundle "christoomey/vim-tmux-navigator"
 
+call vundle#end()
 filetype plugin indent on
 
 " ack-vim
