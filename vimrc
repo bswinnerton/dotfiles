@@ -50,6 +50,7 @@ vnoremap > >gv
 set number
 set cursorline
 set cursorcolumn
+set lazyredraw " hack to let curosrline bg not redraw every scroll
 if exists('+colorcolumn')
   set colorcolumn=80
 endif
@@ -58,7 +59,6 @@ highlight LineNr ctermfg=253
 highlight CursorLine cterm=none ctermbg=236
 highlight CursorColumn cterm=none ctermbg=236
 highlight ColorColumn ctermbg=235
-set lazyredraw " hack to let curosrline bg not redraw every scroll
 highlight CursorLineNr ctermfg=green ctermbg=240
 highlight SignColumn ctermbg=none
 
@@ -117,6 +117,8 @@ Plugin 'bling/vim-airline'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/syntastic'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-endwise'
 
 call vundle#end()
 filetype plugin indent on
