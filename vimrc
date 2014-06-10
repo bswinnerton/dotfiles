@@ -1,17 +1,17 @@
-" use Vim settings, rather then Vi settings (much better!).
+" vim, not vi
 set nocompatible
-
-" reset leader
-let mapleader=','
 
 " use syntax highlighting
 syntax on
 
-" make backspace work the way it should
-set backspace=2
-
 " only use 16 colors
 set t_Co=16
+
+" reset leader
+let mapleader=','
+
+" make backspace work the way it should
+set backspace=2
 
 " no swp / backup files
 set nobackup
@@ -41,6 +41,9 @@ set scrolloff=5
 
 " make ctrl-shift-o faster
 set ttimeoutlen=100
+
+" just re-read the file, don't tell me
+set autoread
 
 " don't deselect visual block after indent/unindent
 vnoremap < <gv
