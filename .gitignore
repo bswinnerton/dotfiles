@@ -1,4 +1,4 @@
-vim/bundle/**
+vim/bundle/*
 rbenv
 !rbenv/default-gems
 !rbenv/plugins
