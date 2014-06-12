@@ -90,6 +90,9 @@ match ExtraWhitespace /\s\+$/
 " easy access to the shell
 map <Leader><Leader> :!
 
+" insert binding.pry for visual selection
+autocmd FileType ruby map <Leader>p dO#################	require 'pry'beginrescuebinding.pry<Esc>jo#################<Esc>4ko##################################<Esc>P
+
 " ignore files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/bundle/*
 
