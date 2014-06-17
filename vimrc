@@ -87,11 +87,15 @@ augroup END
 highlight ExtraWhitespace ctermbg=red
 match ExtraWhitespace /\s\+$/
 
-" easy access to the shell
+" macros with leader
+"   easy access to the shell
 map <Leader><Leader> :!
-
-" insert binding.pry for visual selection
-autocmd FileType ruby map <Leader>p dO#################	require 'pry'beginrescuebinding.pry<Esc>jo#################<Esc>4ko##################################<Esc>P
+"  redraw the screen
+map <silent> <Leader>rr :redraw!
+"  insert binding.pry inside rescue block for visual selection
+autocmd FileType ruby map <silent> <Leader>p dO#################	require 'pry'beginrescuebinding.pry<Esc>jo#################<Esc>4ko##################################<Esc>P
+"  run rspec in below tmux pane for associated file (using rails.vim)
+autocmd FileType ruby map <silent> <Leader>rs :AS,rb:q
 
 " ignore files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/bundle/*
