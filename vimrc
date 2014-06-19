@@ -25,7 +25,7 @@ set ts=2
 
 " highlight for search
 set hlsearch
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR><Esc>:let @/=''
 
 " fix splitting from opening in the wrong place
 set splitright
@@ -92,6 +92,9 @@ match ExtraWhitespace /\s\+$/
 map <Leader><Leader> :!
 "  redraw the screen
 map <silent> <Leader>rr :redraw!
+"  paramterize and underscore visual selection
+map <silent> <Leader>ss :s/\%V[^a-z0-9\-]\+/_/iggvugv<Esc>:let @/=''
+" ruby specific macros
 "  insert binding.pry inside rescue block for visual selection
 autocmd FileType ruby map <silent> <Leader>p dO#################	require 'pry'beginrescuebinding.pry<Esc>jo#################<Esc>4ko##################################<Esc>P
 "  run rspec in below tmux pane for associated file (using rails.vim)
