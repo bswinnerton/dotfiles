@@ -50,3 +50,8 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 #defaults write com.apple.Terminal "Default Window Settings" -string "bswinnerton"
 #defaults write com.apple.Terminal "Startup Window Settings" -string "bswinnerton"
 
+###############################################################################
+# Sublime text                                                                #
+###############################################################################
+
+defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool false
