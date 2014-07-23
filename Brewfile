@@ -15,4 +15,5 @@ install the_silver_searcher
 install tmate
 install tmux
 install vim
+install macvim
 install wget
