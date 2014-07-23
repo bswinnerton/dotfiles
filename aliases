@@ -26,6 +26,7 @@ alias be="bundle exec"
 
 alias tmux="tmux -2"
 
-if [[ -e /usr/local/bin/vim ]]; then
-  alias vi="/usr/local/bin/vim"
+if [[ -e /Applications/MacVim.app/Contents/MacOS/Vim ]]; then
+  alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
+  alias vim="vi"
 fi
