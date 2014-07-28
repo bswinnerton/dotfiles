@@ -132,6 +132,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-endwise'
+Plugin 'rizzatti/dash.vim'
 
 call vundle#end()
 filetype plugin indent on
