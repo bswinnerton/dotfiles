@@ -134,6 +134,7 @@ Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-endwise'
 Plugin 'rizzatti/dash.vim'
 Plugin 'walm/jshint.vim'
+Plugin 'elzr/vim-json'
 
 call vundle#end()
 filetype plugin indent on
