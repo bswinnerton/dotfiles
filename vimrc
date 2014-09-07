@@ -45,6 +45,9 @@ set ttimeoutlen=100
 " just re-read the file, don't tell me
 set autoread
 
+" system clipboard support for OSX
+set clipboard=unnamed
+
 " don't deselect visual block after indent/unindent
 vnoremap < <gv
 vnoremap > >gv
