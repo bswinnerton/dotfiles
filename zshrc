@@ -52,12 +52,12 @@ source $HOME/.functions
 source $ZSH/oh-my-zsh.sh
 
 # Automatically start tmux if installed
-if which tmux &> /dev/null && [[ "$TERM" != "screen" ]]; then
-    WHOAMI=$(whoami)
-    if tmux has-session -t $WHOAMI 2>/dev/null; then
-        tmux attach-session -t $WHOAMI
-    else
-        tmux new-session -s $WHOAMI
-    fi
-fi
+#if which tmux &> /dev/null && [[ "$TERM" != "screen" ]]; then
+#    WHOAMI=$(whoami)
+#    if tmux has-session -t $WHOAMI 2>/dev/null; then
+#        tmux attach-session -t $WHOAMI
+#    else
+#        tmux new-session -s $WHOAMI
+#    fi
+#fi
 [ -n "$TMUX" ] && export TERM=screen-256color
