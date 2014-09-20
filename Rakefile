@@ -11,6 +11,7 @@ task :install do
   files = Dir['*'] - %w( Rakefile README.md oh-my-zsh tmux-powerline PowerlineSymbols.otf Brewfile )
   files << 'oh-my-zsh/custom/bswinnerton.zsh-theme'
   files << 'vim/bundle/'
+  files << 'vim/colors/'
   files.each do |file|
     %x( mkdir -p "$HOME/.#{File.dirname(file)}" ) if file =~ /\//
     if File.exist?(File.join(ENV['HOME'], ".#{file.sub(/\.erb$/, '')}"))
@@ -20,7 +21,7 @@ task :install do
         replace_file(file)
       else
         puts "overwrite ~/.#{file.sub(/\.erb$/, '')}? [Ynaq]"
-        case STDIN.gets.chomp
+        case STDIN.gets.strip
         when ''
           replace_file(file)
         when 'a'
