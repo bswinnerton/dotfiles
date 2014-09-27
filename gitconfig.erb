@@ -8,8 +8,9 @@
   ui = true
 [core]
   excludesfile = <%= ENV['HOME'] %>/.gitignore
+  editor = vim
 [push]
-  default = upstream editor = vim
+  default = upstream
 [github]
   user = <%= print("GitHub Username: "); STDOUT.flush; STDIN.gets.chomp %>
 [alias]
