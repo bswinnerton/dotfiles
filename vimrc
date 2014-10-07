@@ -138,6 +138,7 @@ Plugin 'tpope/vim-endwise'
 Plugin 'rizzatti/dash.vim'
 Plugin 'walm/jshint.vim'
 Plugin 'elzr/vim-json'
+Plugin 'tpope/vim-surround'
 
 call vundle#end()
 filetype plugin indent on
@@ -147,8 +148,8 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"autocmd vimenter * if !argc() | NERDTree | endif
 
 " vimux
 map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
