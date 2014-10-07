@@ -61,3 +61,5 @@ source $ZSH/oh-my-zsh.sh
 #    fi
 #fi
 [ -n "$TMUX" ] && export TERM=screen-256color
+
+~/.bin/archey -c
