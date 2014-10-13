@@ -68,6 +68,9 @@ highlight ColorColumn ctermbg=235
 highlight CursorLineNr ctermfg=green ctermbg=240
 highlight SignColumn ctermbg=none
 
+" automatically remove extra whitespace
+autocmd BufWritePre * :%s/\s\+$//e
+
 " hide horizontal cursor when focus changes
 augroup CursorLine
     au!
