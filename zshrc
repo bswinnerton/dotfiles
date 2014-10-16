@@ -47,7 +47,11 @@ eval "$(rbenv init -)"
 # Create aliases, exports and rails environment variables
 source $HOME/.aliases
 source $HOME/.exports
-source $HOME/.functions
+
+for f in $HOME/.functions/*
+do
+  source $f
+done
 
 source $ZSH/oh-my-zsh.sh
 
@@ -62,4 +66,5 @@ source $ZSH/oh-my-zsh.sh
 #fi
 [ -n "$TMUX" ] && export TERM=screen-256color
 
-~/.bin/archey -c
+# Execute Archey
+~/.bin/archey
