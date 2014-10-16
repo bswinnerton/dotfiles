@@ -77,21 +77,18 @@ ram="$((mem/1073741824)) GB"
 ## Disk usage
 disk=`df | head -2 | tail -1 | awk '{print $5}'`
 
-# Add a -c option to enable classic color logo
-if [[ $1 == "-c" ]]; then
-  GREEN='\033[00;32m'
-  YELLOW='\033[00;33m'
-  LRED='\033[01;31m'
-  RED='\033[00;31m'
-  PURPLE='\033[00;35m'
-  CYAN='\033[00;36m'
-  BLUE='\033[00;34m'
-fi
+GREEN='\033[00;32m'
+YELLOW='\033[00;33m'
+LRED='\033[01;31m'
+RED='\033[00;31m'
+PURPLE='\033[00;35m'
+CYAN='\033[00;36m'
+BLUE='\033[00;34m'
 
 # Output
 
 echo -e "
-                  
+
 ${GREEN}                  ###
 ${GREEN}                ####                  User: $user
 ${GREEN}                ###                   Hostname: $hostname
