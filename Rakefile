@@ -9,6 +9,7 @@ task :install do
   install_brew_packages
   replace_all = false
   files = Dir['*'] - %w( Rakefile README.md oh-my-zsh tmux-powerline PowerlineSymbols.otf Brewfile )
+  files << 'bundle/'
   files << 'oh-my-zsh/custom/bswinnerton.zsh-theme'
   files << 'vim/bundle/'
   files.each do |file|
