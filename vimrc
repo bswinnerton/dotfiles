@@ -107,7 +107,7 @@ autocmd FileType ruby map <silent> <Leader>p dO#################	require 'pry'
 autocmd FileType ruby map <silent> <Leader>rs :AS,rb:q
 
 " ignore files
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/bundle/*
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/bundle/*,*/public/test/uploads/*
 
 " vundle requirements
 filetype off
