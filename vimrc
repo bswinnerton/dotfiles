@@ -24,6 +24,7 @@ set sw=2
 set ts=2
 
 " highlight for search
+set incsearch
 set hlsearch
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR><Esc>:let @/=''
 
