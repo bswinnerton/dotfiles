@@ -156,7 +156,7 @@ map <C-n> :NERDTreeToggle<CR>
 "autocmd vimenter * if !argc() | NERDTree | endif
 
 " vimux
-map <Leader>rb :call VimuxRunCommand("clear; rspec " . bufname("%"))<CR>
+map <Leader>rb :call VimuxRunCommand("clear; bundle exec rspec " . bufname("%"))<CR>
 map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vl :VimuxRunLastCommand<CR>
 map <Leader>vi :VimuxInspectRunner<CR>
