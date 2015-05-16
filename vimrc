@@ -4,11 +4,11 @@ set nocompatible
 " use syntax highlighting
 syntax on
 
-" only use 16 colors
-set t_Co=16
-
 " reset leader
 let mapleader=','
+
+" only use 16 colors
+set t_Co=16
 
 " make backspace work the way it should
 set backspace=2
@@ -40,9 +40,6 @@ set ttymouse=xterm2
 " leave a 5 line buffer when scrolling
 set scrolloff=5
 
-" make ctrl-shift-o faster
-set ttimeoutlen=100
-
 " just re-read the file, don't tell me
 set autoread
 
@@ -66,11 +63,8 @@ highlight LineNr ctermfg=253
 highlight CursorLine cterm=none ctermbg=236
 highlight CursorColumn cterm=none ctermbg=236
 highlight ColorColumn ctermbg=235
-highlight CursorLineNr ctermfg=green ctermbg=240
+highlight CursorLineNr ctermfg=47 ctermbg=240
 highlight SignColumn ctermbg=none
-
-" automatically remove extra whitespace
-autocmd BufWritePre * :%s/\s\+$//e
 
 " hide horizontal cursor when focus changes
 augroup CursorLine
@@ -89,6 +83,9 @@ augroup CursorColumn
     au BufWinEnter * setlocal cursorcolumn
     au WinLeave * setlocal nocursorcolumn
 augroup END
+
+" automatically remove extra whitespace
+autocmd BufWritePre * :%s/\s\+$//e
 
 " highlight extra whitespace
 highlight ExtraWhitespace ctermbg=red
@@ -152,17 +149,28 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-"autocmd vimenter * if !argc() | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd vimenter * if !argc() | NERDTree | endif
 
 " vimux
 map <Leader>rb :call VimuxRunCommand("clear; bundle exec rspec " . bufname("%"))<CR>
 map <Leader>vp :VimuxPromptCommand<CR>
-map <Leader>vl :VimuxRunLastCommand<CR>
-map <Leader>vi :VimuxInspectRunner<CR>
+map <Leader>vi :VimuxInspect<CR>
 map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vx :VimuxInterruptRunner<CR>
 map <Leader>vz :call VimuxZoomRunner()<CR>
+
+" git gutter
+let g:gitgutter_override_sign_column_highlight = 0
+highlight SignColumn ctermbg=244
+highlight GitGutterAdd ctermbg=244
+highlight GitGutterAdd ctermfg=10
+highlight GitGutterChange ctermbg=244
+highlight GitGutterChange ctermfg=11
+highlight GitGutterDelete ctermbg=244
+highlight GitGutterDelete ctermfg=9
+highlight GitGutterChangeDelete ctermbg=244
+highlight GitGutterChangeDelete ctermfg=214
 
 " vim-airline
 set laststatus=2
