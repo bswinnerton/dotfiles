@@ -150,7 +150,7 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd vimenter * if !argc() | NERDTree | endif
 
 " vimux
 map <Leader>rb :call VimuxRunCommand("clear; bundle exec rspec " . bufname("%"))<CR>
