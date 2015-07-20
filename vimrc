@@ -140,6 +140,7 @@ Plugin 'rizzatti/dash.vim'
 Plugin 'walm/jshint.vim'
 Plugin 'elzr/vim-json'
 Plugin 'tpope/vim-surround'
+Plugin 'ervandew/supertab'
 
 call vundle#end()
 filetype plugin indent on
