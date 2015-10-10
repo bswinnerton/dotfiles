@@ -71,9 +71,9 @@ set number
 set cursorline
 set cursorcolumn
 
-" Highlight 80 character column
+" Highlight 81st character column
 if exists('+colorcolumn')
-  set colorcolumn=80
+  set colorcolumn=81
 endif
 
 " Highlight extra whitespace
