@@ -1,72 +1,93 @@
-" vim, not vi
+"-------------------------------------------------------------------------------
+" Basic Settings
+"-------------------------------------------------------------------------------
+
+" Use Vim settings, not Vi
 set nocompatible
 
-" use syntax highlighting
+" Syntax highlighting
 syntax on
 
-" reset leader
+" Leader - override default of \
 let mapleader=','
 
-" only use 16 colors
-set t_Co=16
+" Command mode menu suggestions
+set wildmenu
 
-" make backspace work the way it should
-set backspace=2
+" Backspace
+set backspace=indent,eol,start
 
-" no swp / backup files
+" Backup files (none)
 set nobackup
 set nowritebackup
 set noswapfile
 
-" set tab
+" Tabs
 set expandtab
-set sw=2
-set ts=2
+set shiftwidth=2
+set tabstop=2
 
-" highlight for search
-set incsearch
+" Searching
 set hlsearch
+set smartcase
+set incsearch
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR><Esc>:let @/=''
 
-" fix splitting from opening in the wrong place
+" Splits - more intuitive placement
 set splitright
 set splitbelow
 
-" use the mouse
-set ttyfast
-set mouse=a
-set ttymouse=xterm2
+" Mouse support
+if has('mouse')
+  set ttyfast
+  set mouse=a
+  set ttymouse=xterm2
+endif
 
-" leave a 5 line buffer when scrolling
+" Scroll buffer
 set scrolloff=5
 
-" just re-read the file, don't tell me
+" Auto reload changed files
 set autoread
 
-" system clipboard support for OSX
+" Clipboard support (OSX)
 set clipboard=unnamed
 
-" don't deselect visual block after indent/unindent
-vnoremap < <gv
-vnoremap > >gv
+" Ignored files/directories from Vim autocomplete
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/bundle/*,*/public/test/*
 
-" use line numbers, cursor and colors
+" Turn off bells
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+
+"-------------------------------------------------------------------------------
+" Vim Interface
+"-------------------------------------------------------------------------------
+
 set number
 set cursorline
 set cursorcolumn
-set lazyredraw " hack to let curosrline bg not redraw every scroll
+
+" Highlight 80 character column
 if exists('+colorcolumn')
   set colorcolumn=80
 endif
-highlight LineNr ctermbg=244
-highlight LineNr ctermfg=253
-highlight CursorLine cterm=none ctermbg=236
-highlight CursorColumn cterm=none ctermbg=236
-highlight ColorColumn ctermbg=235
-highlight CursorLineNr ctermfg=47 ctermbg=240
-highlight SignColumn ctermbg=none
 
-" hide horizontal cursor when focus changes
+" Highlight extra whitespace
+highlight ExtraWhitespace ctermbg=red
+match ExtraWhitespace /\s\+$/
+
+" Reduce redraw frequency
+set lazyredraw
+
+" Speed up scrolling of the viewport slightly
+nnoremap <C-e> 2<C-e>
+nnoremap <C-y> 2<C-y>
+
+" Hide horizontal cursor when focus changes
 augroup CursorLine
     au!
     au VimEnter * setlocal cursorline
@@ -75,7 +96,7 @@ augroup CursorLine
     au WinLeave * setlocal nocursorline
 augroup END
 
-" hide vertical cursor when focus changes
+" Hide vertical cursor when focus changes
 augroup CursorColumn
     au!
     au VimEnter * setlocal cursorcolumn
@@ -84,28 +105,69 @@ augroup CursorColumn
     au WinLeave * setlocal nocursorcolumn
 augroup END
 
-" automatically remove extra whitespace
-autocmd BufWritePre * :%s/\s\+$//e
 
-" highlight extra whitespace
-highlight ExtraWhitespace ctermbg=red
-match ExtraWhitespace /\s\+$/
+"-------------------------------------------------------------------------------
+" Colors
+"-------------------------------------------------------------------------------
 
-" macros with leader
-"   easy access to the shell
+set t_Co=16
+
+highlight LineNr ctermbg=245
+highlight LineNr ctermfg=253
+highlight CursorLine cterm=none ctermbg=236
+highlight CursorColumn cterm=none ctermbg=236
+highlight ColorColumn ctermbg=235
+highlight CursorLineNr ctermfg=green ctermbg=240
+highlight SignColumn ctermbg=none
+
+" Automatically remove trailing whitespace
+"autocmd BufWritePre * :%s/\s\+$//e
+
+
+"-------------------------------------------------------------------------------
+" Custom Movement
+"-------------------------------------------------------------------------------
+
+" Don't deselect visual block after indent/unindent
+vnoremap < <gv
+vnoremap > >gv
+
+" Shortcut for <CTRL> + hjkl to traverse panes
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Bash like keys for the Vim command line
+cnoremap <C-A>		<Home>
+cnoremap <C-E>		<End>
+cnoremap <C-K>		<C-U>
+
+" Remap j and k to act as expected when used on long, wrapped, lines
+nnoremap j gj
+nnoremap k gk
+
+
+"-------------------------------------------------------------------------------
+" Custom Mappings
+"-------------------------------------------------------------------------------
+
+" Easy access to run commands from Vim
 map <Leader><Leader> :!
-"  redraw the screen
+
+" Redraw the screen
 map <silent> <Leader>rr :redraw!
-"  paramterize and underscore visual selection
-map <silent> <Leader>ss :s/\%V[^a-z0-9\-]\+/_/iggvugv<Esc>:let @/=''
-" ruby specific macros
-"  insert binding.pry inside rescue block for visual selection
+
+" Wrap `binding.pry` rescue block around visual selection
 autocmd FileType ruby map <silent> <Leader>p dO#################	require 'pry'beginrescue => exceptionbinding.pry<Esc>jo#################<Esc>4ko##################################<Esc>P
-"  run rspec in below tmux pane for associated file (using rails.vim)
+
+" Run the associated spec in the below tmux pane(dependent on Rails.vim)
 autocmd FileType ruby map <silent> <Leader>rs :AS,rb:q
 
-" ignore files
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/bundle/*,*/public/test/uploads/*,*/cassettes/
+
+"-------------------------------------------------------------------------------
+" Plugins
+"-------------------------------------------------------------------------------
 
 " vundle requirements
 filetype off
@@ -150,28 +212,17 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 "autocmd vimenter * if !argc() | NERDTree | endif
 
 " vimux
 map <Leader>rb :call VimuxRunCommand("clear; bundle exec rspec " . bufname("%"))<CR>
 map <Leader>vp :VimuxPromptCommand<CR>
-map <Leader>vi :VimuxInspect<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+map <Leader>vi :VimuxInspectRunner<CR>
 map <Leader>vq :VimuxCloseRunner<CR>
 map <Leader>vx :VimuxInterruptRunner<CR>
 map <Leader>vz :call VimuxZoomRunner()<CR>
-
-" git gutter
-let g:gitgutter_override_sign_column_highlight = 0
-highlight SignColumn ctermbg=244
-highlight GitGutterAdd ctermbg=244
-highlight GitGutterAdd ctermfg=10
-highlight GitGutterChange ctermbg=244
-highlight GitGutterChange ctermfg=11
-highlight GitGutterDelete ctermbg=244
-highlight GitGutterDelete ctermfg=9
-highlight GitGutterChangeDelete ctermbg=244
-highlight GitGutterChangeDelete ctermfg=214
 
 " vim-airline
 set laststatus=2
@@ -183,6 +234,3 @@ let g:multi_cursor_next_key='<C-g>'
 let g:multi_cursor_prev_key='<C-h>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
-
-" syntastic
-let g:syntastic_ruby_exec = '~/.rbenv/shims/ruby'
