@@ -102,6 +102,11 @@ augroup CursorColumn
     au WinLeave * setlocal nocursorcolumn
 augroup END
 
+" Spellcheck
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd FileType gitcommit setlocal spell
+set complete+=kspell
+
 
 "-------------------------------------------------------------------------------
 " Colors
