@@ -108,6 +108,7 @@ augroup END
 "-------------------------------------------------------------------------------
 
 set t_Co=16
+set background=light
 
 highlight LineNr ctermbg=245
 highlight LineNr ctermfg=253
