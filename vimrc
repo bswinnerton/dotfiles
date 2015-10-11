@@ -2,9 +2,6 @@
 " Basic Settings
 "-------------------------------------------------------------------------------
 
-" Use Vim settings, not Vi
-set nocompatible
-
 " Syntax highlighting
 syntax on
 
@@ -31,6 +28,7 @@ set tabstop=2
 set hlsearch
 set smartcase
 set incsearch
+set ignorecase
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR><Esc>:let @/=''
 
 " Splits - more intuitive placement
@@ -39,9 +37,7 @@ set splitbelow
 
 " Mouse support
 if has('mouse')
-  set ttyfast
   set mouse=a
-  set ttymouse=xterm2
 endif
 
 " Scroll buffer
@@ -59,8 +55,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/bundle/*,*/public/test/*
 " Turn off bells
 set noerrorbells
 set novisualbell
-set t_vb=
-set tm=500
+
+" Show status line on startup
+set laststatus=2
 
 
 "-------------------------------------------------------------------------------
