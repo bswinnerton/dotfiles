@@ -73,6 +73,9 @@ if exists('+colorcolumn')
   set colorcolumn=81
 endif
 
+" Set text width to 80 characters in Markdown
+au BufRead,BufNewFile *.md setlocal textwidth=80
+
 " Highlight extra whitespace
 highlight ExtraWhitespace ctermbg=red
 match ExtraWhitespace /\s\+$/
@@ -206,6 +209,8 @@ Plugin 'walm/jshint.vim'
 Plugin 'elzr/vim-json'
 Plugin 'tpope/vim-surround'
 Plugin 'ervandew/supertab'
+Plugin 'mattn/webapi-vim'
+Plugin 'mattn/gist-vim'
 
 call vundle#end()
 filetype plugin indent on
