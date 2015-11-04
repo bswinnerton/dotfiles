@@ -125,6 +125,7 @@ highlight CursorColumn cterm=none ctermbg=236
 highlight ColorColumn ctermbg=235
 highlight CursorLineNr ctermfg=green ctermbg=240
 highlight SignColumn ctermbg=none
+highlight VertSplit cterm=none ctermbg=251 ctermfg=251
 
 " Automatically remove trailing whitespace
 "autocmd BufWritePre * :%s/\s\+$//e
