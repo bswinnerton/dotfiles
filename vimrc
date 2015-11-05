@@ -123,6 +123,9 @@ if has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   set background=dark
   colorscheme qualia
+
+  " https://github.com/neovim/neovim/issues/2048
+  nmap <BS> <C-W>h
 endif
 
 highlight LineNr ctermbg=245
