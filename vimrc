@@ -68,9 +68,10 @@ set number
 set cursorline
 set cursorcolumn
 
-" Highlight 81st character column
+" Sets background for 81st column onward
 if exists('+colorcolumn')
-  set colorcolumn=81
+  "set colorcolumn=81
+  let &colorcolumn=join(range(81,999),",")
 endif
 
 " Set text width to 80 characters in Markdown
@@ -118,17 +119,23 @@ set complete+=kspell
 set t_Co=16
 set background=light
 
+if has('nvim')
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  set background=dark
+  colorscheme qualia
+endif
+
 highlight LineNr ctermbg=245
 highlight LineNr ctermfg=253
 highlight CursorLine cterm=none ctermbg=236
 highlight CursorColumn cterm=none ctermbg=236
-highlight ColorColumn ctermbg=235
+highlight ColorColumn ctermbg=236
 highlight CursorLineNr ctermfg=green ctermbg=240
 highlight SignColumn ctermbg=none
 highlight VertSplit cterm=none ctermbg=251 ctermfg=251
 
 " Automatically remove trailing whitespace
-"autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * :%s/\s\+$//e
 
 
 "-------------------------------------------------------------------------------
@@ -146,9 +153,9 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Bash like keys for the Vim command line
-cnoremap <C-A>		<Home>
-cnoremap <C-E>		<End>
-cnoremap <C-K>		<C-U>
+cnoremap <C-A> <Home>
+cnoremap <C-E> <End>
+cnoremap <C-K> <C-U>
 
 " Remap j and k to act as expected when used on long, wrapped, lines
 nnoremap j gj
@@ -212,6 +219,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'ervandew/supertab'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
+Plugin 'guns/xterm-color-table.vim'
+Plugin 'gorodinskiy/vim-coloresque.git'
 
 call vundle#end()
 filetype plugin indent on
