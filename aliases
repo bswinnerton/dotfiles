@@ -29,7 +29,3 @@ alias tmux="tmux -2"
 
 alias vi="vim"
 alias vim="nvim"
-
-#if [[ -e /Applications/MacVim.app/Contents/MacOS/Vim ]]; then
-  alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
-#fi
