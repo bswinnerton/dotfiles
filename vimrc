@@ -248,6 +248,7 @@ map <Leader>vz :call VimuxZoomRunner()<CR>
 " vim-airline
 set laststatus=2
 let g:airline_powerline_fonts = 1
+let g:airline_extensions = ['ctrlp']
 
 " vim-multiple-cursors
 let g:multi_cursor_use_default_mapping=0
