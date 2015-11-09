@@ -46,3 +46,5 @@ params
 RSpec
 Instagram
 Vimeo
+accessor
+NameError
