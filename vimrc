@@ -223,7 +223,7 @@ Plugin 'ervandew/supertab'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 Plugin 'guns/xterm-color-table.vim'
-Plugin 'gorodinskiy/vim-coloresque.git'
+Plugin 'chrisbra/Colorizer'
 
 call vundle#end()
 filetype plugin indent on
