@@ -22,7 +22,7 @@ git_branch() {
 git_dirty() {
   if $(! $git status -s &> /dev/null)
   then
-    echo ""
+    echo "%{$fg[red]%}♥ %{$reset_color%}"
   else
     if [[ $($git status --porcelain) == "" ]]
     then
