@@ -1,43 +1,40 @@
-# Brooks Swinnerton's Dot Files
+# Brooks' Dotfiles
+
+Dotfiles are the preferences, tricks and hacks that you use to tame your
+terminal. These are mine.
+
+The structure of these dotfiles are heavily influenced by
+[holman's](https://github.com/holman/dotfiles), but the contents have been
+created and curated by myself over the years.
 
 ## Installation
 
-Run the following commands in your terminal. It will prompt you before it does anything destructive. Check out the [Rakefile](https://github.com/ryanb/dotfiles/blob/custom-bash-zsh/Rakefile) to see exactly what it does.
-
 ```
-git clone https://github.com/bswinnerton/dotfiles.git ~/.dotfiles
+git clone https://github.com/bswinnerton/dotfiles ~/.dotfiles
 cd ~/.dotfiles
-rake install
+script/bootstrap
+script/install
 ```
 
-Follow the prompts and enter the correct information. After installing, open a new terminal window to see the effects.
+## Components
 
-Feel free to customize the .zshrc file to match your preference.
+There's a few special files in the hierarchy.
 
+- `bin/`: Anything in bin/ will get added to your $PATH and be made available
+  everywhere.
+- `topic/*.zsh`: Any files ending in .zsh get loaded into your environment.
+- `topic/path.zsh`: Any file named path.zsh is loaded first and is expected to
+  setup $PATH or similar.
+- `topic/completion.zsh`: Any file named completion.zsh is loaded last and is
+  expected to setup autocomplete.
+- `topic/*.symlink`: Any files ending in `*.symlink` get symlinked into your
+  $HOME.  This is so you can keep all of those versioned in your dotfiles but
+  still keep those autoloaded files in your home directory. These get symlinked
+  in when you run script/bootstrap.
+- `topic/install.sh`: Any file named install.sh is automatically loaded when you
+  call `script/install`.
 
-## Uninstall
+## Thanks
 
-To remove the dotfile configs, run the following commands. Be certain to double check the contents of the files before removing so you don't lose custom settings.
-
-```
-unlink ~/.aliases
-unlink ~/.bash_profile
-unlink ~/.bashrc
-unlink ~/.exports
-unlink ~/.functions
-unlink ~/.gemrc
-unlink ~/.gitignore
-unlink ~/.rspec
-unlink ~/.screenrc
-unlink ~/.tmux-powerlinerc
-unlink ~/.tmux.conf
-unlink ~/.vimrc
-rm ~/.zshrc
-rm ~/.gitconfig
-rm -rf ~/.dotfiles
-rm -rf ~/.oh-my-zsh
-rm -rf ~/.vim
-chsh -s /bin/bash # change back to bash if you want
-```
-
-Then open a new terminal window
+- [@holman](https://github.com/holman/dotfiles)
+- [@ryanb](https://github.com/ryanb/dotfiles)
