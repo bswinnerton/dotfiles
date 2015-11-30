@@ -10,14 +10,13 @@ else
 fi
 
 git_branch() {
-  export branch=$($git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
+  branch=$($git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
   if [ -z "$branch" ];
   then
     echo ""
   else
     echo "%{$fg[yellow]%}|$branch%{$reset_color%}"
   fi
-  unset branch
 }
 
 git_dirty() {
@@ -35,14 +34,13 @@ git_dirty() {
 }
 
 need_push() {
-  export pushed=$(! $git cherry -v @{upstream} 2>/dev/null)
+  pushed=$(! $git cherry -v @{upstream} 2>/dev/null)
   if [ -z "$pushed" ];
   then
     echo ""
   else
     echo "%{$fg_bold[magenta]%}⬆ %{$reset_color%}"
   fi
-  unset pushed
 }
 
 directory_name() {
