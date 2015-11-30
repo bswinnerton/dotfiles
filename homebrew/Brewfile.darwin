@@ -1,2 +1,2 @@
-install macvim
-install reattach-to-user-namespace
+brew 'macvim'
+brew 'reattach-to-user-namespace'
