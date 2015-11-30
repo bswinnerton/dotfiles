@@ -15,8 +15,8 @@ then
 
   # Install dependencies defined in Brewfile
   brew tap Homebrew/bundle
-  brew bundle --file ~/.dotfiles/homebrew/Brewfile
-  brew bundle --file ~/.dotfiles/homebrew/Brewfile.darwin
+  brew bundle --file="$HOME/.dotfiles/homebrew/Brewfile"
+  brew bundle --file="$HOME/.dotfiles/homebrew/Brewfile.darwin"
 
 elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
 then
@@ -32,8 +32,8 @@ then
 
   # FIXME: Parse the Brewfile manually until homebrew-bundle has Linux support
   HOMEBREW_PATH=$HOME/.dotfiles/homebrew
-  ruby -e "File.foreach(\"$HOMEBREW_PATH/Brewfile.linux\") { |l| system(\"brew #{l}\") }"
-  ruby -e "File.foreach(\"$HOMEBREW_PATH/Brewfile\") { |l| system(\"brew #{l}\") }"
+  ruby -e "File.foreach(\"$HOMEBREW_PATH/Brewfile.linux\") { |l| l.gsub!('brew', 'brew install'); system(\"brew #{l}\") }"
+  ruby -e "File.foreach(\"$HOMEBREW_PATH/Brewfile\") { |l| l.gsub!('brew', 'brew install'); system(\"brew #{l}\") }"
   unset HOMEBREW_PATH
 
 fi
