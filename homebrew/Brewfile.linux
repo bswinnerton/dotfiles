@@ -1,0 +1,7 @@
+install pkg-config
+install openssl
+install curl
+install python
+install tcl-tk --without-tk
+install m4
+install git --with-brewed-openssl --with-brewed-curl

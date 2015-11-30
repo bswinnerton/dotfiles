@@ -1,0 +1,45 @@
+# shortcut to this dotfiles path is $ZSH
+export ZSH=$HOME/.dotfiles
+
+# all of our zsh files
+typeset -U config_files
+config_files=($ZSH/**/*.zsh)
+
+# load the path files
+for file in ${(M)config_files:#*/path.zsh}
+do
+  source $file
+done
+
+# load everything but the path and completion files
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+do
+  source $file
+done
+
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -U compinit
+compinit
+
+# load every completion after autocomplete loads
+for file in ${(M)config_files:#*/completion.zsh}
+do
+  source $file
+done
+
+unset config_files
+
+# Automatically start tmux if installed
+#if which tmux &> /dev/null && [[ "$TERM" != "screen" ]]; then
+#  WHOAMI=$(whoami)
+#  if tmux has-session -t $WHOAMI 2>/dev/null; then
+#    tmux attach-session -t $WHOAMI
+#  else
+#    tmux new-session -s $WHOAMI
+#  fi
+#fi
+
+# Execute Archey
+if [[ $(uname -s) =~ ^darwin ]]; then
+  ~/.bin/archey
+fi

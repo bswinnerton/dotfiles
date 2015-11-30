@@ -1,5 +1,0 @@
-#!/bin/bash
-
-function webserver() {
-  ruby -run -e httpd -- -p 5000 .
-}
