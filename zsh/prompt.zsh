@@ -20,11 +20,11 @@ git_branch() {
 }
 
 git_dirty() {
-  if $(! $git status -s &> /dev/null)
+  if $(! $git status -s --ignore-submodules=dirty &> /dev/null)
   then
     echo "%{$fg[red]%}♥ %{$reset_color%}"
   else
-    if [[ $($git status --porcelain) == "" ]]
+    if [[ $($git status --porcelain --ignore-submodules=dirty) == "" ]]
     then
       echo "%{$fg[red]%}♥ %{$reset_color%}"
     else
