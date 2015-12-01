@@ -15,7 +15,7 @@ git_branch() {
   then
     echo ""
   else
-    echo "%{$fg[yellow]%}|$branch%{$reset_color%}"
+    echo "|%{$fg[yellow]%}$branch%{$reset_color%}"
   fi
 }
 
