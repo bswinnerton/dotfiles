@@ -40,6 +40,4 @@ unset config_files
 #fi
 
 # Execute Archey
-if [[ $(uname -s) =~ ^darwin ]]; then
-  ~/.bin/archey
-fi
+if [[ $(uname -s) == "Darwin" ]]; then; archey; fi
