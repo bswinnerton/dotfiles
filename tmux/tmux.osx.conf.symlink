@@ -11,8 +11,8 @@ set-option -g status-utf8 on
 set-option -g status-justify "centre"
 set-option -g status-left-length 90
 set-option -g status-right-length 90
-set-option -g status-left "#(~/.dotfiles/tmux-powerline/powerline.sh left)"
-set-option -g status-right "#(~/.dotfiles/tmux-powerline/powerline.sh right)"
+set-option -g status-left "#(~/.tmux-powerline/powerline.sh left)"
+set-option -g status-right "#(~/.tmux-powerline/powerline.sh right)"
 
 # Bind to ctrl + a like screen
 unbind C-b
