@@ -15,6 +15,7 @@ then
 
   # Install dependencies defined in Brewfile
   brew tap Homebrew/bundle
+  brew update
   brew bundle --file="$HOME/.dotfiles/homebrew/Brewfile"
   brew bundle --file="$HOME/.dotfiles/homebrew/Brewfile.darwin"
 
