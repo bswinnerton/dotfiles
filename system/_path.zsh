@@ -9,5 +9,6 @@ case "$(uname -s)" in
     ;;
 esac
 
-export PATH="./bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$ZSH/bin:$PATH"
+export PATH="./bin:$PATH"
