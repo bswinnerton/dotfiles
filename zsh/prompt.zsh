@@ -28,7 +28,7 @@ git_dirty() {
     then
       echo "%{$fg[red]%}♥%{$reset_color%}"
     else
-      echo "%{$fg[red]%}♨ %{$reset_color%}"
+      echo "%{$fg[red]%}♨%{$reset_color%}"
     fi
   fi
 }
@@ -39,7 +39,7 @@ need_push() {
   then
     echo ""
   else
-    echo "%{$fg_bold[magenta]%}⬆ %{$reset_color%}"
+    echo "%{$fg_bold[magenta]%} ⬆%{$reset_color%}"
   fi
 }
 
