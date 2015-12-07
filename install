@@ -4,8 +4,6 @@
 
 set -e
 
-cd "$(dirname $0)"/..
-
 # find the installers and run them iteratively
 for installer in $(find . -name "*install.sh"); do
   sh -c "${installer}"
