@@ -12,8 +12,8 @@ created and curated by myself over the years.
 ```
 git clone https://github.com/bswinnerton/dotfiles ~/.dotfiles
 cd ~/.dotfiles
-script/bootstrap
-script/install
+./bootstrap
+./install
 ```
 
 ## Components
