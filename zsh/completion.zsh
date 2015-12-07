@@ -1,7 +1,11 @@
-# matches case insensitive for lowercase
+# Matches case insensitive
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-# pasting with tabs doesn't perform completion
+# Allows for pasted commands to use autocomplete
 zstyle ':completion:*' insert-tab pending
 
+# Sets autocomplete colors to use LS_COLORS
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# Highlight the background of autocompleted values
+zstyle ':completion:*' menu select
