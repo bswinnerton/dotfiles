@@ -175,11 +175,13 @@ map <Leader><Leader> :!
 " Redraw the screen
 map <silent> <Leader>rr :redraw!
 
-" Wrap `binding.pry` rescue block around visual selection
-autocmd FileType ruby map <silent> <Leader>p dO#################	require 'pry'beginrescue => exceptionbinding.pry<Esc>jo#################<Esc>4ko##################################<Esc>P
+" Open Nerdtree
+map <C-n> :NERDTreeToggle<CR>
 
-" Run the associated spec in the below tmux pane(dependent on Rails.vim)
-autocmd FileType ruby map <silent> <Leader>rs :AS,rb:q
+" Execute RSpec commands in tmux panes
+map <silent> <Leader>rs :AS<CR>,rb:q<CR>
+map <silent> <Leader>rb :call VimuxRunCommand("clear; bundle exec rspec " . bufname("%"))<CR>
+map <silent> <Leader>rl :call VimuxRunCommand("clear; bundle exec rspec " . bufname("%") . ":" . line("."))<CR>
 
 
 "-------------------------------------------------------------------------------
@@ -232,18 +234,8 @@ filetype plugin indent on
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " NERDTree
-map <C-n> :NERDTreeToggle<CR>
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 "autocmd vimenter * if !argc() | NERDTree | endif
-
-" vimux
-map <Leader>rb :call VimuxRunCommand("clear; bundle exec rspec " . bufname("%"))<CR>
-map <Leader>vp :VimuxPromptCommand<CR>
-map <Leader>vl :VimuxRunLastCommand<CR>
-map <Leader>vi :VimuxInspectRunner<CR>
-map <Leader>vq :VimuxCloseRunner<CR>
-map <Leader>vx :VimuxInterruptRunner<CR>
-map <Leader>vz :call VimuxZoomRunner()<CR>
 
 " vim-airline
 set laststatus=2
