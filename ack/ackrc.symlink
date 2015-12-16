@@ -1,3 +1,10 @@
+--color
+--pager=less -iqRS
+--type-add=ruby=.haml,.rake
+--type-add=html=.html.erb,.html.haml
+--type-add=js=.js.erb
+--type-add=css=.sass,.scss,.less
+--type-add=markdown=.md,.markdown
 --ignore-file=ext:log
 --ignore-file=is:tags
 --ignore-dir=bundle
