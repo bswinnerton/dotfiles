@@ -1,3 +1,4 @@
+alias b="bundle"
 alias be="bundle exec"
 alias ls="ls -GpF"
 alias vim="nvim"
