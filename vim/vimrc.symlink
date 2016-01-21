@@ -195,7 +195,7 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-markdown'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'mileszs/ack.vim'
 Plug 'benmills/vimux'
@@ -224,6 +224,14 @@ call plug#end()
 
 " ack-vim
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" CtrlP - use regex mode by default for better search results
+let g:ctrlp_regexp = 1
+
+" CtrlP + Silver Searcher support
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
 
 " NERDTree
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
