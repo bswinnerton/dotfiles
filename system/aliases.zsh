@@ -15,3 +15,6 @@ case "$(uname -s)" in
     alias tmux="tmux -2 -f ~/.tmux.linux.conf"
     ;;
 esac
+
+# Automatically wrap Git with Hub
+eval "$(hub alias -s)"
