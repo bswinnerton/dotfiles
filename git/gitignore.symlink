@@ -98,3 +98,7 @@ tags
 
 ## RubyMine ##
 .idea
+
+
+## Projectionist ##
+*.projections.json
