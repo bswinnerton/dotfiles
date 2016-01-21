@@ -183,47 +183,44 @@ map <silent> <Leader>rl :call VimuxRunCommand("clear; bundle exec rspec " . bufn
 " Plugins
 "-------------------------------------------------------------------------------
 
-" vundle requirements
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'honza/vim-snippets'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-rails'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'tpope/vim-markdown'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'mileszs/ack.vim'
-Plugin 'benmills/vimux'
-Plugin 'groenewege/vim-less'
-Plugin 'tpope/vim-haml'
-Plugin 'scrooloose/nerdtree'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'bling/vim-airline'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'scrooloose/syntastic'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-endwise'
-Plugin 'rizzatti/dash.vim'
-Plugin 'walm/jshint.vim'
-Plugin 'elzr/vim-json'
-Plugin 'tpope/vim-surround'
-Plugin 'ervandew/supertab'
-Plugin 'mattn/webapi-vim'
-Plugin 'mattn/gist-vim'
-Plugin 'guns/xterm-color-table.vim'
-Plugin 'chrisbra/Colorizer'
+Plug 'VundleVim/Vundle.vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rails'
+Plug 'kchmck/vim-coffee-script'
+Plug 'tpope/vim-markdown'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'mileszs/ack.vim'
+Plug 'benmills/vimux'
+Plug 'groenewege/vim-less'
+Plug 'tpope/vim-haml'
+Plug 'scrooloose/nerdtree'
+Plug 'airblade/vim-gitgutter'
+Plug 'bling/vim-airline'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'scrooloose/syntastic'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-endwise'
+Plug 'rizzatti/dash.vim'
+Plug 'walm/jshint.vim'
+Plug 'elzr/vim-json'
+Plug 'tpope/vim-surround'
+Plug 'ervandew/supertab'
+Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim'
+Plug 'guns/xterm-color-table.vim'
+Plug 'chrisbra/Colorizer'
 
-call vundle#end()
-filetype plugin indent on
+" Add plugins to &runtimepath
+call plug#end()
 
 " ack-vim
 let g:ackprg = 'ag --nogroup --nocolor --column'

@@ -1,2 +1,3 @@
-git/gitconfig.symlink
 .DS_Store
+git/gitconfig.symlink
+vim/vim.symlink/plugged
