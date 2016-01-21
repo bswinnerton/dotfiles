@@ -114,15 +114,6 @@ augroup END
 set t_Co=16
 set background=light
 
-if has('nvim')
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  set background=dark
-  colorscheme base16-qualia
-
-  " https://github.com/neovim/neovim/issues/2048
-  nmap <BS> <C-W>h
-endif
-
 highlight LineNr ctermbg=245
 highlight LineNr ctermfg=253
 highlight CursorLine cterm=none ctermbg=236
@@ -218,6 +209,7 @@ Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 Plug 'guns/xterm-color-table.vim'
 Plug 'chrisbra/Colorizer'
+Plug 'chriskempson/base16-vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -248,3 +240,13 @@ let g:multi_cursor_next_key='<C-g>'
 let g:multi_cursor_prev_key='<C-h>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
+
+" Neovim
+if has('nvim')
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  set background=dark
+  colorscheme base16-ocean
+
+  " https://github.com/neovim/neovim/issues/2048
+  nmap <BS> <C-W>h
+endif
