@@ -210,6 +210,7 @@ Plug 'mattn/gist-vim'
 Plug 'guns/xterm-color-table.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'chriskempson/base16-vim'
+Plug 'janko-m/vim-test'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -240,6 +241,14 @@ let g:multi_cursor_next_key='<C-g>'
 let g:multi_cursor_prev_key='<C-h>'
 let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
+
+" vim-test
+let test#strategy = "vimux"
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
 
 " Neovim
 if has('nvim')
