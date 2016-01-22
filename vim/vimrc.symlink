@@ -219,6 +219,9 @@ call plug#end()
 " ack-vim
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
+" CtrlP
+nmap <leader> b :CtrlPBuffer<CR>
+
 " CtrlP + Silver Searcher support
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
