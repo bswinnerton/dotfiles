@@ -245,11 +245,16 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " vim-test
 let test#strategy = "vimux"
+
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
+
+" If working in github/github, set appropriate vim-test runner
+if expand('%:p') =~ 'github/github'
+  let test#runners = {'Ruby': ['GitHub_Minitest']}
+endif
 
 " Neovim
 if has('nvim')
