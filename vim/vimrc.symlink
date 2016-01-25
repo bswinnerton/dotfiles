@@ -175,60 +175,48 @@ map <silent> <Leader>rl :call VimuxRunCommand("clear; bundle exec rspec " . bufn
 "-------------------------------------------------------------------------------
 
 call plug#begin('~/.vim/plugged')
-
-Plug 'VundleVim/Vundle.vim'
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
+Plug 'MarcWeber/vim-addon-mw-utils'   " Required for vim-snipmate
+Plug 'tomtom/tlib_vim'                " Required for vim-snipmate
 Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-rails'
-Plug 'kchmck/vim-coffee-script'
-Plug 'tpope/vim-markdown'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'mileszs/ack.vim'
+Plug 'honza/vim-snippets'             " Optional for vim-snipmate
+Plug 'scrooloose/syntastic'
+Plug 'bling/vim-airline'
+Plug 'scrooloose/nerdtree'
 Plug 'benmills/vimux'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mileszs/ack.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'ervandew/supertab'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+Plug 'janko-m/vim-test'
+Plug 'tpope/vim-bundler'
+Plug 'kchmck/vim-coffee-script'
 Plug 'groenewege/vim-less'
 Plug 'tpope/vim-haml'
-Plug 'scrooloose/nerdtree'
-Plug 'airblade/vim-gitgutter'
-Plug 'bling/vim-airline'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'scrooloose/syntastic'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-endwise'
-Plug 'rizzatti/dash.vim'
 Plug 'walm/jshint.vim'
 Plug 'elzr/vim-json'
-Plug 'tpope/vim-surround'
-Plug 'ervandew/supertab'
-Plug 'mattn/webapi-vim'
+Plug 'tpope/vim-markdown'
+Plug 'mattn/webapi-vim'               " Required for gist-vim
 Plug 'mattn/gist-vim'
+Plug 'chriskempson/base16-vim'
 Plug 'guns/xterm-color-table.vim'
 Plug 'chrisbra/Colorizer'
-Plug 'chriskempson/base16-vim'
-Plug 'janko-m/vim-test'
-
-" Add plugins to &runtimepath
 call plug#end()
 
 " ack-vim
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " CtrlP
-nmap <leader> b :CtrlPBuffer<CR>
-
-" CtrlP + Silver Searcher support
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
-
-" NERDTree
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-"autocmd vimenter * if !argc() | NERDTree | endif
 
 " vim-airline
 set laststatus=2
@@ -244,13 +232,11 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " vim-test
 let test#strategy = "vimux"
-
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 
-" If working in github/github, set appropriate vim-test runner
 if expand("%:p:h") =~ 'github/github'
   let test#runners = {'Ruby': ['GitHub_Minitest']}
 endif
