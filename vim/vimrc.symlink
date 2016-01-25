@@ -211,7 +211,6 @@ Plug 'guns/xterm-color-table.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'chriskempson/base16-vim'
 Plug 'janko-m/vim-test'
-Plug 'tpope/vim-projectionist'
 
 " Add plugins to &runtimepath
 call plug#end()
