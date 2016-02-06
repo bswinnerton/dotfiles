@@ -180,7 +180,8 @@ Plug 'tomtom/tlib_vim'                " Required for vim-snipmate
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'             " Optional for vim-snipmate
 Plug 'scrooloose/syntastic'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdtree'
 Plug 'benmills/vimux'
 Plug 'ctrlpvim/ctrlp.vim'
