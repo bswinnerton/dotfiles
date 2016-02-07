@@ -197,6 +197,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'janko-m/vim-test'
+Plug 'bswinnerton/vim-test-github'
 Plug 'tpope/vim-bundler'
 Plug 'kchmck/vim-coffee-script'
 Plug 'groenewege/vim-less'
@@ -238,9 +239,7 @@ nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 
-if expand("%:p:h") =~ 'github/github'
-  let test#runners = {'Ruby': ['GitHub_Minitest']}
-endif
+let test#runners = {'Ruby': ['GitHub']}
 
 " Neovim
 if has('nvim')
