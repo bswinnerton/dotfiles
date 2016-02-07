@@ -1,0 +1,3 @@
+--exclude=log
+--exclude=node_modules
+--exclude=tmp
