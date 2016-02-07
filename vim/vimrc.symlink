@@ -197,6 +197,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'janko-m/vim-test'
+Plug 'bswinnerton/vim-test-github'
 Plug 'tpope/vim-bundler'
 Plug 'kchmck/vim-coffee-script'
 Plug 'groenewege/vim-less'
@@ -233,13 +234,12 @@ let g:multi_cursor_quit_key='<Esc>'
 
 " vim-test
 let test#strategy = "vimux"
-
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 
-let test#runners = {'Ruby': ['GitHub_Minitest']}
+let test#runners = {'Ruby': ['GitHub']}
 
 " Neovim
 if has('nvim')
