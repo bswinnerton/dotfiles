@@ -119,7 +119,7 @@ highlight LineNr ctermfg=253
 highlight CursorLine cterm=none ctermbg=236
 highlight CursorColumn cterm=none ctermbg=236
 highlight ColorColumn ctermbg=236
-highlight CursorLineNr ctermfg=green ctermbg=240
+highlight CursorLineNr ctermfg=green ctermbg=240 guifg=#00CED1 guibg=#404040
 highlight SignColumn ctermbg=none
 highlight VertSplit cterm=none ctermbg=251 ctermfg=251
 
