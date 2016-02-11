@@ -50,7 +50,7 @@ set autoread
 set clipboard=unnamed
 
 " Ignored files/directories from Vim autocomplete
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/bundle/*,*/public/test/*
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/bundle/*,*/public/test/*,*/node_modules/
 
 " Turn off bells
 set noerrorbells
