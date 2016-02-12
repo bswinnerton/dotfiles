@@ -1,18 +1,5 @@
 # 256 colors
-#set -g default-terminal "screen-256color"
-
-# Removes delay between key presses
-set -s escape-time 0
-
-# Specific to Powerline
-set-option -g status on
-set-option -g status-interval 2
-set-option -g status-utf8 on
-set-option -g status-justify "centre"
-set-option -g status-left-length 90
-set-option -g status-right-length 90
-set-option -g status-left "#(~/.tmux-powerline/powerline.sh left)"
-set-option -g status-right "#(~/.tmux-powerline/powerline.sh right)"
+set -g default-terminal "screen-256color"
 
 # Bind to ctrl + a like screen
 unbind C-b
@@ -40,10 +27,6 @@ set -g base-index 1
 # Renumber windows sequentially after closing any of them
 set -g renumber-windows on
 
-# Soften status bar color from harsh green to light gray
-set -g status-bg '#666666'
-set -g status-fg '#aaaaaa'
-
 # Turn on mouse mode
 set -g mouse on
 
@@ -63,3 +46,27 @@ set-option -g default-command "reattach-to-user-namespace -l zsh"
 
 # Bigger scrollback
 set -g history-limit 20000
+
+set-option -g status on
+
+set -g status-position bottom
+set -g status-bg colour18
+set -g status-attr dim
+set -g status-left ''
+set -g status-right '#[fg=colour175,bold] %a %b %d #[fg=colour210,bold] %l:%M%P '
+set -g status-right-length 50
+set -g status-left-length 20
+
+setw -g window-status-current-fg colour220
+setw -g window-status-current-bg colour8
+setw -g window-status-current-attr bold
+setw -g window-status-current-format ' #I#[fg=colour250] #[fg=colour252]#W '
+
+# Inactive window
+setw -g window-status-fg colour11
+setw -g window-status-bg colour18
+setw -g window-status-attr none
+setw -g window-status-format ' #I#[fg=colour237] #[fg=colour250]#W '
+
+setw -g window-status-bell-attr bold
+setw -g window-status-bell-fg colour255
