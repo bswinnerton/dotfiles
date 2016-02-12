@@ -244,9 +244,11 @@ let test#runners = {'Ruby': ['GitHub']}
 " Neovim
 if has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  set background=dark
-  colorscheme base16-ocean
 
   " https://github.com/neovim/neovim/issues/2048
   nmap <BS> <C-W>h
 endif
+
+let base16colorspace=256
+set background=dark
+colorscheme base16-ocean
