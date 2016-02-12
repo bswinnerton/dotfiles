@@ -1,7 +1,6 @@
 alias b="bundle"
 alias be="bundle exec"
 alias ls="ls -GpF"
-alias vim="nvim"
 alias vi="vim"
 
 case "$(uname -s)" in
