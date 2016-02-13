@@ -1,17 +1,25 @@
+"
+" Vim settings for @bswinnerton
+"
+
+" Settings in this file may depend on plugins, so let's install them first.
+source ~/.vim/plugin/plugins.vim
+
 "-------------------------------------------------------------------------------
-" Basic Settings
+" Basics
 "-------------------------------------------------------------------------------
 
 " Syntax highlighting
 syntax on
 
-" Leader - override default of \
+" Leader - override the default \
 let mapleader=','
 
-" Command mode menu suggestions
+" Tab autocomplete in command mode
 set wildmenu
 
-" Backspace
+" Backspace should work over newlines. A fantastic writeup of why this is
+" necessary can be found here: http://vi.stackexchange.com/a/2163.
 set backspace=indent,eol,start
 
 " Backup files (none)
@@ -29,6 +37,8 @@ set hlsearch
 set smartcase
 set incsearch
 set ignorecase
+
+" Unhighlight search results when pressing space
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR><Esc>:let @/=''
 
 " Splits - more intuitive placement
@@ -40,7 +50,7 @@ if has('mouse')
   set mouse=a
 endif
 
-" Scroll buffer
+" Scroll line buffer
 set scrolloff=5
 
 " Auto reload changed files
@@ -49,7 +59,7 @@ set autoread
 " Clipboard support (OSX)
 set clipboard=unnamed
 
-" Ignored files/directories from Vim autocomplete
+" Ignored files/directories from autocomplete (and CtrlP)
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/bundle/*,*/public/test/*,*/node_modules/
 
 " Turn off bells
@@ -61,7 +71,7 @@ set laststatus=2
 
 
 "-------------------------------------------------------------------------------
-" Vim Interface
+" Interface
 "-------------------------------------------------------------------------------
 
 set number
@@ -70,23 +80,11 @@ set cursorcolumn
 
 " Sets background for 81st column onward
 if exists('+colorcolumn')
-  "set colorcolumn=81
   let &colorcolumn=join(range(81,999),",")
 endif
 
-" Set text width to 80 characters in Markdown
+" Set width to 80 characters in Markdown
 au BufRead,BufNewFile *.md setlocal textwidth=80
-
-" Highlight extra whitespace
-highlight ExtraWhitespace ctermbg=red
-match ExtraWhitespace /\s\+$/
-
-" Reduce redraw frequency
-set lazyredraw
-
-" Speed up scrolling of the viewport slightly
-nnoremap <C-e> 2<C-e>
-nnoremap <C-y> 2<C-y>
 
 " Hide horizontal cursor when focus changes
 augroup CursorLine
@@ -111,20 +109,13 @@ augroup END
 " Colors
 "-------------------------------------------------------------------------------
 
-set t_Co=16
-set background=light
+set background=dark
+colorscheme base16-ocean
+let base16colorspace=256
 
-highlight LineNr ctermbg=245
-highlight LineNr ctermfg=253
-highlight CursorLine cterm=none ctermbg=236
-highlight CursorColumn cterm=none ctermbg=236
-highlight ColorColumn ctermbg=236
-highlight CursorLineNr ctermfg=green ctermbg=240 guifg=#00CED1 guibg=#404040
-highlight SignColumn ctermbg=none
-highlight VertSplit cterm=none ctermbg=251 ctermfg=251
-
-" Automatically remove trailing whitespace
-autocmd BufWritePre * :%s/\s\+$//e
+" Highlight extra whitespace
+highlight ExtraWhitespace ctermbg=red
+match ExtraWhitespace /\s\+$/
 
 
 "-------------------------------------------------------------------------------
@@ -152,103 +143,12 @@ nnoremap k gk
 
 
 "-------------------------------------------------------------------------------
-" Custom Mappings
+" Neovim support
 "-------------------------------------------------------------------------------
 
-" Easy access to run commands from Vim
-map <Leader><Leader> :!
-
-" Redraw the screen
-map <silent> <Leader>rr :redraw!
-
-" Open Nerdtree
-map <C-n> :NERDTreeToggle<CR>
-
-" Execute RSpec commands in tmux panes
-map <silent> <Leader>rs :AS<CR>,rb:q<CR>
-map <silent> <Leader>rb :call VimuxRunCommand("clear; bundle exec rspec " . bufname("%"))<CR>
-map <silent> <Leader>rl :call VimuxRunCommand("clear; bundle exec rspec " . bufname("%") . ":" . line("."))<CR>
-
-
-"-------------------------------------------------------------------------------
-" Plugins
-"-------------------------------------------------------------------------------
-
-call plug#begin('~/.vim/plugged')
-Plug 'MarcWeber/vim-addon-mw-utils'   " Required for vim-snipmate
-Plug 'tomtom/tlib_vim'                " Required for vim-snipmate
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'             " Optional for vim-snipmate
-Plug 'scrooloose/syntastic'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'scrooloose/nerdtree'
-Plug 'benmills/vimux'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mileszs/ack.vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'ervandew/supertab'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'vim-ruby/vim-ruby'
-Plug 'tpope/vim-rails'
-Plug 'janko-m/vim-test'
-Plug 'bswinnerton/vim-test-github'
-Plug 'tpope/vim-bundler'
-Plug 'kchmck/vim-coffee-script'
-Plug 'groenewege/vim-less'
-Plug 'tpope/vim-haml'
-Plug 'walm/jshint.vim'
-Plug 'elzr/vim-json'
-Plug 'tpope/vim-markdown'
-Plug 'mattn/webapi-vim'               " Required for gist-vim
-Plug 'mattn/gist-vim'
-Plug 'chriskempson/base16-vim'
-Plug 'guns/xterm-color-table.vim'
-Plug 'chrisbra/Colorizer'
-call plug#end()
-
-" ack-vim
-let g:ackprg = 'ag --nogroup --nocolor --column'
-
-" CtrlP
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
-
-" vim-airline
-set laststatus=2
-let g:airline_powerline_fonts = 1
-let g:airline_extensions = ['ctrlp']
-
-" vim-multiple-cursors
-let g:multi_cursor_use_default_mapping=0
-let g:multi_cursor_next_key='<C-g>'
-let g:multi_cursor_prev_key='<C-h>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
-
-" vim-test
-let test#strategy = "vimux"
-nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-
-let test#runners = {'Ruby': ['GitHub']}
-
-" Neovim
 if has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
   " https://github.com/neovim/neovim/issues/2048
   nmap <BS> <C-W>h
 endif
-
-let base16colorspace=256
-set background=dark
-colorscheme base16-ocean
