@@ -3,87 +3,72 @@
 "
 
 " Settings in this file may depend on plugins, so let's install them first.
+" Not to be confused with the contents of ~/.vim/plugin/* which are
+" configuration options for each plugin.
 source ~/.vim/plugin/plugins.vim
 
 "-------------------------------------------------------------------------------
 " Basics
 "-------------------------------------------------------------------------------
 
-" Syntax highlighting
 syntax on
 
-" Leader - override the default \
-let mapleader=','
+let mapleader=','               " Leader - override the default \
 
-" Tab autocomplete in command mode
-set wildmenu
+set autoread                    " Auto reload changed files
+set wildmenu                    " Tab autocomplete in command mode
+set backspace=indent,eol,start  " http://vi.stackexchange.com/a/2163
+set clipboard=unnamed           " Clipboard support (OSX)
+set laststatus=2                " Show status line on startup
+set splitright                  " Open new splits to the right
+set splitbelow                  " Open new splits to the bottom
 
-" Backspace should work over newlines. A fantastic writeup of why this is
-" necessary can be found here: http://vi.stackexchange.com/a/2163.
-set backspace=indent,eol,start
-
-" Backup files (none)
+" Turn off backups
 set nobackup
 set nowritebackup
 set noswapfile
 
-" Tabs
+" I don't want no shame bell
+set noerrorbells
+set novisualbell
+
+" Two space tabs
 set expandtab
 set shiftwidth=2
 set tabstop=2
 
-" Searching
+" Search
 set hlsearch
 set smartcase
 set incsearch
 set ignorecase
-
-" Unhighlight search results when pressing space
+" Use the space bar to unhighlight search results
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR><Esc>:let @/=''
 
-" Splits - more intuitive placement
-set splitright
-set splitbelow
-
-" Mouse support
+" Enable mouse support for all modes
 if has('mouse')
   set mouse=a
 endif
 
-" Scroll line buffer
-set scrolloff=5
-
-" Auto reload changed files
-set autoread
-
-" Clipboard support (OSX)
-set clipboard=unnamed
-
 " Ignored files/directories from autocomplete (and CtrlP)
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/bundle/*,*/public/test/*,*/node_modules/
-
-" Turn off bells
-set noerrorbells
-set novisualbell
-
-" Show status line on startup
-set laststatus=2
 
 
 "-------------------------------------------------------------------------------
 " Interface
 "-------------------------------------------------------------------------------
 
-set number
-set cursorline
-set cursorcolumn
+set number            " Enable line numbers
+set cursorline        " Horizontal crosshair
+set cursorcolumn      " Vertical crosshair
+set scrolloff=5       " Always leave 5 lines of buffer when scrolling
 
 " Sets background for 81st column onward
 if exists('+colorcolumn')
   let &colorcolumn=join(range(81,999),",")
 endif
 
-" Set width to 80 characters in Markdown
+" Add newline after 80 characters when in a markdown file
 au BufRead,BufNewFile *.md setlocal textwidth=80
 
 " Hide horizontal cursor when focus changes
