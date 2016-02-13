@@ -4,7 +4,7 @@
 
 " Settings in this file may depend on plugins, so let's install them first.
 " Not to be confused with the contents of ~/.vim/plugin/* which are
-" configuration options for each plugin.
+" configuration options for each plugin and automatically loaded by Vim.
 source ~/.vim/plugin/plugins.vim
 
 "-------------------------------------------------------------------------------
