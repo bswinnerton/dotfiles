@@ -2,16 +2,12 @@ alias b="bundle"
 alias be="bundle exec"
 alias ls="ls -GpF"
 alias vi="vim"
+alias tmux="tmux -2"
 
 case "$(uname -s)" in
   Darwin)
     alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
     alias slime="subl"
-    alias tmux="tmux -2 -f ~/.tmux.osx.conf"
-    ;;
-
- Linux)
-    alias tmux="tmux -2 -f ~/.tmux.linux.conf"
     ;;
 esac
 

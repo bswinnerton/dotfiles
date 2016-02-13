@@ -1,0 +1,58 @@
+#
+# Tmux settings for @bswinnerton
+#
+
+set -g default-terminal "screen-256color"   # Use 256 colors, true color support: https://git.io/vgDdO
+set -g mouse on               # Mouse support
+set -g base-index 1           # Start window numbers at 1
+set -g renumber-windows on    # Renumber windows sequentially after closing
+set -g history-limit 20000    # Scrollback history
+#
+# Bind to CTRL + a like screen
+unbind C-b
+set -g prefix C-a
+bind a send-prefix
+
+# Keybindings
+bind-key '_'  split-window -v -c "#{pane_current_path}"   # Split pane horizontally
+bind-key '|'  split-window -h -c "#{pane_current_path}"   # Split pane veritcally
+bind C-l send-keys 'C-l' # Send CTRL + l (clear screen) if typed after tmux prefix
+bind C-k send-keys 'C-k' # Send CTRL + k (delete line) if typed after tmux prefix
+
+# Setup 'v' to begin selection as in Vim
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+
+# Smart pane switching with awareness of vim splits
+# See: https://github.com/christoomey/vim-tmux-navigator
+is_vim='echo "#{pane_current_command}" | grep -iqE "(^|\/)g?(view|n?vim?)(diff)?$"'
+bind -n C-h if-shell "$is_vim" "send-keys C-h" "select-pane -L"
+bind -n C-j if-shell "$is_vim" "send-keys C-j" "select-pane -D"
+bind -n C-k if-shell "$is_vim" "send-keys C-k" "select-pane -U"
+bind -n C-l if-shell "$is_vim" "send-keys C-l" "select-pane -R"
+bind -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
+
+# Copy and paste
+setw -g mode-keys vi          # Vim keybindings in copy mode 
+set-option -g default-command "reattach-to-user-namespace -l zsh"
+
+# Status bar
+# Protip: Use `~/.dotfiles/bin/show-colors` script to show color options
+set-option -g status on
+
+set -g status-position bottom   # Position on the bottom
+set -g status-bg colour18       # Status bar backgorund color
+set -g status-left ''           # Hide the default contents of [0]
+
+# Set date and time on the right hand side
+set -g status-right '#[fg=colour175,bold] %a %b %d #[fg=colour210,bold] %l:%M%P '
+
+setw -g window-status-current-fg colour220    # Foreground of active window
+setw -g window-status-current-bg colour8      # Background of active window
+setw -g window-status-current-attr bold       # Font styling of active window
+setw -g window-status-current-format ' #I#[fg=colour250] #[fg=colour252]#W '
+
+setw -g window-status-fg colour11             # Foreground of inactive windows
+setw -g window-status-bg colour18             # Background of inactive windows
+setw -g window-status-attr none               # Font styling of inactive windows
+setw -g window-status-format ' #I#[fg=colour237] #[fg=colour250]#W '
