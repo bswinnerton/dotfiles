@@ -7,7 +7,7 @@ set -g mouse on               # Mouse support
 set -g base-index 1           # Start window numbers at 1
 set -g renumber-windows on    # Renumber windows sequentially after closing
 set -g history-limit 20000    # Scrollback history
-#
+
 # Bind to CTRL + a like screen
 unbind C-b
 set -g prefix C-a
