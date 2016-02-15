@@ -32,6 +32,9 @@ bind -n C-k if-shell "$is_vim" "send-keys C-k" "select-pane -U"
 bind -n C-l if-shell "$is_vim" "send-keys C-l" "select-pane -R"
 bind -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
 
+bind 'H' swap-window -t -1   # Move window index to the left
+bind 'L' swap-window -t +1   # Move window index to the right
+
 # Copy and paste
 setw -g mode-keys vi          # Vim keybindings in copy mode 
 set-option -g default-command "reattach-to-user-namespace -l zsh"
