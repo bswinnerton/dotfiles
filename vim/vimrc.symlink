@@ -62,6 +62,7 @@ set number            " Enable line numbers
 set cursorline        " Horizontal crosshair
 set cursorcolumn      " Vertical crosshair
 set scrolloff=5       " Always leave 5 lines of buffer when scrolling
+set lazyredraw        " Reduce the redraw frequency when scrolling
 
 " Sets background for 81st column onward
 if exists('+colorcolumn')
