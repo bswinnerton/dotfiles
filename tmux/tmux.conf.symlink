@@ -14,14 +14,14 @@ set -g prefix C-a
 bind a send-prefix
 
 # Keybindings
-bind-key '_'  split-window -v -c "#{pane_current_path}"   # Split pane horizontally
-bind-key '|'  split-window -h -c "#{pane_current_path}"   # Split pane veritcally
+bind '_'  split-window -v -c "#{pane_current_path}"   # Split pane horizontally
+bind '|'  split-window -h -c "#{pane_current_path}"   # Split pane veritcally
 bind C-l send-keys 'C-l' # Send CTRL + l (clear screen) if typed after tmux prefix
 bind C-k send-keys 'C-k' # Send CTRL + k (delete line) if typed after tmux prefix
 
 # Setup 'v' to begin selection as in Vim
-bind-key -t vi-copy v begin-selection
-bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+bind -t vi-copy v begin-selection
+bind -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
 
 # Smart pane switching with awareness of vim splits
 # See: https://github.com/christoomey/vim-tmux-navigator
