@@ -22,6 +22,7 @@ set clipboard=unnamed           " Clipboard support (OSX)
 set laststatus=2                " Show status line on startup
 set splitright                  " Open new splits to the right
 set splitbelow                  " Open new splits to the bottom
+set lazyredraw                  " Reduce the redraw frequency when scrolling
 
 " Turn off backups
 set nobackup
@@ -62,7 +63,6 @@ set number            " Enable line numbers
 set cursorline        " Horizontal crosshair
 set cursorcolumn      " Vertical crosshair
 set scrolloff=5       " Always leave 5 lines of buffer when scrolling
-set lazyredraw        " Reduce the redraw frequency when scrolling
 
 " Sets background for 81st column onward
 if exists('+colorcolumn')
