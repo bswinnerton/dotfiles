@@ -95,13 +95,13 @@ augroup END
 " Colors
 "-------------------------------------------------------------------------------
 
-set background=dark
-colorscheme base16-ocean
-let base16colorspace=256
-
 " Highlight extra whitespace
 highlight ExtraWhitespace ctermbg=red
 match ExtraWhitespace /\s\+$/
+
+set background=dark
+colorscheme base16-ocean
+let base16colorspace=256
 
 
 "-------------------------------------------------------------------------------
