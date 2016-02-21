@@ -28,6 +28,7 @@ Plug 'tpope/vim-haml'
 
 " Syntax errors
 Plug 'scrooloose/syntastic'
+Plug 'ntpeters/vim-better-whitespace'
 
 " Git support
 Plug 'tpope/vim-fugitive'
