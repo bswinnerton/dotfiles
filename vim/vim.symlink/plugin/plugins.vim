@@ -8,6 +8,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'ervandew/supertab'
 
 " Tmux integration
 Plug 'benmills/vimux'
