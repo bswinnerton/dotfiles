@@ -44,4 +44,7 @@ Plug 'bswinnerton/vim-test-github'
 " Display hex colors
 Plug 'chrisbra/Colorizer'
 
+" Gist
+Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
+
 call plug#end()
