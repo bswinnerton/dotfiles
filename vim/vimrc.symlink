@@ -56,7 +56,11 @@ if has('mouse')
 endif
 
 " Ignored files/directories from autocomplete (and CtrlP)
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/bundle/*,*/public/test/*,*/node_modules/
+set wildignore+=*/tmp/*
+set wildignore+=*.so
+set wildignore+=*.zip
+set wildignore+=*/vendor/bundle/*
+set wildignore+=*/node_modules/
 
 
 "-------------------------------------------------------------------------------
