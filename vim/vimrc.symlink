@@ -25,6 +25,8 @@ set splitbelow                  " Open new splits to the bottom
 set lazyredraw                  " Reduce the redraw frequency when scrolling
 set ttyfast                     " Send more characters for redraw
 set nowrap                      " Don't wrap long lines
+set listchars=extends:·         " Show dot when line continues to the right
+set listchars+=precedes:·       " Show dot when line continues to the left
 
 " Turn off backups
 set nobackup
@@ -64,7 +66,8 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vendor/bundle/*,*/public/test/*,*/nod
 set number            " Enable line numbers
 set cursorline        " Horizontal crosshair
 set cursorcolumn      " Vertical crosshair
-set scrolloff=5       " Always leave 5 lines of buffer when scrolling
+set scrolloff=5       " Leave 5 lines of buffer when scrolling
+set sidescrolloff=10  " Leave 10 characters of horizontal buffer when scrolling
 
 " Sets background for 81st column onward
 if exists('+colorcolumn')
