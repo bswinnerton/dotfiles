@@ -14,7 +14,9 @@ set -g prefix C-a
 bind a send-prefix
 
 # Keybindings
+bind '"'  split-window -v -c "#{pane_current_path}"   # Split pane horizontally
 bind '_'  split-window -v -c "#{pane_current_path}"   # Split pane horizontally
+bind '%'  split-window -h -c "#{pane_current_path}"   # Split pane veritcally
 bind '|'  split-window -h -c "#{pane_current_path}"   # Split pane veritcally
 bind C-l send-keys 'C-l' # Send CTRL + l (clear screen) if typed after tmux prefix
 bind C-k send-keys 'C-k' # Send CTRL + k (delete line) if typed after tmux prefix
@@ -36,7 +38,7 @@ bind 'H' swap-window -t -1   # Move window index to the left
 bind 'L' swap-window -t +1   # Move window index to the right
 
 # Copy and paste
-setw -g mode-keys vi          # Vim keybindings in copy mode 
+setw -g mode-keys vi          # Vim keybindings in copy mode
 set-option -g default-command "reattach-to-user-namespace -l zsh"
 
 # Status bar
