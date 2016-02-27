@@ -8,7 +8,6 @@
   co = checkout
   ci = commit
   st = status
-  plog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%%an>%Creset' --abbrev-commit
 [color]
   diff = auto
   status = auto
