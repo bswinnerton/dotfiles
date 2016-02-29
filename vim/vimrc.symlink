@@ -53,6 +53,7 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR><Esc>:let @/=''
 " Enable mouse support for all modes
 if has('mouse')
   set mouse=a
+  set ttymouse=xterm2
 endif
 
 " Ignored files/directories from autocomplete (and CtrlP)
