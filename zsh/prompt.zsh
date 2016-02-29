@@ -43,6 +43,18 @@ need_push() {
   fi
 }
 
+need_pull() {
+  head=$(git rev-parse HEAD 2>/dev/null)
+  upstream=$(git rev-parse @{u} 2>/dev/null)
+
+  if [ "$head" = "$upstream" ];
+  then
+    echo ""
+  else
+    echo "%{$fg_bold[magenta]%} ⬇%{$reset_color%}"
+  fi
+}
+
 directory_name() {
   echo "%{$fg[blue]%}%0~%{$reset_color%}"
 }
@@ -55,4 +67,4 @@ host() {
   echo "%m%{$reset_color%}"
 }
 
-PROMPT='$(username)@$(host):$(directory_name)$(git_branch)$(git_dirty)$(need_push) '
+PROMPT='$(username)@$(host):$(directory_name)$(git_branch)$(git_dirty)$(need_pull)$(need_push) '
