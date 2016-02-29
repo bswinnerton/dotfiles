@@ -152,3 +152,8 @@ if has('nvim')
   " https://github.com/neovim/neovim/issues/2048
   nmap <BS> <C-W>h
 endif
+
+
+"-------------------------------------------------------------------------------
+" Looking for more? Check out ~/.vim/plugin/* for plugin-specific configuration
+"-------------------------------------------------------------------------------
