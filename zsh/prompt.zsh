@@ -41,9 +41,6 @@ need_push_or_push() {
   if [ $local = $remote ]; then
     # Up to date
     echo ""
-  elif [ $local = $base ] && [ $remote = $base ]; then
-    # Need push and pull
-    echo "%{$fg_bold[magenta]%} ⬆⬇%{$reset_color%}"
   elif [ $local = $base ]; then
     # Need pull
     echo "%{$fg_bold[magenta]%} ⬇%{$reset_color%}"
