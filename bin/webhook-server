@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require 'sinatra'
+
+[:get, :post, :put, :patch, :delete].each do |method|
+  send(method, '*') do
+    status 204
+  end
+end
