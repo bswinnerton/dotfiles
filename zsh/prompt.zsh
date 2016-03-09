@@ -33,25 +33,26 @@ git_dirty() {
   fi
 }
 
-need_push() {
-  pushed=$(! $git cherry -v @{upstream} 2>/dev/null)
-  if [ -z "$pushed" ];
-  then
-    echo ""
-  else
-    echo "%{$fg_bold[magenta]%} ⬆%{$reset_color%}"
-  fi
-}
+need_push_or_push() {
+  local=$(git rev-parse @ 2>/dev/null)
+  remote=$(git rev-parse @{u} 2>/dev/null)
+  base=$(git merge-base @ @{u} 2>/dev/null)
 
-need_pull() {
-  head=$(git rev-parse HEAD 2>/dev/null)
-  upstream=$(git rev-parse @{u} 2>/dev/null)
-
-  if [ "$head" = "$upstream" ];
-  then
+  if [ $local = $remote ]; then
+    # Up to date
     echo ""
-  else
+  elif [ $local = $base ] && [ $remote = $base ]; then
+    # Need push and pull
+    echo "%{$fg_bold[magenta]%} ⬆⬇%{$reset_color%}"
+  elif [ $local = $base ]; then
+    # Need pull
     echo "%{$fg_bold[magenta]%} ⬇%{$reset_color%}"
+  elif [ $remote = $base ]; then
+    # Need push
+    echo "%{$fg_bold[magenta]%} ⬆%{$reset_color%}"
+  else
+    # Diverged
+    echo "%{$fg_bold[magenta]%} ➡%{$reset_color%}"
   fi
 }
 
@@ -67,4 +68,4 @@ host() {
   echo "%m%{$reset_color%}"
 }
 
-PROMPT='$(username)@$(host):$(directory_name)$(git_branch)$(git_dirty)$(need_pull)$(need_push) '
+PROMPT='$(username)@$(host):$(directory_name)$(git_branch)$(git_dirty)$(need_push_or_push) '
