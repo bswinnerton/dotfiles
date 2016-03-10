@@ -11,8 +11,7 @@ fi
 
 git_branch() {
   branch=$($git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
-  if [ -z "$branch" ];
-  then
+  if [ -z "$branch" ]; then
     echo ""
   else
     echo "|%{$fg[yellow]%}$branch%{$reset_color%}"
@@ -20,12 +19,10 @@ git_branch() {
 }
 
 git_dirty() {
-  if $(! $git status -s --ignore-submodules=dirty &> /dev/null)
-  then
+  if $(! $git status -s --ignore-submodules=dirty &> /dev/null); then
     echo "%{$fg[red]%}♥%{$reset_color%}"
   else
-    if [[ $($git status --porcelain --ignore-submodules=dirty) == "" ]]
-    then
+    if [[ $($git status --porcelain --ignore-submodules=dirty) == "" ]]; then
       echo "%{$fg[red]%}♥%{$reset_color%}"
     else
       echo "%{$fg[red]%}♨%{$reset_color%}"
@@ -38,13 +35,13 @@ need_push_or_push() {
   remote=$(git rev-parse @{u} 2>/dev/null)
   base=$(git merge-base @ @{u} 2>/dev/null)
 
-  if [ $local = $remote ]; then
+  if [ $local = $remote 2>/dev/null ]; then
     # Up to date
     echo ""
-  elif [ $local = $base ]; then
+  elif [ $local = $base 2>/dev/null ]; then
     # Need pull
     echo "%{$fg_bold[magenta]%} ⬇%{$reset_color%}"
-  elif [ $remote = $base ]; then
+  elif [ $remote = $base 2>/dev/null ]; then
     # Need push
     echo "%{$fg_bold[magenta]%} ⬆%{$reset_color%}"
   else
