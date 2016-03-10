@@ -35,13 +35,13 @@ need_push_or_push() {
   remote=$(git rev-parse @{u} 2>/dev/null)
   base=$(git merge-base @ @{u} 2>/dev/null)
 
-  if [ $local = $remote 2>/dev/null ]; then
+  if [[ $local == $remote ]]; then
     # Up to date
     echo ""
-  elif [ $local = $base 2>/dev/null ]; then
+  elif [[ $local == $base ]]; then
     # Need pull
     echo "%{$fg_bold[magenta]%} ⬇%{$reset_color%}"
-  elif [ $remote = $base 2>/dev/null ]; then
+  elif [[ $remote == $base ]]; then
     # Need push
     echo "%{$fg_bold[magenta]%} ⬆%{$reset_color%}"
   else
