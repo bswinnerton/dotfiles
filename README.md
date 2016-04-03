@@ -3,7 +3,7 @@
 Dotfiles are the preferences, tricks and hacks that you use to tame your
 terminal. These are mine.
 
-![dotfiles](https://cloud.githubusercontent.com/assets/934497/13386200/6a258952-de6f-11e5-96cd-7708a3174cfe.png)
+![dotfiles](https://cloud.githubusercontent.com/assets/934497/14234999/7cb3bf24-f9bf-11e5-835e-2a18175d5e44.png)
 
 
 The structure of these dotfiles are heavily influenced by
