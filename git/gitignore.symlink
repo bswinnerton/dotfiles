@@ -52,7 +52,6 @@ $RECYCLE.BIN/
 capybara-*.html
 .rvmrc
 /.bundle
-/vendor/bundle
 /log/*
 /tmp/*
 /db/*.sqlite3
