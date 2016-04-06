@@ -1,8 +1,9 @@
 alias b="bundle"
 alias be="bundle exec"
 alias ls="ls -GpF"
-alias vi="vim"
+alias redraw="stty sane && clear"
 alias tmux="tmux -2"
+alias vi="vim"
 
 case "$(uname -s)" in
   Darwin)
