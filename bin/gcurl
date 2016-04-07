@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# Usage: gcurl [CURL ARGUMENTS]
+#
+# Fires off a cURL request and pushes the output to a private Gist
+
+curl -si $@ 2>&1 | gist -p -o -f curl-request-$(date +%s).http
