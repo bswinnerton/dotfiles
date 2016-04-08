@@ -1,6 +1,7 @@
 alias b="bundle"
 alias be="bundle exec"
 alias gist="gist -p"
+alias gti="git"
 alias ls="ls -GpF"
 alias redraw="stty sane && clear"
 alias tmux="tmux -2"
