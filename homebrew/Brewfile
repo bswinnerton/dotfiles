@@ -1,6 +1,7 @@
 tap 'homebrew/dupes'
 brew 'ack'
 brew 'ctags'
+brew 'fzf'
 brew 'gist'
 brew 'git'
 brew 'homebrew/dupes/grep'

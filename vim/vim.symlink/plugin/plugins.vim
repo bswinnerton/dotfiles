@@ -9,6 +9,8 @@ Plug 'mileszs/ack.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'ervandew/supertab'
 
+Plug 'junegunn/fzf', { 'dir': '/usr/local/opt/fzf' }
+
 " Tmux integration
 Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
