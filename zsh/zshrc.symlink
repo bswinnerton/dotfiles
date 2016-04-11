@@ -29,15 +29,5 @@ done
 
 unset config_files
 
-# Automatically start tmux if installed
-#if which tmux &> /dev/null && [[ "$TERM" != "screen" ]]; then
-#  WHOAMI=$(whoami)
-#  if tmux has-session -t $WHOAMI 2>/dev/null; then
-#    tmux attach-session -t $WHOAMI
-#  else
-#    tmux new-session -s $WHOAMI
-#  fi
-#fi
-
 # Execute Archey
 if [[ $(uname -s) == "Darwin" ]]; then; archey; fi
