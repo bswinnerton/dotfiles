@@ -1,4 +1,4 @@
 .DS_Store
 git/gitconfig.symlink
-system/private-env.zsh
+private-env.zsh
 vim/vim.symlink/plugged
