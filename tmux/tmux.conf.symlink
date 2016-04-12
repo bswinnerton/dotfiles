@@ -61,3 +61,6 @@ setw -g window-status-fg colour11             # Foreground of inactive windows
 setw -g window-status-bg colour18             # Background of inactive windows
 setw -g window-status-attr none               # Font styling of inactive windows
 setw -g window-status-format ' #I#[fg=colour237] #[fg=colour250]#W '
+
+# Resurrect tmux windows and panes on restart
+run-shell ~/.dotfiles/tmux/tmux-resurrect/resurrect.tmux
