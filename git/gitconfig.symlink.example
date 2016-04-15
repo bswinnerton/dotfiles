@@ -1,6 +1,7 @@
 [user]
   name = AUTHORNAME
   email = AUTHOREMAIL
+  signingkey =
 [github]
   user = AUTHORHANDLE
 [credential]
@@ -24,3 +25,5 @@
   prompt = false
 [push]
   default = upstream
+[commit]
+  gpgsign = true
