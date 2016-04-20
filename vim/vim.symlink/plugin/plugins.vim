@@ -10,6 +10,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'ervandew/supertab'
 
 Plug 'junegunn/fzf', { 'dir': '/usr/local/opt/fzf' }
+Plug 'junegunn/fzf.vim'
 
 " Tmux integration
 Plug 'benmills/vimux'
