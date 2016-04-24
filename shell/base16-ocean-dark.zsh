@@ -33,6 +33,7 @@ color_foreground="c0/c5/ce" # Base 05
 color_background="2b/30/3b" # Base 00
 color_cursor="c0/c5/ce" # Base 05
 
+# TODO: Fix the bell: https://github.com/chriskempson/base16-shell/issues/24
 if [ -n "$TMUX" ]; then
   # tell tmux to pass the escape sequences through
   # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
