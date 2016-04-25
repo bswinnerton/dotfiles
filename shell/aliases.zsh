@@ -7,7 +7,7 @@ alias redraw="stty sane && clear"
 alias tmux="tmux -2"
 alias vi="vim"
 
-if command -v mvim >/dev/null 2>&1; then
+if $(command -v mvim >/dev/null 2>&1); then
   alias vim="mvim -v"
 fi
 
