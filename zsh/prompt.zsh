@@ -64,7 +64,5 @@ host() {
   echo "%m%{$reset_color%}"
 }
 
-NEWLINE=$'\n'
-FIRST_LINE="$(username)@$(host):$(directory_name)$(git_branch)$(git_dirty)$(need_push_or_push)"
-SECOND_LINE="%{$fg[cyan]%}$ %{$reset_color%}"
-PROMPT="${FIRST_LINE}${NEWLINE}${SECOND_LINE}"
+PROMPT='$(username)@$(host):$(directory_name)$(git_branch)$(git_dirty)$(need_push_or_push)
+%{$fg[cyan]%}$ %{$reset_color%}'
