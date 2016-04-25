@@ -8,7 +8,7 @@
 echo "Installing Homebrew for you."
 
 # Install the correct homebrew for each OS type
-if test "$(uname -s)" = "Darwin"
+if [[ "$(uname -s)" = "Darwin" ]]
 then
   # Install Brew if it's not already installed
   if ! [ -x "$(command -v brew)" ]; then
@@ -21,7 +21,7 @@ then
   brew bundle --file="$HOME/.dotfiles/homebrew/Brewfile"
   brew bundle --file="$HOME/.dotfiles/homebrew/Brewfile.darwin"
 
-elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
+elif [[ "$(expr substr $(uname -s) 1 5)" = "Linux" ]]
 then
   # Install brew dependencies
   sudo apt-get install -y build-essential gcc ruby zlib1g-dev libxslt1-dev
