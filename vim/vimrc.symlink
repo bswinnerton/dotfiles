@@ -22,8 +22,8 @@ set clipboard=unnamed           " Clipboard support (OSX)
 set laststatus=2                " Show status line on startup
 set splitright                  " Open new splits to the right
 set splitbelow                  " Open new splits to the bottom
-set lazyredraw                  " Reduce the redraw frequency when scrolling
-set ttyfast                     " Send more characters for redraw
+set lazyredraw                  " Reduce the redraw frequency
+set ttyfast                     " Send more characters in fast terminals
 set nowrap                      " Don't wrap long lines
 set listchars=extends:→         " Show dot when line continues to the right
 set listchars+=precedes:←       " Show dot when line continues to the left
