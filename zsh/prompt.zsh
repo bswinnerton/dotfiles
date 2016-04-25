@@ -5,8 +5,7 @@ autoload colors && colors
 # Add a newline after each commadn
 precmd() { print "" }
 
-if (( $+commands[git] ))
-then
+if (( $+commands[git] )); then
   git="$commands[git]"
 else
   git="/usr/bin/git"
