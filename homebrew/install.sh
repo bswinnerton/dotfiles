@@ -10,11 +10,10 @@ echo "Installing Homebrew for you."
 # Install the correct homebrew for each OS type
 if test "$(uname -s)" = "Darwin"
 then
-
+  # Install Brew if it's not already installed
   if ! [ -x "$(command -v brew)" ]; then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
-
 
   # Install dependencies defined in Brewfile
   brew tap Homebrew/bundle
@@ -24,14 +23,18 @@ then
 
 elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
 then
-
+  # Install brew dependencies
   sudo apt-get install -y build-essential gcc ruby zlib1g-dev libxslt1-dev
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
+
+  # Install Brew if it's not already installed
+  if ! [ -x "$(command -v brew)" ]; then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
+  fi
 
   # Add Linuxbrew to bash path if it doesn't already exist
   if ! [ $(grep -q ".linuxbrew/bin" "$HOME/.bash_profile") ]; then
     echo 'export PATH="$HOME/.linuxbrew/bin:$PATH"' >> $HOME/.bash_profile
-    . $HOME/.bash_profile
+    source $HOME/.bash_profile
   fi
 
   # FIXME: Parse the Brewfile manually until homebrew-bundle has Linux support
