@@ -13,42 +13,26 @@ source ~/.vim/plugin/plugins.vim
 
 syntax on
 
-let mapleader=','               " Leader - override the default \
+let mapleader=','                     " Leader - override the default \
 
-set autoread                    " Auto reload changed files
-set wildmenu                    " Tab autocomplete in command mode
-set backspace=indent,eol,start  " http://vi.stackexchange.com/a/2163
-set clipboard=unnamed           " Clipboard support (OSX)
-set laststatus=2                " Show status line on startup
-set splitright                  " Open new splits to the right
-set splitbelow                  " Open new splits to the bottom
-set lazyredraw                  " Reduce the redraw frequency
-set ttyfast                     " Send more characters in fast terminals
-set nowrap                      " Don't wrap long lines
-set listchars=extends:→         " Show dot when line continues to the right
-set listchars+=precedes:←       " Show dot when line continues to the left
-
-" Turn off backups
-set nobackup
-set nowritebackup
-set noswapfile
-
-" I don't want no shame bell
-set noerrorbells
-set novisualbell
-
-" Two space tabs
-set expandtab
-set shiftwidth=2
-set tabstop=2
-
-" Search
-set hlsearch
-set smartcase
-set incsearch
-set ignorecase
-" Use the space bar to unhighlight search results
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR><Esc>:let @/=''
+set autoread                          " Auto reload changed files
+set wildmenu                          " Tab autocomplete in command mode
+set backspace=indent,eol,start        " http://vi.stackexchange.com/a/2163
+set clipboard=unnamed                 " Clipboard support (OSX)
+set laststatus=2                      " Show status line on startup
+set splitright                        " Open new splits to the right
+set splitbelow                        " Open new splits to the bottom
+set lazyredraw                        " Reduce the redraw frequency
+set ttyfast                           " Send more characters in fast terminals
+set nowrap                            " Don't wrap long lines
+set listchars=extends:→               " Show arrow if line continues rightwards
+set listchars+=precedes:←             " Show arrow if line continues leftwards
+set nobackup nowritebackup noswapfile " Turn off backup files
+set noerrorbells novisualbell         " Turn off visual and audible bells
+set expandtab shiftwidth=2 tabstop=2  " Two spaces for tabs everywhere
+set hlsearch                          " Highlight search results
+set ignorecase smartcase              " Search queries intelligently set case
+set incsearch                         " Show search results as you type
 
 " Enable mouse support for all modes
 if has('mouse')
@@ -137,6 +121,9 @@ nnoremap k gk
 "-------------------------------------------------------------------------------
 " Custom Shortcuts
 "-------------------------------------------------------------------------------
+
+" Use the space bar to unhighlight search results
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR><Esc>:let @/=''
 
 " Redraw the screen
 map <silent> <Leader>r :redraw!<CR>
