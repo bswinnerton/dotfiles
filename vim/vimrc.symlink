@@ -134,17 +134,5 @@ map <silent> <Leader>P orescue<CR>require 'pry'; binding.pry<ESC>
 
 
 "-------------------------------------------------------------------------------
-" Neovim support
-"-------------------------------------------------------------------------------
-
-if has('nvim')
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-  " https://github.com/neovim/neovim/issues/2048
-  nmap <BS> <C-W>h
-endif
-
-
-"-------------------------------------------------------------------------------
 " Looking for more? Check out ~/.vim/plugin/* for plugin-specific configuration
 "-------------------------------------------------------------------------------
