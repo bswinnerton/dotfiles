@@ -136,3 +136,5 @@ map <silent> <Leader>P orescue<CR>require 'pry'; binding.pry<ESC>
 "-------------------------------------------------------------------------------
 " Looking for more? Check out ~/.vim/plugin/* for plugin-specific configuration
 "-------------------------------------------------------------------------------
+
+" vim: set syntax=vim:
