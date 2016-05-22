@@ -27,6 +27,7 @@ Plug 'tpope/vim-markdown'
 Plug 'kchmck/vim-coffee-script'
 Plug 'groenewege/vim-less'
 Plug 'tpope/vim-haml'
+Plug 'pangloss/vim-javascript'
 
 " Syntax errors
 Plug 'scrooloose/syntastic'
