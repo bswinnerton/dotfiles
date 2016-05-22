@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require 'webrick'
+
+port = ENV.fetch('PORT', 3000).to_i
+puts "Serving #{Dir.pwd} at http://localhost:#{port}/"
+
+server = WEBrick::HTTPServer.new(
+  Port: port,
+  DocumentRoot: File.expand_path('.')
+)
+
+trap('INT') { server.shutdown }
+server.start
