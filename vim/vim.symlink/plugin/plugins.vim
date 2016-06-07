@@ -29,6 +29,7 @@ Plug 'groenewege/vim-less'
 Plug 'tpope/vim-haml'
 Plug 'pangloss/vim-javascript'
 Plug 'jparise/vim-graphql'
+Plug 'zerowidth/vim-copy-as-rtf'
 
 " Syntax errors
 Plug 'scrooloose/syntastic'
