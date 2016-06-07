@@ -28,6 +28,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'groenewege/vim-less'
 Plug 'tpope/vim-haml'
 Plug 'pangloss/vim-javascript'
+Plug 'jparise/vim-graphql'
 
 " Syntax errors
 Plug 'scrooloose/syntastic'
