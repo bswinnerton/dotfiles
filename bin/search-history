@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# Usage: search-history [SEARCH TERM]
+#
+# Will search your ~/.zsh_history file for the search term and view it in less
+
+cat ~/.zsh_history | grep $@ | less
