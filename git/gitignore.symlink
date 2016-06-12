@@ -6,3 +6,6 @@ tags
 
 # Projectionist
 projections.json
+
+# Bundler
+.bundle/config
