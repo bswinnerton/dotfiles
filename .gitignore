@@ -1,4 +1,5 @@
 .DS_Store
 git/gitconfig.symlink
 private-env.zsh
+ruby/bundle.symlink/cache/
 vim/vim.symlink/plugged
