@@ -132,7 +132,6 @@ map <silent> <Leader>r :redraw!<CR>
 map <silent> <Leader>p orequire 'pry'; binding.pry<ESC>
 map <silent> <Leader>P orescue<CR>require 'pry'; binding.pry<ESC>
 
-
 "-------------------------------------------------------------------------------
 " Looking for more? Check out ~/.vim/plugin/* for plugin-specific configuration
 "-------------------------------------------------------------------------------
