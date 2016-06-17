@@ -34,12 +34,6 @@ set hlsearch                          " Highlight search results
 set ignorecase smartcase              " Search queries intelligently set case
 set incsearch                         " Show search results as you type
 
-" Enable mouse support for all modes
-if has('mouse')
-  set mouse=a
-  set ttymouse=xterm2
-endif
-
 " Ignored files/directories from autocomplete (and CtrlP)
 set wildignore+=*/tmp/*
 set wildignore+=*.so
