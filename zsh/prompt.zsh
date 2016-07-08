@@ -2,7 +2,7 @@ autoload colors && colors
 # cheers, @ehrenmurdick
 # http://github.com/ehrenmurdick/config/blob/master/zsh/prompt.zsh
 
-# Add a newline after each commadn
+# Add a newline after each command
 precmd() { print "" }
 
 if (( $+commands[git] )); then
