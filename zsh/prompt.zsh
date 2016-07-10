@@ -14,13 +14,14 @@ fi
 git_branch() {
   branch=$($git symbolic-ref HEAD 2>/dev/null | awk -F/ {'print $NF'})
   rebase_in_progress=$($git status 2>/dev/null | grep '^rebase in progress')
+  head=$($git rev-parse --short HEAD)
 
   if [[ $branch ]]; then
     echo "|%{$fg[yellow]%}$branch%{$reset_color%}"
   elif [[ $rebase_in_progress ]]; then
     echo "|%{$fg[yellow]%}REBASE-IN-PROGRESS%{$reset_color%}"
   else
-    echo ""
+    echo "|%{$fg[yellow]%}$head%{$reset_color%}"
   fi
 }
 
