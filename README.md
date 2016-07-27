@@ -1,7 +1,7 @@
 # Brooks' Dotfiles
 
 Dotfiles are the preferences, tricks and hacks that you use to tame your
-terminal. These are mine.
+terminal. There are many like them, but these are mine.
 
 ![dotfiles](https://cloud.githubusercontent.com/assets/934497/14234999/7cb3bf24-f9bf-11e5-835e-2a18175d5e44.png)
 
