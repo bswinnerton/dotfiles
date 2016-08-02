@@ -6,7 +6,14 @@ require 'sinatra'
 
 [:get, :post, :put, :patch, :delete].each do |method|
   send(method, '*') do
-    status 204
-    pp JSON.parse(request.body.read)
+    body = request.body.read
+
+    if body.empty?
+      status 200
+      "🖖 🏼"
+    else
+      status 204
+      pp JSON.parse(body)
+    end
   end
 end
