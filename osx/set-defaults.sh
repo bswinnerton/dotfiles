@@ -15,8 +15,9 @@ then
   # (e.g. enable Tab in modal dialogs)
   defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-  # Set fast keyboard repeat rate
-  defaults write NSGlobalDomain KeyRepeat -int 0
+  # Set an insanely fast keyboard repeat rate
+  defaults write InitialKeyRepeat -int 11
+  defaults write KeyRepeat -int 1.2
 
   # Show icons for hard drives, servers, and removable media on the desktop
   defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
