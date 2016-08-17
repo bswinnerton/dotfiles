@@ -40,17 +40,17 @@ git_dirty() {
 }
 
 need_push_or_pull() {
-  local=$(git rev-parse @ 2>/dev/null)
-  remote=$(git rev-parse @{u} 2>/dev/null)
+  head=$(git rev-parse @ 2>/dev/null)
+  remote_head=$(git rev-parse @{u} 2>/dev/null)
   base=$(git merge-base @ @{u} 2>/dev/null)
 
-  if [[ $local == $remote ]]; then
+  if [[ $head == $remote_head ]]; then
     # Up to date
     echo ""
-  elif [[ $local == $base ]]; then
+  elif [[ $head == $base ]]; then
     # Need pull
     echo "%{$fg_bold[magenta]%} ⬇%{$reset_color%}"
-  elif [[ $remote == $base ]]; then
+  elif [[ $remote_head == $base ]]; then
     # Need push
     echo "%{$fg_bold[magenta]%} ⬆%{$reset_color%}"
   else
