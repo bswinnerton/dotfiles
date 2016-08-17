@@ -9,15 +9,15 @@ then
 
   # Trackpad: enable tap to click for this user
   defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-  defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+  defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
   # Enable full keyboard access for all controls
   # (e.g. enable Tab in modal dialogs)
   defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
   # Set an insanely fast keyboard repeat rate
-  defaults write InitialKeyRepeat -int 11
-  defaults write KeyRepeat -int 1.2
+  defaults write NSGlobalDomain InitialKeyRepeat -int 12
+  defaults write NSGlobalDomain KeyRepeat -int 1.1
 
   # Show icons for hard drives, servers, and removable media on the desktop
   defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
