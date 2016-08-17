@@ -39,7 +39,7 @@ git_dirty() {
   fi
 }
 
-need_push_or_push() {
+need_push_or_pull() {
   local=$(git rev-parse @ 2>/dev/null)
   remote=$(git rev-parse @{u} 2>/dev/null)
   base=$(git merge-base @ @{u} 2>/dev/null)
@@ -71,5 +71,5 @@ host() {
   echo "%m%{$reset_color%}"
 }
 
-PROMPT='$(username)@$(host):$(directory_name)$(git_branch)$(git_dirty)$(need_push_or_push)
+PROMPT='$(username)@$(host):$(directory_name)$(git_branch)$(git_dirty)$(need_push_or_pull)
 %{$fg[cyan]%}$ %{$reset_color%}'
