@@ -122,6 +122,9 @@ nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR><Esc>:let @/=''
 " Redraw the screen
 map <silent> <Leader>r :redraw!<CR>
 
+" Quick search
+map <Leader>a :Ag<Space>
+
 " Insert binding.pry
 map <silent> <Leader>p orequire 'pry'; binding.pry<ESC>
 map <silent> <Leader>P orescue<CR>require 'pry'; binding.pry<ESC>
