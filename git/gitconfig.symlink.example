@@ -27,5 +27,3 @@
   default = upstream
 [commit]
   gpgsign = true
-[gpg]
-  program = ghgpg
