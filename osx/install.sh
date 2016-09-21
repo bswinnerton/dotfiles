@@ -16,7 +16,7 @@ then
   defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
   # Set an insanely fast keyboard repeat rate
-  defaults write NSGlobalDomain InitialKeyRepeat -int 10
+  defaults write NSGlobalDomain InitialKeyRepeat -int 12
   defaults write NSGlobalDomain KeyRepeat -int 1
 
   # Show icons for hard drives, servers, and removable media on the desktop
