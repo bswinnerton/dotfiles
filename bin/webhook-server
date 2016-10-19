@@ -25,5 +25,5 @@ require 'sinatra'
 end
 
 def cyan(text)
-  "\e[36m#{text}\e[0m"
+  "\n\e[36m#{text}\e[0m\n\n"
 end
