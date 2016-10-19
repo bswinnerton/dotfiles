@@ -1,19 +1,25 @@
 #!/usr/bin/env ruby
 
 require 'pp'
+require 'pry'
 require 'json'
 require 'sinatra'
 
 [:get, :post, :put, :patch, :delete].each do |method|
   send(method, '*') do
-    body = request.body.read
+    begin
+      body = request.body.read
 
-    if body.empty?
-      status 200
-      "🖖 🏼"
-    else
-      status 204
-      pp JSON.parse(body)
+      if body.empty?
+        status 200
+        '<html><p style="font-size:50px;text-align:center;margin-top:100px;">👋🏼</p></html>'
+      else
+        status 204
+        parsed_json = JSON.parse(body)
+        puts JSON.pretty_generate(parsed_json)
+      end
+    rescue => exception
+      binding.pry
     end
   end
 end
