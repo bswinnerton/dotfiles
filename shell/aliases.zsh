@@ -1,6 +1,7 @@
 alias b="bundle"
 alias be="bundle exec"
 alias gist="gist -p"
+alias git="/usr/local/bin/git"
 alias gti="git"
 alias ls="ls -GpF"
 alias redraw="stty sane && clear"
@@ -17,6 +18,3 @@ case "$(uname -s)" in
     alias slime="subl"
     ;;
 esac
-
-# Automatically wrap Git with Hub
-eval "$(hub alias -s)"
