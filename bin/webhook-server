@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'pp'
 require 'pry'
 require 'json'
 require 'sinatra'
@@ -16,10 +15,15 @@ require 'sinatra'
       else
         status 204
         parsed_json = JSON.parse(body)
-        puts JSON.pretty_generate(parsed_json)
+        pretty_json = JSON.pretty_generate(parsed_json)
+        puts cyan(pretty_json)
       end
     rescue => exception
       binding.pry
     end
   end
+end
+
+def cyan(text)
+  "\e[36m#{text}\e[0m"
 end
