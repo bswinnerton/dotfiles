@@ -16,9 +16,9 @@ fi
 
 # Key bindings
 # ------------
-# source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
+source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
 
 # Configuration Options
 # ---------------------
-export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND="rg --files --hidden --follow --glob '!.git/*'"
 export FZF_DEFAULT_OPTS="--no-256"

@@ -31,3 +31,5 @@ unset config_files
 
 # Execute Archey
 if [[ $(uname -s) == "Darwin" ]]; then; archey; fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
