@@ -32,4 +32,5 @@ unset config_files
 # Execute Archey
 if [[ $(uname -s) == "Darwin" ]]; then; archey; fi
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Resource FZF to ensure keybindings are set on top of ZSH
+source $ZSH/fzf/fzf.zsh
