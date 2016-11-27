@@ -14,9 +14,27 @@ require 'sinatra'
         '<html><p style="font-size:50px;text-align:center;margin-top:100px;">👋🏼</p></html>'
       else
         status 204
-        parsed_json = JSON.parse(body)
-        pretty_json = JSON.pretty_generate(parsed_json)
-        puts cyan(pretty_json)
+
+        parsed_headers = request.env.each_with_object({}) do |(key, value), hash|
+          if key.start_with?('HTTP_')
+            hash[key.gsub('HTTP_', '')] = value
+          end
+        end
+
+        parsed_json = JSON.pretty_generate(JSON.parse(body))
+
+        parsed_headers.each do |key, value|
+          name = humanize(key)
+
+          case name
+          when 'Version'
+            puts purple(value).strip
+          else
+            puts purple("#{name}: #{value}").strip
+          end
+        end
+
+        puts "#{cyan(parsed_json)}\n\n"
       end
     rescue => exception
       binding.pry
@@ -24,6 +42,15 @@ require 'sinatra'
   end
 end
 
+def humanize(string)
+  pieces = string.split(/_|-/)
+  pieces.map { |piece| piece.capitalize }.join('-')
+end
+
+def purple(text)
+  "\n\e[35m#{text}\e[0m"
+end
+
 def cyan(text)
-  "\n\e[36m#{text}\e[0m\n\n"
+  "\n\e[36m#{text}\e[0m"
 end
