@@ -34,6 +34,9 @@ Plug 'zerowidth/vim-copy-as-rtf'
 Plug 'scrooloose/syntastic'
 Plug 'ntpeters/vim-better-whitespace'
 
+" Markdown support
+Plug 'junegunn/goyo.vim'
+
 " Git support
 Plug 'tpope/vim-fugitive'
 
