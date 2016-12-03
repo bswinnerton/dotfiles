@@ -1,7 +1,7 @@
 # ~/.tmuxinator/github.yml
 
 name: github
-root: ~/github/
+root: ~/
 
 # Optional tmux socket
 # socket_name: foo
@@ -54,7 +54,7 @@ windows:
         - webhook-server
   - dotfiles:
       root: ~/.dotfiles
-      layout: 9e8f,178x46,0,0[178x38,0,0,5,178x7,0,39,6]
+      layout: dc03,178x46,0,0{89x46,0,0,3,88x46,90,0,13}
       panes:
         - vim
         -
