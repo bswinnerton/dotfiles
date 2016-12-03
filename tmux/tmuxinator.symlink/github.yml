@@ -1,0 +1,66 @@
+# ~/.tmuxinator/github.yml
+
+name: github
+root: ~/github/
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+# pre: sudo /etc/rc.d/mysqld start
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+
+# Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
+# startup_window: github
+
+# Specitifes (by index) which pane of the specified window will be selected on project startup. If not set, the first pane is used.
+# startup_pane: 1
+
+# Controls whether the tmux session should be attached to automatically. Defaults to true.
+# attach: false
+
+# Runs after everything. Use it to attach to tmux with custom options etc.
+# post: tmux -CC attach -t github
+
+windows:
+  - github:
+      root: ~/github/github
+      layout: bd3b,178x46,0,0[178x38,0,0,224,178x7,0,39{89x7,0,39,225,88x7,90,39[88x3,90,39,226,88x3,90,43,227]}]
+      panes:
+        - vim
+        -
+        - script/console
+        - script/server
+  - hookshot:
+      root: ~/github/hookshot
+      layout: 9e8f,178x46,0,0[178x38,0,0,5,178x7,0,39,6]
+      panes:
+        - vim
+        - script/bootstrap && script/server
+  - ngrok:
+      root: ~/
+      layout: ea68,178x46,0,0{87x46,0,0[87x21,0,0,7,87x24,0,22,8],90x46,88,0,9}
+      panes:
+        - ngrok http 4567
+        -
+        - webhook-server
+  - dotfiles:
+      root: ~/.dotfiles
+      layout: 9e8f,178x46,0,0[178x38,0,0,5,178x7,0,39,6]
+      panes:
+        - vim
+        -
+  - documentation:
+      root: ~/github/internal-developer.github.com
+      layout: 9e8f,178x46,0,0[178x38,0,0,5,178x7,0,39,6]
+      panes:
+        - vim
+        - script/bootstrap && script/server

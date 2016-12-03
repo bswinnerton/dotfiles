@@ -2,12 +2,13 @@
 # Tmux settings for @bswinnerton
 #
 
-set -g default-terminal "screen-256color"   # Use 256 colors, true color support: https://git.io/vgDdO
-set -g mouse on               # Mouse support
-set -g base-index 1           # Start window numbers at 1
-set -g renumber-windows on    # Renumber windows sequentially after closing
-set -g history-limit 20000    # Scrollback history
-set -s escape-time 0          # No delay when hitting escape
+set-option -g default-terminal "screen-256color"
+set-option -g mouse on                  # Mouse support
+set-option -g base-index 1              # Start window numbers at 1
+set-window-option -g pane-base-index 1  # Start pane numbers at 1
+set-option -g renumber-windows on       # Renumber windows sequentially
+set-option -g history-limit 20000       # Scrollback history
+set-option -s escape-time 0             # No delay when hitting escape
 
 # Bind to CTRL + a like screen
 unbind C-b
