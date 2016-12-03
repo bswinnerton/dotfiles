@@ -45,9 +45,9 @@ windows:
       panes:
         - vim
         - script/bootstrap && script/server
-  - ngrok:
+  - webhooks:
       root: ~/
-      layout: ea68,178x46,0,0{87x46,0,0[87x21,0,0,7,87x24,0,22,8],90x46,88,0,9}
+      layout: dc01,178x46,0,0{89x46,0,0,2,88x46,90,0,13}
       panes:
         - webhook-server
         -
