@@ -1,56 +1,135 @@
 #!/usr/bin/env ruby
 
-require 'pry'
+require 'rack'
 require 'json'
-require 'sinatra'
+require 'pry'
 
-[:get, :post, :put, :patch, :delete].each do |method|
-  send(method, '*') do
-    begin
-      body = request.body.read
+module TerminalColors
+  def purple(text)
+    "\e[35m#{text}\e[0m"
+  end
 
-      if body.empty?
-        status 200
-        '<html><p style="font-size:50px;text-align:center;margin-top:100px;">👋🏼</p></html>'
-      else
-        status 204
+  def cyan(text)
+    "\e[36m#{text}\e[0m"
+  end
 
-        parsed_headers = request.env.each_with_object({}) do |(key, value), hash|
-          if key.start_with?('HTTP_')
-            hash[key.gsub('HTTP_', '')] = value
-          end
-        end
+  def grey(text)
+    "\e[90m#{text}\e[0m"
+  end
 
-        parsed_json = JSON.pretty_generate(JSON.parse(body))
-
-        parsed_headers.each do |key, value|
-          name = humanize(key)
-
-          case name
-          when 'Version'
-            puts purple(value).strip
-          else
-            puts purple("#{name}: #{value}").strip
-          end
-        end
-
-        puts "#{cyan(parsed_json)}\n\n"
-      end
-    rescue => exception
-      binding.pry
-    end
+  def yellow(text)
+    "\e[33m#{text}\e[0m"
   end
 end
 
-def humanize(string)
-  pieces = string.split(/_|-/)
-  pieces.map { |piece| piece.capitalize }.join('-')
+class WebhookServer
+  include TerminalColors
+
+  def self.call(env)
+    new(env).process
+  rescue => exception
+    binding.pry
+  end
+
+  def initialize(env)
+    @request  = Rack::Request.new(env)
+    @response = Rack::Response.new
+  end
+
+  def process
+    print_delimiter
+    puts
+    print_request
+    puts
+
+    if from_webhook?
+      print_headers
+      puts
+      print_body
+
+      response.status = 204
+      response['Content-Type'] = 'application/json'
+    else
+      response.status = 200
+      response['Content-Type'] = 'text/html'
+      response.write(html)
+    end
+
+    puts
+    print_delimiter
+    puts "\n\n"
+
+    response.finish
+  end
+
+  private
+
+  attr_reader :request, :response
+
+  def print_delimiter
+    puts grey('*' * 80)
+  end
+
+  def print_request
+    method    = request.env.fetch('REQUEST_METHOD')
+    uri       = request.env.fetch('REQUEST_URI')
+    ip        = request.env.fetch('REMOTE_ADDR')
+
+    puts yellow(Time.now)
+    puts yellow("#{ip} - #{method} #{uri}")
+  end
+
+  def print_headers
+    parsed_request_headers.each do |key, value|
+      name = humanize(key)
+
+      case name
+      when 'Version'
+        puts purple(value).strip
+      else
+        puts purple("#{name}: #{value}").strip
+      end
+    end
+  end
+
+  def print_body
+    formatted_json = JSON.pretty_generate(parsed_request_body)
+    puts cyan(formatted_json)
+  end
+
+  def parsed_request_headers
+    request.env.each_with_object({}) do |(key, value), hash|
+      if key.start_with?('HTTP_')
+        hash[key.gsub('HTTP_', '')] = value
+      end
+    end
+  end
+
+  def parsed_request_body
+    JSON.parse(request_body)
+  end
+
+  def html
+    <<-HTML
+    <html>
+      <p style="font-size:50px;text-align:center;margin-top:100px;">👋</>
+    </html>
+    HTML
+  end
+
+  def from_webhook?
+    !request_body.empty?
+  end
+
+  def request_body
+    @request_body ||= request.body.read
+  end
+
+  def humanize(string)
+    pieces = string.split(/_|-/)
+    pieces.map { |piece| piece.capitalize }.join('-')
+  end
 end
 
-def purple(text)
-  "\n\e[35m#{text}\e[0m"
-end
-
-def cyan(text)
-  "\n\e[36m#{text}\e[0m"
-end
+Process.spawn('ssh -nNT -R 80:localhost:9292 root@brooks.sh')
+Rack::Server.start(app: WebhookServer)
