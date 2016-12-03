@@ -49,9 +49,8 @@ windows:
       root: ~/
       layout: ea68,178x46,0,0{87x46,0,0[87x21,0,0,7,87x24,0,22,8],90x46,88,0,9}
       panes:
-        - ngrok http 4567
-        -
         - webhook-server
+        -
   - dotfiles:
       root: ~/.dotfiles
       layout: dc03,178x46,0,0{89x46,0,0,3,88x46,90,0,13}
