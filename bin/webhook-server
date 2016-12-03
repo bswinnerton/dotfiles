@@ -112,7 +112,10 @@ class WebhookServer
   def html
     <<-HTML
     <html>
-      <p style="font-size:50px;text-align:center;margin-top:100px;">👋</>
+    <div style="text-align:center;margin-top:100px;">
+      <p style="font-size:50px;">👋</p>
+      <a style="font-size:12px;" href="https://git.io/v1WXJ">[source]</a>
+      </div>
     </html>
     HTML
   end
