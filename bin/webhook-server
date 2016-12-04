@@ -56,21 +56,8 @@ class WebhookServer
     print_body_and_yank_to_clipboard
 
     response.status = 200
-
-    current_directory = Pathname(Dir.pwd)
-    parsed_path_info  = Rack::Utils.unescape(request.env['PATH_INFO'])
-    requested_file    = Pathname("#{current_directory}#{parsed_path_info}")
-
-    if current_directory.children.include?(requested_file)
-      contents  = File.read(requested_file)
-      file_type = MIME::Types.type_for(requested_file.to_s).first.simplified
-
-      response['Content-Type'] = file_type
-      response.write(contents)
-    else
-      response['Content-Type'] = 'text/html'
-      response.write(default_html)
-    end
+    response['Content-Type'] = 'text/html'
+    response.write(default_html)
 
     print_delimiter
     puts "\n\n"
