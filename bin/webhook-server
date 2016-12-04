@@ -6,28 +6,40 @@ require 'pry'
 
 module TerminalColors
   def purple(text)
-    "\e[35m#{text}\e[0m"
+    colorize(text, 35)
   end
 
   def cyan(text)
-    "\e[36m#{text}\e[0m"
+    colorize(text, 36)
   end
 
   def grey(text)
-    "\e[90m#{text}\e[0m"
+    colorize(text, 90)
   end
 
   def yellow(text)
-    "\e[33m#{text}\e[0m"
+    colorize(text, 33)
+  end
+
+  def red(text)
+    colorize(text, 31)
+  end
+
+  def colorize(text, color)
+    "\e[#{color}m#{text}\e[0m"
   end
 end
 
 class WebhookServer
+  extend TerminalColors
   include TerminalColors
+
+  TERMINAL_SIZE = 80
 
   def self.call(env)
     new(env).process
   rescue => exception
+    puts red(exception.backtrace.join("\n"))
     binding.pry
   end
 
@@ -38,14 +50,12 @@ class WebhookServer
 
   def process
     print_delimiter
-    puts
-    print_request
-    puts
+    print_request_info
 
     if from_webhook?
       print_headers
       puts
-      print_body
+      print_body_and_yank_to_clipboard
 
       response.status = 204
       response['Content-Type'] = 'application/json'
@@ -55,7 +65,6 @@ class WebhookServer
       response.write(html)
     end
 
-    puts
     print_delimiter
     puts "\n\n"
 
@@ -67,19 +76,24 @@ class WebhookServer
   attr_reader :request, :response
 
   def print_delimiter
-    puts grey('*' * 80)
+    puts grey('*' * TERMINAL_SIZE)
   end
 
-  def print_request
+  def print_request_info
     method    = request.env.fetch('REQUEST_METHOD')
     uri       = request.env.fetch('REQUEST_URI')
     ip        = request.env.fetch('REMOTE_ADDR')
 
-    puts yellow(Time.now)
-    puts yellow("#{ip} - #{method} #{uri}")
+    request_info    = "#{ip} - #{method} #{uri}"
+    time_of_request = Time.now.to_s
+
+    spaces = ' ' * (TERMINAL_SIZE - (request_info.size + time_of_request.size))
+
+    puts yellow("#{request_info}#{spaces}#{time_of_request}")
   end
 
   def print_headers
+    puts
     parsed_request_headers.each do |key, value|
       name = humanize(key)
 
@@ -92,8 +106,9 @@ class WebhookServer
     end
   end
 
-  def print_body
+  def print_body_and_yank_to_clipboard
     formatted_json = JSON.pretty_generate(parsed_request_body)
+    system("echo '#{formatted_json}' | pbcopy")
     puts cyan(formatted_json)
   end
 
