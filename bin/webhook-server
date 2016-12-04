@@ -2,6 +2,7 @@
 
 require 'rack'
 require 'json'
+require 'mime/types'
 require 'pry'
 
 module TerminalColors
@@ -52,15 +53,23 @@ class WebhookServer
     print_delimiter
     print_request_info
     print_headers
+    print_body_and_yank_to_clipboard
 
-    if from_webhook?
-      print_body_and_yank_to_clipboard
-      response.status = 204
-      response['Content-Type'] = 'application/json'
+    response.status = 200
+
+    current_directory = Pathname(Dir.pwd)
+    parsed_path_info  = Rack::Utils.unescape(request.env['PATH_INFO'])
+    requested_file    = Pathname("#{current_directory}#{parsed_path_info}")
+
+    if current_directory.children.include?(requested_file)
+      contents  = File.read(requested_file)
+      file_type = MIME::Types.type_for(requested_file.to_s).first.simplified
+
+      response['Content-Type'] = file_type
+      response.write(contents)
     else
-      response.status = 200
       response['Content-Type'] = 'text/html'
-      response.write(html)
+      response.write(default_html)
     end
 
     print_delimiter
@@ -106,6 +115,7 @@ class WebhookServer
   end
 
   def print_body_and_yank_to_clipboard
+    return unless !request_body.empty?
     formatted_json = JSON.pretty_generate(parsed_request_body)
     system("echo '#{formatted_json}' | pbcopy")
     puts cyan(formatted_json)
@@ -123,7 +133,7 @@ class WebhookServer
     JSON.parse(request_body)
   end
 
-  def html
+  def default_html
     <<-HTML
     <html>
     <div style="text-align:center;margin-top:100px;">
@@ -132,10 +142,6 @@ class WebhookServer
       </div>
     </html>
     HTML
-  end
-
-  def from_webhook?
-    !request_body.empty?
   end
 
   def request_body
