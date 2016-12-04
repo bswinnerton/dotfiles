@@ -2,7 +2,6 @@
 
 require 'rack'
 require 'json'
-require 'mime/types'
 require 'pry'
 
 module TerminalColors
@@ -31,29 +30,26 @@ module TerminalColors
   end
 end
 
-class WebhookServer
-  extend TerminalColors
+class TunnelServer
   include TerminalColors
 
   TERMINAL_SIZE = 80
 
-  def self.call(env)
-    new(env).process
-  rescue => exception
-    puts red(exception.backtrace.join("\n"))
-    binding.pry
+  def initialize(port:)
+    @port   = port || 9292
+    @tunnel = Process.spawn(ssh_command)
   end
 
-  def initialize(env)
+  def call(env)
     @request  = Rack::Request.new(env)
     @response = Rack::Response.new
-  end
 
-  def process
     print_delimiter
     print_request_info
     print_headers
     print_body_and_yank_to_clipboard
+
+    #TODO: Forward request to http://localhost:#{port}
 
     response.status = 200
     response['Content-Type'] = 'text/html'
@@ -63,11 +59,14 @@ class WebhookServer
     puts "\n\n"
 
     response.finish
+  rescue => exception
+    puts red(exception.backtrace.join("\n"))
+    binding.pry
   end
 
   private
 
-  attr_reader :request, :response
+  attr_reader :port, :request, :response
 
   def print_delimiter
     puts grey('*' * TERMINAL_SIZE)
@@ -139,7 +138,11 @@ class WebhookServer
     pieces = string.split(/_|-/)
     pieces.map { |piece| piece.capitalize }.join('-')
   end
+
+  def ssh_command
+    "ssh -nNT -R 80:localhost:#{port} root@tunnel.computer"
+  end
 end
 
-Process.spawn('ssh -nNT -R 80:localhost:9292 root@brooks.sh')
-Rack::Server.start(app: WebhookServer)
+SERVER = TunnelServer.new(port: ARGV.first)
+Rack::Server.start(app: SERVER)
