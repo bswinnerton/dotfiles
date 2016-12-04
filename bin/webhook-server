@@ -51,12 +51,10 @@ class WebhookServer
   def process
     print_delimiter
     print_request_info
+    print_headers
 
     if from_webhook?
-      print_headers
-      puts
       print_body_and_yank_to_clipboard
-
       response.status = 204
       response['Content-Type'] = 'application/json'
     else
@@ -104,6 +102,7 @@ class WebhookServer
         puts purple("#{name}: #{value}").strip
       end
     end
+    puts
   end
 
   def print_body_and_yank_to_clipboard
