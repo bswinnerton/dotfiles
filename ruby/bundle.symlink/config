@@ -1,2 +1,2 @@
 ---
-BUNDLE_CONSOLE: pry
+BUNDLE_CONSOLE: "pry"
