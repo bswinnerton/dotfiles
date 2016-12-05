@@ -45,11 +45,11 @@ windows:
       panes:
         - vim
         - script/bootstrap && script/server
-  - webhooks:
-      root: ~/
+  - tunneled:
+      root: ~/Sites/tunneled
       layout: dc01,178x46,0,0{89x46,0,0,2,88x46,90,0,13}
       panes:
-        - webhook-server
+        - bundle exec tunneled
         -
   - dotfiles:
       root: ~/.dotfiles
