@@ -10,6 +10,7 @@ case "$(uname -s)" in
 esac
 
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.jenv/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$ZSH/bin:$PATH"
 export PATH="./bin:$PATH"
