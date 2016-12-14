@@ -33,7 +33,7 @@ root: ~/
 windows:
   - github:
       root: ~/github/github
-      layout: bd3b,178x46,0,0[178x38,0,0,224,178x7,0,39{89x7,0,39,225,88x7,90,39[88x3,90,39,226,88x3,90,43,227]}]
+      layout: 61a6,255x61,0,0[255x49,0,0,0,255x11,0,50{127x11,0,50,5,127x11,128,50[127x5,128,50,16,127x5,128,56,17]}]
       panes:
         - vim
         -
@@ -41,15 +41,17 @@ windows:
         - script/server
   - hookshot:
       root: ~/github/hookshot
-      layout: 9e8f,178x46,0,0[178x38,0,0,5,178x7,0,39,6]
+      layout: 5cbe,255x61,0,0[255x49,0,0,18,255x11,0,50{127x11,0,50,19,127x11,128,50,20}]
       panes:
         - vim
+        -
         - script/bootstrap && script/server
   - tunneled:
-      root: ~/Sites/tunneled
-      layout: dc01,178x46,0,0{89x46,0,0,2,88x46,90,0,13}
+      root: ~/Sites/tunneled-go
+      layout: d7c0,255x61,0,0{127x61,0,0,9,127x61,128,0[127x43,128,0,12,127x17,128,44,13]}
       panes:
-        - bundle exec tunneled
+        - vim tunneled.go
+        - ./tunneled
         -
   - dotfiles:
       root: ~/.dotfiles
@@ -59,7 +61,7 @@ windows:
         -
   - documentation:
       root: ~/github/internal-developer.github.com
-      layout: 9e8f,178x46,0,0[178x38,0,0,5,178x7,0,39,6]
+      layout: f96e,255x61,0,0[255x49,0,0,4,255x11,0,50,13]
       panes:
         - vim
-        - script/bootstrap && script/server
+        - script/server
