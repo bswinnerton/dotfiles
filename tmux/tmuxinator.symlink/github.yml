@@ -52,7 +52,7 @@ windows:
       panes:
         - vim tunneled.go
         - ./tunneled
-        -
+        - ssh -nNT -R 80:localhost:8000 root@tunneled.computer
   - dotfiles:
       root: ~/.dotfiles
       layout: dc03,178x46,0,0{89x46,0,0,3,88x46,90,0,13}
