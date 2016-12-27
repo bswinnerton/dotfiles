@@ -1,8 +1,7 @@
 call plug#begin('~/.vim/plugged')
 
 " Addons
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
