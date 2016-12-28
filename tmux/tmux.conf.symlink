@@ -52,7 +52,7 @@ set -g status-bg colour18       # Status bar backgorund color
 set -g status-left ''           # Hide the default contents of [0]
 
 # Set date and time on the right hand side
-set -g status-right '#[fg=colour175,bold] %a %b %d #[fg=colour210,bold] %l:%M%P '
+set -g status-right '#[fg=colour175,bold] %a %b %d #[fg=colour210,bold] %l:%M%p '
 
 setw -g window-status-current-fg colour220    # Foreground of active window
 setw -g window-status-current-bg colour8      # Background of active window
