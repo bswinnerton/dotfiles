@@ -12,7 +12,8 @@ let g:lightline = {
 	\   'cursorpercentage': 'LightlineCursorPercentage'
   \ },
   \ 'separator': { 'left': '', 'right': '' },
-  \ 'subseparator': { 'left': '', 'right': '' }
+  \ 'subseparator': { 'left': '', 'right': '' },
+  \ 'colorscheme': 'base16',
   \ }
 
 function! LightlineFugitive()
