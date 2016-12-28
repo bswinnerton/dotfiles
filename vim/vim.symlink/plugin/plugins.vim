@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 " Addons
 Plug 'itchyny/lightline.vim'
+Plug 'bswinnerton/vim-base16-lightline'
 Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
