@@ -12,3 +12,7 @@ bindkey -e
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
+
+# Enable shift tab selection
+zmodload zsh/complist
+bindkey -M menuselect '^[[Z' reverse-menu-complete
