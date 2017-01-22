@@ -140,6 +140,8 @@ if has('nvim')
 
   " base16 colorscheme overrides
   hi ColorColumn guibg=#2c323d
+  hi CursorColumn guibg=#2f3b44
+  hi CursorLine guibg=#2f3b44
 endif
 
 
