@@ -3,6 +3,7 @@
 #
 
 set-option -g default-terminal "screen-256color"
+set-option -ga terminal-overrides ",xterm-256color:Tc"
 set-option -g mouse on                  # Mouse support
 set-option -g base-index 1              # Start window numbers at 1
 set-window-option -g pane-base-index 1  # Start pane numbers at 1

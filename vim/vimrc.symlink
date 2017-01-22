@@ -130,6 +130,7 @@ map <Leader>s :Search<Space>
 
 if has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  set termguicolors
 
   function! s:fzf_statusline()
     setlocal statusline=\FZF
