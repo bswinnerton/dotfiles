@@ -137,6 +137,9 @@ if has('nvim')
   endfunction
 
   autocmd! User FzfStatusLine call <SID>fzf_statusline()
+
+  " base16 colorscheme overrides
+  hi ColorColumn guibg=#2c323d
 endif
 
 
