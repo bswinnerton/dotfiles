@@ -7,6 +7,7 @@ alias ls="ls -GpF"
 alias redraw="stty sane && clear"
 alias tmux="tmux -2"
 alias vi="vim"
+alias vim="nvim"
 alias webhook-proxy="ngrok http 4567 --hostname bswinnerton.ngrok.io"
 
 case "$(uname -s)" in
