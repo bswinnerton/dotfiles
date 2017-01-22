@@ -21,7 +21,7 @@ require 'sinatra'
           end
         end
 
-        parsed_json = JSON.pretty_generate(JSON.parse(body))
+        formatted_body = parse_if_json(body)
 
         parsed_headers.each do |key, value|
           name = humanize(key)
@@ -34,7 +34,7 @@ require 'sinatra'
           end
         end
 
-        puts "#{cyan(parsed_json)}\n\n"
+        puts "#{cyan(formatted_body)}\n\n"
       end
     rescue => exception
       binding.pry
@@ -45,6 +45,13 @@ end
 def humanize(string)
   pieces = string.split(/_|-/)
   pieces.map { |piece| piece.capitalize }.join('-')
+end
+
+def parse_if_json(text)
+  raw_json = JSON.parse(text)
+  JSON.pretty_generate(raw_json)
+rescue JSON::ParserError => exception
+  text
 end
 
 def purple(text)
