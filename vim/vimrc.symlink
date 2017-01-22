@@ -123,6 +123,22 @@ map <silent> <Leader>r :redraw!<CR>
 " Quick search
 map <Leader>s :Search<Space>
 
+
+"-------------------------------------------------------------------------------
+" Neovim-specific configurations
+"-------------------------------------------------------------------------------
+
+if has('nvim')
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+  function! s:fzf_statusline()
+    setlocal statusline=\FZF
+  endfunction
+
+  autocmd! User FzfStatusLine call <SID>fzf_statusline()
+endif
+
+
 "-------------------------------------------------------------------------------
 " Looking for more? Check out ~/.vim/plugin/* for plugin-specific configuration
 "-------------------------------------------------------------------------------
