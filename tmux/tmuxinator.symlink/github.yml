@@ -51,7 +51,7 @@ windows:
       layout: 6e5b,178x46,0,0{89x46,0,0,3,88x46,90,0,117}
       panes:
         - webhook-proxy
-        -
+        - webhook-server
   - dotfiles:
       root: ~/.dotfiles
       layout: 6e5b,178x46,0,0{89x46,0,0,3,88x46,90,0,117}
