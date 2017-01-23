@@ -141,6 +141,7 @@ install_dotfiles () {
 }
 
 setup_gitconfig
+install_dotfiles
 
 # find the installers and run them iteratively
 for installer in $(find . -name "*install.sh"); do
