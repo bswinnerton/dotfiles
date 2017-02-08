@@ -33,11 +33,16 @@ root: ~/
 windows:
   - github:
       root: ~/github/github
-      layout: 61a6,255x61,0,0[255x49,0,0,0,255x11,0,50{127x11,0,50,5,127x11,128,50[127x5,128,50,16,127x5,128,56,17]}]
+      layout: 5cbe,255x61,0,0[255x49,0,0,18,255x11,0,50{127x11,0,50,19,127x11,128,50,20}]
       panes:
         - vim
         -
         - script/console
+  - zeus:
+      root: ~/github/github
+      layout: 6e5b,178x46,0,0{89x46,0,0,3,88x46,90,0,117}
+      panes:
+        - zeus start
         - script/server
   - hookshot:
       root: ~/github/hookshot
