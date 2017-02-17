@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>net.linzner.LaunchBar.action.SpotifyPlayPause</string>
+	<key>CFBundleIconFile</key>
+	<string>com.spotify.client</string>
+	<key>CFBundleName</key>
+	<string>Play/Pause</string>
+	<key>CFBundleVersion</key>
+	<string>1.1</string>
+    <key>LBAbbreviation</key>
+    <string>Spotify</string>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBScriptName</key>
+			<string>default.scpt</string>
+		</dict>
+	</dict>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBSummary</key>
+		<string>This action toggles between play and pause in Spotify.</string>
+		<key>LBAuthor</key>
+		<string>Manfred Linzner</string>
+		<key>LBWebsiteURL</key>
+		<string>https://www.linzner.net/</string>
+		<key>LBUpdateURL</key>
+		<string>https://github.com/mlinzner/LaunchBarActions/raw/master/actions/Control%20Spotify/Spotify%20-%20Play:Pause.lbaction/Contents/Info.plist</string>
+		<key>LBDownloadURL</key>
+		<string>https://github.com/mlinzner/LaunchBarActions/blob/master/actions/Control%20Spotify/packages/Spotify%20-%20Play:Pause.lbaction?raw=true</string>
+		<key>LBChangelog</key>
+		<string>Added support for Update Checks.</string>        
+		<key>LBTwitter</key>
+		<string>@mlinzner</string>
+	</dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2015 Manfred Linzner</string>
+</dict>
+</plist>
