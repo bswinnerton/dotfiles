@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  See the LaunchBar developer documentation for descriptions of all these fields
+  https://developer.obdev.at/launchbar-developer-documentation/#/action-info-plist
+
+  You can find icons via http://osxdaily.com/2014/07/27/mac-os-x-system-icons-location/
+-->
+<plist version="1.0">
+<dict>
+  <key>CFBundleIdentifier</key>        <string>com.pea53.LaunchBar.action.Pomodoro</string>
+  <key>CFBundleName</key>              <string>Pomodoro</string>
+  <key>CFBundleVersion</key>           <string>1.0.0</string>
+  <key>LBAbbreviation</key>            <string>timer task</string>
+  <key>CFBundleIconFile</key>          <string>🍅</string>
+  <key>LBAssociatedApplication</key>   <string></string>
+  <key>LBRequiredApplication</key>     <string></string>
+  <key>LBMinimumLaunchBarVersion</key> <integer>6132</integer>
+  <key>LBDebugLogEnabled</key>         <false/>
+  <key>LBDescription</key>
+  <dict>
+    <key>LBSummary</key>
+    <string>Timer for pomodoro intervals: "Work on LaunchBar action 15m".
+LaunchBar will display a large message letting you know
+when the pomodoro interval is over.</string>
+    <key>LBRequirements</key> <string></string>
+    <key>LBArgument</key>     <string>Task to work on [interval]</string>
+    <key>LBResult</key>       <string></string>
+    <key>LBAuthor</key>       <string>Tim Pease</string>
+    <key>LBEmail</key>        <string>tim.pease@gmail.com</string>
+    <key>LBTwitter</key>      <string>@pea53</string>
+    <key>LBWebsiteURL</key>   <string>http://pea53.com</string>
+  </dict>
+  <key>LBScripts</key>
+  <dict>
+    <key>LBDefaultScript</key>
+    <dict>
+      <key>LBAcceptedArgumentTypes</key> <array><string>string</string></array>
+      <key>LBScriptName</key>            <string>pomodoro.js</string>
+      <key>LBRunInBackground</key>       <false/>
+      <key>LBKeepWindowActive</key>      <false/>
+      <key>LBLiveFeedbackEnabled</key>   <false/>
+      <key>LBRequiresArgument</key>      <false/>
+      <key>LBReturnsResult</key>         <true/>
+      <key>LBResultType</key>            <string></string>
+      <key>LBAllowsInstantReuseOfLastTextInputString</key> <false/>
+    </dict>
+  </dict>
+  <key>LBTextInputTitle</key>         <string>Pomodoro Task [interval]</string>
+  <key>LSMinimumSystemVersion</key>   <string>10.11</string>
+  <key>NSHumanReadableCopyright</key> <string>Copyright ©️ 2016 Tim Pease</string>
+</dict>
+</plist>
