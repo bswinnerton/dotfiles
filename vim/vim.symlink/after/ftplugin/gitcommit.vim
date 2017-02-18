@@ -24,8 +24,16 @@ function OpenCommitMessageDiff()
       call cursor(1, 0)
     endif
 
+    " Depending on the width of the window, split vertically or horiziontal
+    "
+    " 144 is wide enough to display two 72 character commit messages
+    if winwidth(0) >= 144
+      vnew
+    else
+      new
+    endif
+
     " Paste into a new buffer
-    vnew
     normal! V"zP
   finally
     " Restore the z register
