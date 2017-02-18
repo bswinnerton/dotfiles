@@ -8,31 +8,35 @@
 	<string>at.obdev.LaunchBar.action.SearchDash</string>
 	<key>CFBundleName</key>
 	<string>Search Dash</string>
-	<key>LBAssociatedApplication</key>
-	<string>com.kapeli.dash</string>
-	<key>LBRequiredApplication</key>
-	<string>com.kapeli.dash</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
-	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2014 Objective Development</string>
+	<key>LBArgument</key>
+	<string>The text to search for.</string>
+	<key>LBAssociatedApplication</key>
+	<string>com.kapeli.dash</string>
 	<key>LBDescription</key>
 	<dict>
-		<key>LBSummary</key>
-		<string>This action allows you to quickly search in Dash.</string>
-		<key>LBAuthor</key>
-		<string>Objective Development</string>
-		<key>LBWebsite</key>
-		<string>http://www.obdev.at/</string>
-		<key>LBTwitter</key>
-		<string>@launchbar</string>
-		<key>LBRequirements</key>
-		<string>Requires Dash.</string>
 		<key>LBArgument</key>
 		<string>The text to search for.</string>
+		<key>LBAuthor</key>
+		<string>Objective Development</string>
+		<key>LBRequirements</key>
+		<string>Requires Dash.</string>
 		<key>LBResult</key>
 		<string>Returns a list of matches that open in Dash.</string>
+		<key>LBSummary</key>
+		<string>This action allows you to quickly search in Dash.</string>
+		<key>LBTwitter</key>
+		<string>@launchbar</string>
+		<key>LBWebsiteURL</key>
+		<string>http://www.obdev.at/</string>
 	</dict>
+	<key>LBRequiredApplication</key>
+	<string>com.kapeli.dash</string>
+	<key>LBRequirements</key>
+	<string>Requires Dash.</string>
+	<key>LBResult</key>
+	<string>Returns a list of matches that open in Dash.</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
@@ -41,15 +45,23 @@
 			<array>
 				<string>string</string>
 			</array>
-			<key>LBScriptName</key>
-			<string>default.rb</string>
-			<key>LBRunInBackground</key>
+			<key>LBKeepWindowActive</key>
 			<true/>
 			<key>LBLiveFeedbackEnabled</key>
 			<true/>
 			<key>LBRequiresArgument</key>
 			<true/>
+			<key>LBResultType</key>
+			<string>unknown</string>
+			<key>LBReturnsResult</key>
+			<true/>
+			<key>LBRunInBackground</key>
+			<true/>
+			<key>LBScriptName</key>
+			<string>default.rb</string>
 		</dict>
 	</dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2014 Objective Development</string>
 </dict>
 </plist>
