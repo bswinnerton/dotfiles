@@ -1,0 +1,6 @@
+[submodule "launchbar/github.lbaction"]
+	path = launchbar/github.lbaction
+	url = https://github.com/bswinnerton/github.lbaction.git
+[submodule "tmux/tmux-resurrect"]
+	path = tmux/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect.git
