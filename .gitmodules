@@ -1,3 +1,7 @@
+[submodule "launchbar/launchbar-github"]
+	path = launchbar/launchbar-github
+	url = https://github.com/bswinnerton/launchbar-github.git
+	branch = master
 [submodule "tmux/tmux-resurrect"]
 	path = tmux/tmux-resurrect
 	url = https://github.com/tmux-plugins/tmux-resurrect.git
