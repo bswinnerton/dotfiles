@@ -1,5 +1,5 @@
-[submodule "launchbar/launchbar-github"]
-	path = launchbar/launchbar-github
+[submodule "launchbar/github.lbaction"]
+	path = launchbar/github.lbaction
 	url = https://github.com/bswinnerton/launchbar-github.git
 	branch = master
 [submodule "tmux/tmux-resurrect"]
