@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ -f $1 ] ; then
+  highlight --input $1 -O RTF -s zenburn | pbcopy
+  echo "Copied to clipboard"
+else
+  echo "You must provide a file"
+fi
