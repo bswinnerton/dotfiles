@@ -7,7 +7,7 @@ control_key_handler = function()
   send_escape = false
 end
 
-control_key_timer = hs.timer.delayed.new(0.15, control_key_handler)
+control_key_timer = hs.timer.delayed.new(0.20, control_key_handler)
 
 control_handler = function(evt)
   local new_mods = evt:getFlags()
