@@ -61,12 +61,12 @@ end
 
 if keyboard_found ~= false then
   notification_message = {
-    title = "Disabling tap control for escape",
+    title = "Tap control for escape disabled",
     informativeText = string.format("Found support on: %s", keyboard_found)
   }
 else
   notification_message = {
-    title = "Enabling tap control for escape",
+    title = "Tap control for escape enabled",
     informativeText = "On Apple keyboard"
   }
 end
