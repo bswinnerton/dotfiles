@@ -1,6 +1,10 @@
 #!/bin/sh
 
+nvim_config_file=~/.config/nvim
+
 mkdir -p ~/.config/
-if ! [ -f ~/.config/nvim ]; then
-  ln -s ~/.dotfiles/vim/vim.symlink ~/.config/nvim
+
+if [ ! -L "$nvim_config_file" ]; then
+  echo "No nvim config found. Symlinking to dotfiles"
+  ln -s ~/.dotfiles/vim/vim.symlink "$nvim_config_file"
 fi
