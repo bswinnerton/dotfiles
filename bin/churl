@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# Usage: churl [URL]
+#
+# Fires off a cURL request and only displays the headers
+
+curl -s -D - -o /dev/null "$@"
