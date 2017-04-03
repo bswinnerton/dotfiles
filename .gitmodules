@@ -8,3 +8,4 @@
 [submodule "fonts"]
 	path = fonts
 	url = https://github.com/bswinnerton/dotfiles-fonts.git
+	branch = master
