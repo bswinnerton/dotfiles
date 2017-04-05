@@ -78,12 +78,15 @@ augroup END
 
 
 "-------------------------------------------------------------------------------
-" Colors
+" Colors & Formatting
 "-------------------------------------------------------------------------------
 
 colorscheme base16-ocean
 let base16colorspace=256
 set background=dark
+
+" Showcase comments in italics
+highlight Comment cterm=italic gui=italic
 
 
 "-------------------------------------------------------------------------------
