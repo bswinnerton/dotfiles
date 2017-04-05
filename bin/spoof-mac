@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Usage: spoof-mac [MAC Address]
+#
+# Will change your WiFi MAC address to the one provided until the next restart.
+
+sudo /System/Library/PrivateFrameworks/Apple80211.framework/Resources/airport -z
+sudo ifconfig en0 ether "$@"
+networksetup -detectnewhardware
