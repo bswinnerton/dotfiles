@@ -2,8 +2,8 @@
 # Tmux settings for @bswinnerton
 #
 
-set-option -g default-terminal 'tmux-256color'
-set -as terminal-overrides ',xterm-256color-italic:Tc,tmux-256color:Tc,xterm*:sitm=\E[3m'
+set-option -g default-terminal 'tmux-256color-italic'
+set -as terminal-overrides ',xterm-256color-italic:Tc,tmux-256color-italic:Tc,xterm*:sitm=\E[3m'
 set-option -g mouse on                  # Mouse support
 set-option -g base-index 1              # Start window numbers at 1
 set-window-option -g pane-base-index 1  # Start pane numbers at 1
