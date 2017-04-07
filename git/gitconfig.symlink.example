@@ -17,10 +17,10 @@
   diff = auto
   status = auto
   branch = auto
-  ui = true
+  ui = auto
 [core]
   excludesfile = ~/.gitignore
-  editor = vim
+  editor = nvim
 [difftool]
   prompt = false
 [mergetool]
@@ -29,3 +29,5 @@
   default = upstream
 [commit]
   gpgsign = true
+[hub]
+  protocol = https
