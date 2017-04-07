@@ -59,19 +59,19 @@ for index, usb_device in pairs(hs.usb.attachedDevices()) do
   end
 end
 
-if keyboard_found ~= false then
-  notification_message = {
-    title = "Tap control for escape disabled",
-    informativeText = string.format("Found support on: %s", keyboard_found)
-  }
-else
-  notification_message = {
-    title = "Tap control for escape enabled",
-    informativeText = "On Apple keyboard"
-  }
-end
+-- if keyboard_found ~= false then
+--   notification_message = {
+--     title = "Tap control for escape disabled",
+--     informativeText = string.format("Found support on: %s", keyboard_found)
+--   }
+-- else
+--   notification_message = {
+--     title = "Tap control for escape enabled",
+--     informativeText = "On Apple keyboard"
+--   }
+-- end
 
-hs.notify.new(notification_message):send()
+-- hs.notify.new(notification_message):send()
 
 function usbDeviceCallback(data)
   hs.reload()
