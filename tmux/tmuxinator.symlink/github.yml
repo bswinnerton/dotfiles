@@ -63,9 +63,3 @@ windows:
       panes:
         - vim
         -
-  - documentation:
-      root: ~/github/internal-developer.github.com
-      layout: f96e,255x61,0,0[255x49,0,0,4,255x11,0,50,13]
-      panes:
-        - vim
-        - script/server
