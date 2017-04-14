@@ -36,6 +36,10 @@ function fish_prompt
   printf '%s' (__fish_git_prompt '%s')
 
   set_color normal
+  printf '\n'
 
-  printf '\n$ '
+  set_color cyan
+  printf '$ '
+
+  set_color normal
 end
