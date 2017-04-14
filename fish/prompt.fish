@@ -7,8 +7,7 @@ set __fish_git_prompt_showupstream 'yes'
 set __fish_git_prompt_color_dirtystate red
 set __fish_git_prompt_color_stagedstate red
 set __fish_git_prompt_color_untrackedfiles red
-set __fish_git_prompt_color_upstream_ahead red
-set __fish_git_prompt_color_upstream_behind red
+set __fish_git_prompt_color_upstream red
 set __fish_git_prompt_color_cleanstate red
 
 set __fish_git_prompt_char_cleanstate '✔'
