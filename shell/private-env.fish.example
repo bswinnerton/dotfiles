@@ -1,0 +1,8 @@
+set --universal --export GITHUB_PRODUCTION_TOKEN
+set --universal --export GITHUB_PRODUCTION_SITE_ADMIN_TOKEN
+
+set --universal --export GITHUB_PRODUCTION_TEST_USER_TOKEN
+set --universal --export GITHUB_PRODUCTION_TEST_USER_SITE_ADMIN_TOKEN
+
+set --universal --export GITHUB_DEVELOPMENT_TOKEN
+set --universal --export GITHUB_DEVELOPMENT_SITE_ADMIN_TOKEN
