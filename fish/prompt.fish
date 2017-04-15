@@ -1,3 +1,5 @@
+# Via https://git.io/vS5Tk
+
 set __fish_git_prompt_show_informative_status 'yes'
 
 set __fish_git_prompt_showdirtystate 'yes'
@@ -13,7 +15,7 @@ set __fish_git_prompt_color_cleanstate red
 set __fish_git_prompt_char_cleanstate '✔'
 set __fish_git_prompt_char_dirtystate '𝚫'
 set __fish_git_prompt_char_stagedstate '●'
-set __fish_git_prompt_char_untrackedfiles '✚'
+set __fish_git_prompt_char_untrackedfiles '+'
 set __fish_git_prompt_char_upstream_behind '⬇ '
 set __fish_git_prompt_char_upstream_ahead '⬆ '
 set __fish_git_prompt_char_stateseparator ' '
