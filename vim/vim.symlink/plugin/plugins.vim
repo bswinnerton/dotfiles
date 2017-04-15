@@ -30,6 +30,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'jparise/vim-graphql'
 Plug 'zerowidth/vim-copy-as-rtf'
 Plug 'fatih/vim-go'
+Plug 'dag/vim-fish'
 
 " Syntax errors
 Plug 'scrooloose/syntastic'
