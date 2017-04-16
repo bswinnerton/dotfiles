@@ -21,6 +21,3 @@ end
 
 # Execute Archey
 ~/.dotfiles/bin/archey
-
-# Resource FZF to ensure keybindings are set on top of ZSH
-sh ~/.dotfiles/fzf/fzf.auto.sh
