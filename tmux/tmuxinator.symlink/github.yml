@@ -50,7 +50,7 @@ windows:
       panes:
         - vim
         -
-        - script/bootstrap && script/server
+        - script/bootstrap; script/server
   - webhooks:
       root: ~/Sites/
       layout: 6e5b,178x46,0,0{89x46,0,0,3,88x46,90,0,117}
