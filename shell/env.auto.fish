@@ -1,1 +1,1 @@
-set -x -g EDITOR vim
+set -Ux EDITOR vim

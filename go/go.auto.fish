@@ -1,1 +1,1 @@
-set -x -g GOPATH $HOME/go
+set -Ux GOPATH $HOME/go
