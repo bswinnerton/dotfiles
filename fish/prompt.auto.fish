@@ -30,11 +30,13 @@ function fish_prompt
   set_color blue
   printf '%s' (prompt_pwd)
 
-  set_color normal
-  printf '|'
+  if git -C . rev-parse 2>/dev/null
+    set_color normal
+    printf '|'
 
-  set_color yellow
-  printf '%s' (__fish_git_prompt '%s')
+    set_color yellow
+    printf '%s' (__fish_git_prompt '%s')
+  end
 
   set_color normal
   printf '\n'
