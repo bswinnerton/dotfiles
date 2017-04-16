@@ -12,11 +12,11 @@ fi
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "$(brew --prefix)/opt/fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "$(brew --prefix)/opt/fzf/shell/completion.fish" 2> /dev/null
 
 # Key bindings
 # ------------
-source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
+source "$(brew --prefix)/opt/fzf/shell/key-bindings.fish"
 
 # Configuration Options
 # ---------------------
