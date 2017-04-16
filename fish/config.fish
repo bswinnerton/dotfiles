@@ -1,3 +1,7 @@
+if not status --is-interactive
+  exit
+end
+
 # Load any files that end in .fish first
 for file in ~/.dotfiles/**/*.auto.fish
   source $file
