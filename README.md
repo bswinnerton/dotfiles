@@ -24,8 +24,10 @@ There are a few special files and conventions to point out:
 
 - `bin/`: Anything in bin/ will be added to your `$PATH` and be made available
   to execute anywhere in your shell.
-- `topic/*.auto.sh`: Any files ending in .auto.sh get loaded into your
+- `topic/*.auto.fish`: Any files ending in .auto.fish get loaded into your
   environment.
+- `topic/*.auto.sh`: Any files ending in .auto.sh get loaded into your
+  environment, after any `.auto.fish` files.
 - `topic/path.sh`: Any file named path.sh is loaded first and is expected to
   setup `$PATH` or similar.
 - `topic/*.symlink`: Any files ending in `*.symlink` get symlinked into your
