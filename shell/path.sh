@@ -9,6 +9,7 @@ case "$(uname -s)" in
     ;;
 esac
 
+export PATH="$PATH:$(brew --prefix)/opt/fzf/bin"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.jenv/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
