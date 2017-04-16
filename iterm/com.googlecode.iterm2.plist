@@ -927,7 +927,7 @@
 	<key>NSWindow Frame NSColorPanel</key>
 	<string>786 485 201 309 0 0 1440 900 </string>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>995 130 445 211 0 0 1440 900 </string>
+	<string>995 113 445 94 0 0 1440 900 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>1598 961 606 456 0 0 2560 1417 </string>
 	<key>NSWindow Frame SUStatusFrame</key>
@@ -935,13 +935,13 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 393 620 392 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>496 249 796 473 0 0 1440 900 </string>
+	<string>499 291 918 495 0 0 1440 900 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 383 650 452 0 0 1440 877 </string>
+	<string>0 326 650 502 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>257 405 1154 407 0 0 1440 877 </string>
+	<string>1263 795 650 502 0 0 2560 1440 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>391 89 810 576 0 0 1440 878 </string>
 	<key>New Bookmarks</key>
@@ -1702,7 +1702,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color-italic</string>
 			<key>Thin Strokes</key>
-			<integer>1</integer>
+			<integer>0</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Triggers</key>
@@ -2605,7 +2605,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-04-06T00:17:12Z</date>
+	<date>2017-04-16T02:57:43Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -2631,7 +2631,7 @@
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
 	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1435705600</real>
+	<real>1492362112</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
