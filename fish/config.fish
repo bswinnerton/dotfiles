@@ -4,14 +4,14 @@ if not status --is-interactive
   exit
 end
 
-# Load any files that end in .fish first
-for file in ~/.dotfiles/**/*.auto.fish
+# Autoload any files that update the $PATH first
+for file in ~/.dotfiles/**/path.fish
   source $file
 end
 
-# Autoload any files that update the $PATH
-for file in ~/.dotfiles/**/path.sh
-  sh $file
+# Autoload any files that end in .auto.fish
+for file in ~/.dotfiles/**/*.auto.fish
+  source $file
 end
 
 # Autoload any files that end in auto.sh
