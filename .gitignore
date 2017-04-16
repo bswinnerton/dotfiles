@@ -4,3 +4,5 @@ private-env.zsh
 private-env.auto.fish
 ruby/bundle.symlink/cache/
 vim/vim.symlink/plugged
+
+fish/fishd.*

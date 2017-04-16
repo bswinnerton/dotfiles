@@ -1,12 +1,13 @@
 #!/bin/sh
 
-config_file=~/.config/fish/config.fish
+config_dir=~/.config
+config_file=$config_dir/fish/config.fish
 
-mkdir -p ~/.config/fish
+mkdir -p $config_dir
 
-if [ ! -L "$config_file" ]; then
+if [ ! -f "$config_file" ]; then
   echo "No fish config found. Symlinking to dotfiles"
-  ln -s ~/.dotfiles/fish/config.fish "$config_file"
+  ln -s ~/.dotfiles/fish "$config_dir"
 fi
 
 current_user=$(whoami)
