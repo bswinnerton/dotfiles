@@ -9,7 +9,7 @@ for file in ~/.dotfiles/**/*.auto.fish
   source $file
 end
 
-# Autoload any files that end in auto.sh
+# Autoload any files that update the $PATH
 for file in ~/.dotfiles/**/path.sh
   sh $file
 end
