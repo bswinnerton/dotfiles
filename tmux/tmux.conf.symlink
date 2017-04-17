@@ -42,7 +42,7 @@ bind 'L' swap-window -t +1   # Move window index to the right
 
 # Copy and paste
 setw -g mode-keys vi          # Vim keybindings in copy mode
-set-option -g default-command "reattach-to-user-namespace -l zsh"
+set-option -g default-command "reattach-to-user-namespace -l fish"
 
 # Status bar
 # Protip: Use `~/.dotfiles/bin/show-colors` script to show color options

@@ -135,8 +135,11 @@ if has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   set termguicolors
 
-  " Fix vim-tmux-navigator <C-h> https://github.com/neovim/neovim/issues/2048
+  " Fix vim-tmux-navigator <C-h> https://git.io/viGRU
   nmap <BS> <C-W>h
+
+  " Fix vim-tmux-navigator <C-h> https://git.io/vS5QH
+  nmap <BS> :<C-u>TmuxNavigateLeft<CR>
 
   function! s:fzf_statusline()
     setlocal statusline=\FZF
