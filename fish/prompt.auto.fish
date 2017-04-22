@@ -1,24 +1,26 @@
 # Via https://git.io/vS5Tk
 
-set __fish_git_prompt_show_informative_status 'yes'
+set -g __fish_git_prompt_show_informative_status 'yes'
 
-set __fish_git_prompt_showdirtystate 'yes'
-set __fish_git_prompt_showstashstate 'no'
-set __fish_git_prompt_showuntrackedfiles 'no'
-set __fish_git_prompt_showupstream 'yes'
-set __fish_git_prompt_color_dirtystate red
-set __fish_git_prompt_color_stagedstate red
-set __fish_git_prompt_color_untrackedfiles red
-set __fish_git_prompt_color_upstream red
-set __fish_git_prompt_color_cleanstate red
+set -g __fish_git_prompt_showdirtystate 'yes'
+set -g __fish_git_prompt_showstashstate 'no'
+set -g __fish_git_prompt_showuntrackedfiles 'no'
+set -g __fish_git_prompt_showupstream 'yes'
+set -g __fish_git_prompt_color_dirtystate red
+set -g __fish_git_prompt_color_stagedstate red
+set -g __fish_git_prompt_color_untrackedfiles red
+set -g __fish_git_prompt_color_upstream red
+set -g __fish_git_prompt_color_cleanstate red
+set -g __fish_git_prompt_color_invalidstate red
 
-set __fish_git_prompt_char_cleanstate '✔'
-set __fish_git_prompt_char_dirtystate '𝚫'
-set __fish_git_prompt_char_stagedstate '●'
-set __fish_git_prompt_char_untrackedfiles '+'
-set __fish_git_prompt_char_upstream_behind '⬇ '
-set __fish_git_prompt_char_upstream_ahead '⬆ '
-set __fish_git_prompt_char_stateseparator ' '
+set -g __fish_git_prompt_char_cleanstate '✔'
+set -g __fish_git_prompt_char_dirtystate '𝚫'
+set -g __fish_git_prompt_char_invalidstate 'x'
+set -g __fish_git_prompt_char_stagedstate '●'
+set -g __fish_git_prompt_char_untrackedfiles '+'
+set -g __fish_git_prompt_char_upstream_behind '⬇ '
+set -g __fish_git_prompt_char_upstream_ahead '⬆ '
+set -g __fish_git_prompt_char_stateseparator ' '
 
 function fish_prompt
   set_color green
