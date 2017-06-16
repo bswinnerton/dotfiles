@@ -25,8 +25,8 @@ bind C-l send-keys 'C-l' # Send CTRL + l (clear screen) if typed after tmux pref
 bind C-k send-keys 'C-k' # Send CTRL + k (delete line) if typed after tmux prefix
 
 # Setup 'v' to begin selection as in Vim
-bind -t vi-copy v begin-selection
-bind -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+bind -T copy-mode-vi 'v' send -X begin-selection
+bind -T copy-mode-vi 'y' send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
 
 # Smart pane switching with awareness of vim splits
 # See: https://github.com/christoomey/vim-tmux-navigator
