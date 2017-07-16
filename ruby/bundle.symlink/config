@@ -1,2 +1,3 @@
 ---
 BUNDLE_CONSOLE: "pry"
+BUNDLE_BUILD__NOKOGIRI: "--use-system-libraries --with-xml2-include=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.12.sdk/usr/include/libxml2"
