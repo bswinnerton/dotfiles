@@ -1,3 +1,4 @@
+--recurse=yes
 --exclude=db/*
 --exclude=log/*
 --exclude=node_modules
