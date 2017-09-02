@@ -9,32 +9,32 @@ require 'sinatra'
     begin
       body = request.body.read
 
+      parsed_headers = request.env.each_with_object({}) do |(key, value), hash|
+        if key.start_with?('HTTP_')
+          hash[key.gsub('HTTP_', '')] = value
+        end
+      end
+
+      formatted_body = parse_if_json(body)
+
+      parsed_headers.each do |key, value|
+        name = humanize(key)
+
+        case name
+        when 'Version'
+          puts purple(value).strip
+        else
+          puts purple("#{name}: #{value}").strip
+        end
+      end
+
+      puts "#{cyan(formatted_body)}\n\n"
+
       if body.empty?
         status 200
         '<html><p style="font-size:50px;text-align:center;margin-top:100px;">👋🏼</p></html>'
       else
         status 204
-
-        parsed_headers = request.env.each_with_object({}) do |(key, value), hash|
-          if key.start_with?('HTTP_')
-            hash[key.gsub('HTTP_', '')] = value
-          end
-        end
-
-        formatted_body = parse_if_json(body)
-
-        parsed_headers.each do |key, value|
-          name = humanize(key)
-
-          case name
-          when 'Version'
-            puts purple(value).strip
-          else
-            puts purple("#{name}: #{value}").strip
-          end
-        end
-
-        puts "#{cyan(formatted_body)}\n\n"
       end
     rescue => exception
       binding.pry
