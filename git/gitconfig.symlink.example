@@ -8,6 +8,7 @@
   helper = GIT_CREDENTIAL_HELPER
 [alias]
   br = branch
+  p = add -p
   co = checkout
   ci = commit
   coi = !git for-each-ref --sort=-committerdate --format='%(refname:short) (%(committerdate:relative))' refs/heads | fzf --reverse --nth=1 --preview 'git log --patch --color {1}...{1}~5' | awk '{print $1}' | xargs git checkout
