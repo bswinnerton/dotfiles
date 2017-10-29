@@ -33,7 +33,7 @@ Plug 'fatih/vim-go'
 Plug 'dag/vim-fish'
 
 " Syntax errors
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 Plug 'ntpeters/vim-better-whitespace'
 
 " Markdown support
