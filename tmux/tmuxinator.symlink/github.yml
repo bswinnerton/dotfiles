@@ -63,3 +63,6 @@ windows:
       panes:
         - vim
         -
+  - irssi:
+      panes:
+        - irssi
