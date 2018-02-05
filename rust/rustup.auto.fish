@@ -1,3 +1,3 @@
-if command --search rustup >/dev/null do
+if test -e $HOME/.cargo/env
   source $HOME/.cargo/env
 end
