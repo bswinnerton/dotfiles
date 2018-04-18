@@ -122,6 +122,10 @@ map <silent> <Leader>r :redraw!<CR>
 " Quick search
 map <Leader>s :Search<Space>
 
+" Courtesy of the Core vim course
+" Override dot in visual mode to send a 'normal mode' dot
+xnoremap . :normal .<CR>
+
 
 "-------------------------------------------------------------------------------
 " Neovim-specific configurations
