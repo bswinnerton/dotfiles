@@ -114,7 +114,7 @@ nnoremap k gk
 "-------------------------------------------------------------------------------
 
 " Use the space bar to unhighlight search results
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR><Esc>:let @/=''
+nnoremap <silent> <Space> :nohlsearch<CR>
 
 " Redraw the screen
 map <silent> <Leader>r :redraw!<CR>
