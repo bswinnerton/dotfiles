@@ -122,10 +122,17 @@ map <silent> <Leader>r :redraw!<CR>
 " Quick search
 map <Leader>s :Search<Space>
 
-" Courtesy of the Core vim course
+" The following are courtesy of the Core vim course
+
 " Override dot in visual mode to send a 'normal mode' dot
 xnoremap . :normal .<CR>
 
+" Use the @ key in visual mode to apply a given macro
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
 
 "-------------------------------------------------------------------------------
 " Neovim-specific configurations
