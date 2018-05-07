@@ -34,7 +34,18 @@ set :bind, '0.0.0.0'
 
       if body.empty?
         status 200
-        '<html><p style="font-size:50px;text-align:center;margin-top:100px;">👋🏼</p></html>'
+        <<~HTML
+          <html>
+            <head>
+              <meta charset="UTF-8">
+            </head>
+            <body>
+              <p style="font-size:50px;text-align:center;margin-top:100px;">
+                👋
+              </p>
+            </body>
+          </html>
+        HTML
       else
         status 204
       end
