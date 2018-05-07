@@ -4,6 +4,8 @@ require 'pry'
 require 'json'
 require 'sinatra'
 
+set :bind, '0.0.0.0'
+
 [:get, :post, :put, :patch, :delete].each do |method|
   send(method, '*') do
     begin
