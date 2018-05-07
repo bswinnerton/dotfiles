@@ -11,8 +11,8 @@
   p = add -p
   co = checkout
   ci = commit
-  coi = !"git branch --sort=-committerdate --format \"%(refname:short);%(creatordate:relative);%(committername)\" | column -s \";\" -t | fzf --reverse --nth=1 --preview \"git log --patch --color {1}...{1}~5\" | awk \"{print $1}\" | xargs git checkout"
-  coir = !"git branch -a --sort=-committerdate --format \"%(refname:short);%(creatordate:relative);%(committername)\" | column -s \";\" -t | fzf --reverse --nth=1 --preview \"git log --patch --color {1}...{1}~5\" | awk \"{print $1}\" | xargs git checkout"
+  coi = !"git branch --sort=-committerdate --format \"%(refname:short);%(creatordate:relative);%(committername)\" | column -s \";\" -t | fzf --reverse --nth=1 --preview \"git log --patch --color {1}...{1}~5\" | awk '{print $1}' | xargs git checkout"
+  coir = !"git branch -a --sort=-committerdate --format \"%(refname:short);%(creatordate:relative);%(committername)\" | column -s \";\" -t | fzf --reverse --nth=1 --preview \"git log --patch --color {1}...{1}~5\" | awk '{print $1}' | xargs git checkout"
   st = status
   staged = diff --staged
 [color]
