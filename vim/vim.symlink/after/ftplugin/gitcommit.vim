@@ -8,7 +8,7 @@
 " doesn't work if we do that.
 autocmd VimEnter COMMIT_EDITMSG call OpenCommitMessageDiff()
 function OpenCommitMessageDiff()
-  " Save the contents of the z register
+  " Save the contents of the original registers
   let old_z = getreg("z")
   let old_z_type = getregtype("z")
 
@@ -28,22 +28,49 @@ function OpenCommitMessageDiff()
     "
     " 144 is wide enough to display two 72 character commit messages
     if winwidth(0) >= 144
+      " Fetch the contents of the git log
+      let old_q = getreg("q")
+      let old_q_type = getregtype("q")
+      let @q = system("git log")
+
+      " Open a new vertical split
       vnew
+
+      " Insert the contents of the diff
+      normal! V"zP
+
+      " Set the filetype for syntax highlighting and lock for modifications
+      set filetype=diff noswapfile nomodified readonly
+      silent file [Changes\ to\ be\ committed]
+
+      " Open a new horizontal split
+      new
+
+      " Insert the contents of the git log
+      normal! V"qP
+
+      " Set the name type for syntax highlighting and lock for modifications
+      set filetype=git noswapfile nomodified readonly
+      silent file [Git\ log]
+
+      " Restore the q register
+      call setreg("q", old_q, old_q_type)
+
+      " Get back to the commit message
+      wincmd h
     else
       new
-    endif
+      normal! V"zP
 
-    " Paste into a new buffer
-    normal! V"zP
+      " Set the name type for syntax highlighting and lock for modifications
+      set filetype=git noswapfile nomodified readonly
+      silent file [Changes\ to\ be\ committed]
+
+      " Get back to the commit message
+      wincmd p
+    endif
   finally
     " Restore the z register
     call setreg("z", old_z, old_z_type)
   endtry
-
-  " Configure the buffer
-  set filetype=diff noswapfile nomodified readonly
-  silent file [Changes\ to\ be\ committed]
-
-  " Get back to the commit message
-  wincmd p
 endfunction
