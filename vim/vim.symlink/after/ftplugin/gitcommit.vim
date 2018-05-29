@@ -31,7 +31,7 @@ function OpenCommitMessageDiff()
       " Fetch the contents of the git log
       let old_q = getreg("q")
       let old_q_type = getregtype("q")
-      let @q = system("git log")
+      let @q = system("git log -n 100")
 
       " Open a new vertical split
       vnew
