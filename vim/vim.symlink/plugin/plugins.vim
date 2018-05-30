@@ -41,7 +41,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'junegunn/goyo.vim'
 
 " Git support
-Plug 'tpope/vim-fugitive', { 'commit': '444ba9fda5d05aa14c7e8664fa4a66a59c62a550' }
+Plug 'tpope/vim-rhubarb' | Plug 'tpope/vim-fugitive'
 
 " Themes
 Plug 'chriskempson/base16-vim'
