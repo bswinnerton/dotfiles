@@ -1,5 +1,9 @@
 --recurse=yes
 --exclude=db/*
 --exclude=log/*
---exclude=node_modules
+--exclude=node_modules/*
 --exclude=tmp
+
+--json-kinds=
+--css-kinds=
+--html-kinds=

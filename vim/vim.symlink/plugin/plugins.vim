@@ -43,6 +43,9 @@ Plug 'junegunn/goyo.vim'
 " Git support
 Plug 'tpope/vim-rhubarb' | Plug 'tpope/vim-fugitive'
 
+" ctags
+Plug 'ludovicchabant/vim-gutentags'
+
 " Themes
 Plug 'chriskempson/base16-vim'
 
