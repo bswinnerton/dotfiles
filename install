@@ -27,11 +27,11 @@ fail () {
 }
 
 setup_gitconfig () {
-  gpg --default-new-key-algo rsa4096 --gen-key
-
   if ! [ -f git/gitconfig.symlink ]
   then
     info 'setup gitconfig'
+
+    gpg --default-new-key-algo rsa4096 --gen-key
 
     git_credential='cache'
     if [ "$(uname -s)" == "Darwin" ]

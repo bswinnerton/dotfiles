@@ -1,7 +1,8 @@
 tap 'homebrew/cask-versions'
 
-brew 'reattach-to-user-namespace'
 brew 'coreutils'
+brew 'pinentry-mac'
+brew 'reattach-to-user-namespace'
 
 cask '1password'
 cask 'docker'
