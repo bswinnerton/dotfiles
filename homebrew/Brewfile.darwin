@@ -1,3 +1,5 @@
+tap 'homebrew/cask-versions'
+
 brew 'reattach-to-user-namespace'
 brew 'coreutils'
 
@@ -10,7 +12,7 @@ cask 'graphiql'
 cask 'hammerspoon'
 cask 'hex-fiend'
 cask 'istat-menus'
-cask 'iterm2'
+cask 'iterm2-beta'
 cask 'launchbar'
 cask 'licecap'
 cask 'monodraw'
