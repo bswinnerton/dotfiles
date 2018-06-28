@@ -140,6 +140,7 @@ install_dotfiles () {
   done
 }
 
+homebrew/install.sh
 setup_gitconfig
 install_dotfiles
 
