@@ -1,3 +1,5 @@
+tap 'universal-ctags/universal-ctags'
+
 brew 'fish'
 brew 'fzf'
 brew 'gist'
