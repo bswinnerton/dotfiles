@@ -1,6 +1,7 @@
 tap 'homebrew/cask-versions'
 
 brew 'coreutils'
+brew 'gnupg'
 brew 'pinentry-mac'
 brew 'reattach-to-user-namespace'
 
@@ -18,6 +19,7 @@ cask 'launchbar'
 cask 'licecap'
 cask 'monodraw'
 cask 'sequel-pro'
+cask 'slack'
 cask 'sketch'
 cask 'spotify'
 cask 'the-unarchiver'
