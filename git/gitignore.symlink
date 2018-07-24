@@ -3,6 +3,7 @@
 
 # CTags
 tags
+tags.*
 
 # Projectionist
 projections.json
