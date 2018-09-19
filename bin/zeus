@@ -7,4 +7,4 @@ then
   rm .zeus.sock
 fi
 
-bin/zeus $1
+bin/zeus $@
