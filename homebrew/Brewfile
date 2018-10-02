@@ -14,6 +14,7 @@ brew 'nmap'
 brew 'nodenv'
 brew 'rbenv'
 brew 'ripgrep'
+brew 'rsync'
 brew 'ruby-build'
 brew 'tmux'
 brew 'universal-ctags/universal-ctags/universal-ctags', args: ['HEAD']
