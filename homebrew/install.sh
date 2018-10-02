@@ -8,6 +8,7 @@
 echo "Installing Homebrew for you."
 
 sudo mkdir /usr/local/sbin/
+sudo chown -R $(whoami) /usr/local/sbin
 
 # Install the correct homebrew for each OS type
 if [[ "$(uname -s)" = "Darwin" ]]
