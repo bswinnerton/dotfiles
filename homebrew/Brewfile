@@ -1,6 +1,7 @@
 tap 'universal-ctags/universal-ctags'
 
 brew 'ansible'
+brew 'bgpq3'
 brew 'fish'
 brew 'fzf'
 brew 'gist'
