@@ -32,6 +32,7 @@ Plug 'jparise/vim-graphql'
 Plug 'zerowidth/vim-copy-as-rtf'
 Plug 'fatih/vim-go'
 Plug 'dag/vim-fish'
+Plug 'vim-scripts/bird-syntax'
 
 " Syntax errors
 Plug 'w0rp/ale'
