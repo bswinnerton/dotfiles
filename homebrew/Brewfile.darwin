@@ -1,6 +1,7 @@
 tap 'homebrew/cask-versions'
 
 brew 'coreutils'
+brew 'gnu-tar'
 brew 'gnupg'
 brew 'iproute2mac'
 brew 'pinentry-mac'
