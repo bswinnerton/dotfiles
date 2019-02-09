@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Usage: vnc-to-kvm [SSH Host] [KVM Name]
+# Usage: vnc-to-virsh [SSH Host] [KVM Name]
 #
 # Opens tunnel to SSH host, determines VNC display, and opens connection via
 # via OS X's built in VNC client.
@@ -10,7 +10,7 @@ trap "exit" INT TERM ERR
 trap "kill 0" EXIT
 
 if [[ -z $1 || -z $2 ]]; then
-  echo "Usage: vnc-to-kvm [SSH Host] [KVM Name]"
+  echo "Usage: vnc-to-virsh [SSH Host] [KVM Name]"
   exit 1
 fi
 
