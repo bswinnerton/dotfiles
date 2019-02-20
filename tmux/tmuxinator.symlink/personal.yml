@@ -37,9 +37,3 @@ windows:
       panes:
         - vim
         -
-  - homelab:
-      root: ~/Sites/home-lab
-      layout: 6e5b,178x46,0,0{89x46,0,0,3,88x46,90,0,117}
-      panes:
-        - vim
-        -
