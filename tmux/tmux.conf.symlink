@@ -61,15 +61,11 @@ set -g status-left ''           # Hide the default contents of [0]
 # Set date and time on the right hand side
 set -g status-right '#[fg=colour175,bold] %a %b %d #[fg=colour210,bold] %l:%M%p '
 
-setw -g window-status-current-fg colour220    # Foreground of active window
-setw -g window-status-current-bg colour8      # Background of active window
-setw -g window-status-current-attr bold       # Font styling of active window
-setw -g window-status-current-format ' #I#[fg=colour250] #[fg=colour252]#W '
+set -g window-status-current-format ' #I#[fg=colour250] #[fg=colour252]#W '
+set -g window-status-format ' #I#[fg=colour237] #[fg=colour250]#W '
 
-setw -g window-status-fg colour11             # Foreground of inactive windows
-setw -g window-status-bg colour18             # Background of inactive windows
-setw -g window-status-attr none               # Font styling of inactive windows
-setw -g window-status-format ' #I#[fg=colour237] #[fg=colour250]#W '
+set -g window-status-current-style fg=colour220,bg=colour8,bold
+set -g window-status-style fg=colour11,bg=colour18,none
 
 # Resurrect tmux windows and panes on restart
 run-shell ~/.dotfiles/tmux/tmux-resurrect/resurrect.tmux
