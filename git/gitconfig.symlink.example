@@ -22,7 +22,7 @@
   ui = auto
 [core]
   excludesfile = ~/.gitignore
-  editor = vim
+  editor = /usr/local/bin/nvim
 [difftool]
   prompt = false
 [mergetool]
