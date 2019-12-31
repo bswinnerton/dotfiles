@@ -26,7 +26,9 @@ fi
 
 echo "Starting SSH tunnel for VNC..."
 
-(ssh -L 5901:localhost:590$display_number -N $1) &
+port=$(($display_number + 5900))
+
+(ssh -L 5901:localhost:$port -N $1) &
 sleep 1
 
 echo "Opening VNC display..."
