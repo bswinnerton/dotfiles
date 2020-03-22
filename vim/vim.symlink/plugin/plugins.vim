@@ -28,6 +28,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'groenewege/vim-less'
 Plug 'tpope/vim-haml'
 Plug 'pangloss/vim-javascript'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'jparise/vim-graphql'
 Plug 'zerowidth/vim-copy-as-rtf'
 Plug 'fatih/vim-go'
