@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Usage: drac-proxy [SSH user]@[SSH host]
+#
+# Enables the SSH proxy setting in System Preferences and opens an SSH
+# connection to proxy requests through the given server
+
+trap 'cleanup && exit' INT
+trap 'exit' TERM ERR
+trap "kill 0" EXIT
+
+function cleanup() {
+  echo -e "\nClosing SSH connection..."
+  networksetup -setsocksfirewallproxystate "Wi-Fi" off
+}
+
+if [[ -z $1 ]]; then
+  echo "Usage: drac-proxy [SSH user]@[SSH host]"
+  exit 1
+fi
+
+echo "Enabling the SOCKS proxy on the Wi-Fi interface..."
+networksetup -setsocksfirewallproxy "Wi-Fi" localhost 8080
+
+echo "Establishing an SSH connection..."
+(ssh -D 8080 -N $1) &
+wait
