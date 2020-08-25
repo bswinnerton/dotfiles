@@ -46,6 +46,12 @@ bind-key -T copy-mode-vi C-l select-pane -R
 bind 'H' { swap-window -t -1; previous-window } # Move window index to the left
 bind 'L' { swap-window -t +1; next-window } # Move window index to the right
 
+# Resize panes
+bind 'h' { resize-pane -L 10 }
+bind 'j' { resize-pane -D 10 }
+bind 'k' { resize-pane -U 10 }
+bind 'l' { resize-pane -R 10 }
+
 # Copy and paste
 setw -g mode-keys vi          # Vim keybindings in copy mode
 set-option -g default-command "reattach-to-user-namespace -l fish"
