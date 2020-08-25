@@ -29,7 +29,6 @@ then
   # Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
   defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
-  # Enable better codecs on older machines
-  defaults write bluetoothaudiod "Enable AptX codec" -bool true
-  defaults write bluetoothaudiod "Enable AAC codec" -bool true
+  # Enable padded window resizing with Rectangle
+  defaults write com.knollsoft.Rectangle curtainChangeSize -int 2
 fi
