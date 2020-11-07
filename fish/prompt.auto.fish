@@ -21,6 +21,8 @@ set -g __fish_git_prompt_char_upstream_behind '⬇ '
 set -g __fish_git_prompt_char_upstream_ahead '⬆ '
 set -g __fish_git_prompt_char_stateseparator ' '
 
+set fish_greeting
+
 function fish_prompt
   set_color green
   printf '%s' (whoami)@(hostname)

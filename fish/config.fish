@@ -18,6 +18,3 @@ end
 for file in ~/.dotfiles/**/*.auto.sh
   sh $file
 end
-
-# Execute Archey
-~/.dotfiles/bin/archey
