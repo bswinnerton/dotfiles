@@ -35,6 +35,7 @@ Plug 'zerowidth/vim-copy-as-rtf'
 Plug 'fatih/vim-go'
 Plug 'dag/vim-fish'
 Plug 'vim-scripts/bird-syntax'
+Plug 'Glench/Vim-Jinja2-Syntax'
 
 " Syntax errors
 Plug 'w0rp/ale'
