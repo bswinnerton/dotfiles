@@ -13,5 +13,4 @@ alias speedtest "curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/m
 alias subl "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias tmux "tmux -2"
 alias vi "vim"
-alias vim "nvim"
 alias webhook-proxy "ngrok http 4567 --hostname bswinnerton.ngrok.io"

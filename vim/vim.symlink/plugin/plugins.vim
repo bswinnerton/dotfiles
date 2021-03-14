@@ -8,6 +8,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-surround'
+Plug 'ycm-core/youcompleteme'
 
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 
@@ -36,6 +37,8 @@ Plug 'fatih/vim-go'
 Plug 'dag/vim-fish'
 Plug 'vim-scripts/bird-syntax'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'cespare/vim-toml'
+Plug 'rust-lang/rust.vim'
 
 " Syntax errors
 Plug 'w0rp/ale'
