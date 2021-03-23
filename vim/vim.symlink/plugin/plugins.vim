@@ -36,6 +36,8 @@ Plug 'fatih/vim-go'
 Plug 'dag/vim-fish'
 Plug 'vim-scripts/bird-syntax'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'cespare/vim-toml'
+Plug 'rust-lang/rust.vim'
 
 " Syntax errors
 Plug 'w0rp/ale'
