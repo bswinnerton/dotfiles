@@ -83,12 +83,6 @@ set background=dark
 " Showcase comments in italics
 highlight Comment cterm=italic gui=italic
 
-" base16 colorscheme overrides
-hi ColorColumn guibg=#2c323d
-hi CursorColumn guibg=#2f3b44
-hi CursorLine guibg=#2f3b44
-hi CursorLineNr term=bold cterm=bold ctermfg=20 ctermbg=18 gui=bold guifg=#a7adba guibg=#343d46
-
 
 "-------------------------------------------------------------------------------
 " Custom Movement
@@ -151,7 +145,19 @@ if has('nvim')
 
   " Fix vim-tmux-navigator <C-h> https://git.io/vS5QH
   nmap <BS> :<C-u>TmuxNavigateLeft<CR>
+
+  function! s:fzf_statusline()
+    setlocal statusline=\FZF
+  endfunction
+
+  autocmd! User FzfStatusLine call <SID>fzf_statusline()
+
+  " base16 colorscheme overrides
+  hi ColorColumn guibg=#2c323d
+  hi CursorColumn guibg=#2f3b44
+  hi CursorLine guibg=#2f3b44
 endif
+
 
 "-------------------------------------------------------------------------------
 " Looking for more? Check out ~/.vim/plugin/* for plugin-specific configuration
