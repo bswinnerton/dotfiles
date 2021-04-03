@@ -6,8 +6,8 @@ Plug 'bswinnerton/vim-base16-lightline'
 Plug 'scrooloose/nerdtree'
 Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'ervandew/supertab'
 Plug 'tpope/vim-surround'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 
