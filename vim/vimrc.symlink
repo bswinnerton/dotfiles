@@ -47,11 +47,11 @@ set wildignore+=*/node_modules/
 " Interface
 "-------------------------------------------------------------------------------
 
-set number            " Enable line numbers
-set cursorline        " Horizontal crosshair
-set cursorcolumn      " Vertical crosshair
-set scrolloff=5       " Leave 5 lines of buffer when scrolling
-set sidescrolloff=10  " Leave 10 characters of horizontal buffer when scrolling
+set number relativenumber " Enable relative line numbers
+set cursorline            " Horizontal crosshair
+set cursorcolumn          " Vertical crosshair
+set scrolloff=5           " Leave 5 lines of buffer when scrolling
+set sidescrolloff=10      " Leave 10 characters of horizontal buffer when scrolling
 
 " Hide horizontal cursor when focus changes
 augroup CursorLine
