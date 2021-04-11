@@ -1,5 +1,6 @@
 tap 'universal-ctags/universal-ctags'
 
+brew 'alacritty'
 brew 'ansible'
 brew 'bat'
 brew 'bgpq3'
