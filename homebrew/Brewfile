@@ -1,6 +1,5 @@
 tap 'universal-ctags/universal-ctags'
 
-brew 'alacritty'
 brew 'ansible'
 brew 'bat'
 brew 'bgpq3'
@@ -28,3 +27,5 @@ brew 'ruby-build'
 brew 'tmux'
 brew 'universal-ctags/universal-ctags/universal-ctags', args: ['HEAD']
 brew 'wget'
+
+cask 'alacritty'
