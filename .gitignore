@@ -5,6 +5,7 @@ private-env.auto.fish
 ruby/bundle.symlink/cache/
 vim/vim.symlink/plugged
 vim/vim.symlink/spell
+vim/vim.symlink/undo
 tags*
 
 fish/fishd.*
