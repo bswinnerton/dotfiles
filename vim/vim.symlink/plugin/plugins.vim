@@ -8,6 +8,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'airblade/vim-rooter'
 
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 
