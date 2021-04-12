@@ -40,7 +40,7 @@ windows:
         - script/console
         - script/server
   - hookshot:
-      root: ~/github/hookshot
+      root: ~/github/hookshot-go
       layout: 5cbe,255x61,0,0[255x49,0,0,18,255x11,0,50{127x11,0,50,19,127x11,128,50,20}]
       panes:
         - vim
