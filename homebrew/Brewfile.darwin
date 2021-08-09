@@ -1,5 +1,3 @@
-tap 'homebrew/cask-versions'
-
 brew 'coreutils'
 brew 'gnu-tar'
 brew 'gnupg'
