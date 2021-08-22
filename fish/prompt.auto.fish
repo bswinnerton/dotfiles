@@ -36,9 +36,13 @@ function fish_prompt
   if git -C . rev-parse 2>/dev/null
     set_color normal
     printf '|'
-
     set_color yellow
-    printf '%s' (__fish_git_prompt '%s')
+
+    if test (pwd) != "$HOME/stripe/pay-server"
+      printf '%s' (__fish_git_prompt '%s')
+    else
+      printf '%s' (git rev-parse --abbrev-ref HEAD)
+    end
   end
 
   set_color normal
