@@ -25,7 +25,7 @@ set fish_greeting
 
 function fish_prompt
   set_color green
-  printf '%s' (whoami)@(hostname)
+  printf '%s' (whoami)@(hostname -s)
 
   set_color normal
   printf ':'
