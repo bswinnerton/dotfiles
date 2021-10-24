@@ -16,6 +16,6 @@ fish_path=$(which fish)
 #FIXME: Suppress the $fish_path from being outputted on the screen
 grep -qF "fish" /etc/shells || echo $fish_path | sudo tee -a /etc/shells
 
-sudo chsh -s $fish_path $current_user
+chsh -s $fish_path $current_user
 
 unset current_user fish_path
