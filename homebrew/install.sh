@@ -6,7 +6,7 @@
 # using Homebrew.
 
 OS="`uname -s`"
-if [ "$OS" == "Darwin" ]; then
+if [ $OS = "Darwin" ]; then
   echo "Installing Homebrew."
 
   sudo mkdir -p /usr/local/sbin/

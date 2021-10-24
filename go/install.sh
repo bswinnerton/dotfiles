@@ -1,7 +1,7 @@
 mkdir -p $HOME/go/bin
 
 OS="`uname -s`"
-if [ "$OS" == "Darwin" ]; then
+if [ $OS = "Darwin" ]; then
   brew install golang
 else
   sudo apt-get update

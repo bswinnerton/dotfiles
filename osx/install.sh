@@ -3,7 +3,7 @@
 # Inspired by: http://mths.be/osx
 
 OS="`uname -s`"
-if [ $OS == "Darwin" ]; then
+if [ $OS = "Darwin" ]; then
   # Set sidebar icon size to small
   defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
 
