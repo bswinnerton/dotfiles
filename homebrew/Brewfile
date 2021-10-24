@@ -26,5 +26,3 @@ brew 'rsync'
 brew 'ruby-build'
 brew 'tmux'
 brew 'wget'
-
-cask 'alacritty'

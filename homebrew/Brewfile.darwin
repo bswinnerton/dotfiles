@@ -4,3 +4,5 @@ brew 'gnupg'
 brew 'iproute2mac'
 brew 'pinentry-mac'
 brew 'reattach-to-user-namespace'
+
+cask 'alacritty'
