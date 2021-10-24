@@ -6,7 +6,7 @@
 # using Homebrew.
 
 OS="`uname -s`"
-if [ $OS == "Darwin" ]; then
+if [ "$OS" == "Darwin" ]; then
   echo "Installing Homebrew."
 
   sudo mkdir -p /usr/local/sbin/
@@ -21,5 +21,4 @@ if [ $OS == "Darwin" ]; then
   brew tap Homebrew/bundle
   brew update
   brew bundle --file="$HOME/.dotfiles/homebrew/Brewfile"
-  brew bundle --file="$HOME/.dotfiles/homebrew/Brewfile.darwin"
 fi

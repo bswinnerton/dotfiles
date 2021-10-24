@@ -1,7 +1,7 @@
 #!/bin/sh
 
 OS="`uname -s`"
-if [ $OS == "Darwin" ]; then
+if [ "$OS" == "Darwin" ]; then
   base_path=~/Library/Application\ Support/LaunchBar
 
   snippets_path=$base_path/Snippets
