@@ -1,5 +1,6 @@
 #!/bin/sh
 
-echo "Installing Rust"
-
-curl https://sh.rustup.rs -sSf | sh -s -- -y
+if [ ! -f "$HOME/.cargo/bin/rustc" ]; then
+  echo "Installing Rust"
+  curl https://sh.rustup.rs -sSf | sh -s -- -y
+fi
