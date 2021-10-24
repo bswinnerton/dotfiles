@@ -1,7 +1,0 @@
-brew 'pkg-config'
-brew 'openssl'
-brew 'curl'
-brew 'python'
-brew 'tcl-tk', args: ['without-tk']
-brew 'm4'
-brew 'git', args: ['with-brewed-openssl', 'with-brewed-curl']

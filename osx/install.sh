@@ -2,8 +2,8 @@
 
 # Inspired by: http://mths.be/osx
 
-if [ "$(uname -s)" == "Darwin" ]
-then
+OS="`uname -s`"
+if [ $OS == "Darwin" ]; then
   # Set sidebar icon size to small
   defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
 
