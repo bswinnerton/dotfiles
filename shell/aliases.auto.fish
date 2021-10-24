@@ -2,7 +2,6 @@ alias b "bundle"
 alias be "bundle exec"
 alias cdr "cd (git rev-parse --show-toplevel)"
 alias gist "gist -p"
-alias git "/usr/local/bin/git"
 alias gti "git"
 alias history "less ~/.local/share/fish/fish_history"
 alias irssi 'env TERM=screen-256color irssi'
