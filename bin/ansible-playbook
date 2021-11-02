@@ -3,4 +3,6 @@
 # Gets around the fork safety problem in OS X.
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-/usr/local/bin/ansible-playbook $@
+# Temporary workaround to solve SSL issues
+#/usr/local/bin/ansible-playbook $@
+/usr/local/opt/ansible@2.9/bin/ansible-playbook $@
