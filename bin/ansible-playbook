@@ -4,5 +4,5 @@
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 # Temporary workaround to solve SSL issues
-#/usr/local/bin/ansible-playbook $@
-/usr/local/opt/ansible@2.9/bin/ansible-playbook $@
+/opt/homebrew/bin/ansible-playbook $@
+#/usr/local/opt/ansible@2.9/bin/ansible-playbook $@

@@ -9,8 +9,8 @@ OS="`uname -s`"
 if [ $OS = "Darwin" ]; then
   echo "Installing Homebrew."
 
-  sudo mkdir -p /usr/local/sbin/
-  sudo chown -R $(whoami) /usr/local/sbin
+  sudo mkdir -p /opt/homebrew/sbin/
+  sudo chown -R $(whoami) /opt/homebrew/sbin
 
   # Install Brew if it's not already installed
   if ! [ -x "$(command -v brew)" ]; then

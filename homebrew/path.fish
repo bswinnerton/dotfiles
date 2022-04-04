@@ -1,1 +1,1 @@
-set -g -x fish_user_paths /usr/local/sbin $fish_user_paths
+set -U fish_user_paths /opt/homebrew/bin $fish_user_paths
