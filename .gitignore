@@ -1,5 +1,6 @@
 .DS_Store
 fish/fishd.*
+fish/fish_variables
 git/gitconfig.symlink
 homebrew/Brewfile.*lock.json
 private-env.zsh
