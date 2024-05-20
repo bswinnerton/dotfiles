@@ -40,6 +40,8 @@ function fish_prompt
 
     if test (pwd) != "$HOME/stripe/pay-server"
       printf '%s' (__fish_git_prompt '%s')
+    else if test (pwd) != "$HOME/stripe/zoolander"
+      printf '%s' (__fish_git_prompt '%s')
     else
       printf '%s' (git rev-parse --abbrev-ref HEAD)
     end
