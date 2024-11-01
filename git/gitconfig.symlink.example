@@ -1,18 +1,6 @@
-[user]
-  name = AUTHOR_NAME
-  email = AUTHOR_EMAIL
-  signingkey = GPG_SIGNING_KEY
-[github]
-  user = AUTHOR_HANDLE
-[credential]
-  helper = GIT_CREDENTIAL_HELPER
 [alias]
-  br = branch
-  p = add -p
   co = checkout
   ci = commit
-  coi = !"git branch --sort=-committerdate --format \"%(refname:short);%(creatordate:relative);%(committername)\" | column -s \";\" -t | fzf --reverse --nth=1 --preview \"git log --patch --color {1}...{1}~5\" | awk '{print $1}' | xargs git checkout"
-  coir = !"git branch -a --sort=-committerdate --format \"%(refname:short);%(creatordate:relative);%(committername)\" | column -s \";\" -t | fzf --reverse --nth=1 --preview \"git log --patch --color {1}...{1}~5\" | awk '{print $1}' | xargs git checkout"
   st = status
   staged = diff --staged
 [color]
@@ -31,11 +19,8 @@
   default = upstream
 [commit]
   gpgsign = true
-[hub]
-  protocol = https
 [sendemail]
   confirm = auto
   smtpServer = smtp.gmail.com
   smtpServerPort = 587
   smtpEncryption = tls
-  smtpUser = bswinnerton@gmail.com
