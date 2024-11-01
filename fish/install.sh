@@ -5,7 +5,10 @@ config_file=$config_dir/fish/config.fish
 
 mkdir -p $config_dir
 
-ln -s ~/.dotfiles/fish ~/.config
+if [ ! -f "$config_file" ]; then
+  rm -rf ~/.config/fish
+  ln -s ~/.dotfiles/fish ~/.config
+fi
 
 current_user=$(whoami)
 fish_path=$(which fish)
