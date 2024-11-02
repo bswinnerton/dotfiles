@@ -33,7 +33,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'jparise/vim-graphql'
-Plug 'zerowidth/vim-copy-as-rtf'
 Plug 'fatih/vim-go'
 Plug 'dag/vim-fish'
 Plug 'vim-scripts/bird-syntax'
