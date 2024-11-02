@@ -87,7 +87,7 @@ augroup END
 " Colors & Formatting
 "-------------------------------------------------------------------------------
 
-colorscheme base16-ocean
+silent! colorscheme base16-ocean
 let base16colorspace=256
 set background=dark
 
