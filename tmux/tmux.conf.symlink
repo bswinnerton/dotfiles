@@ -26,7 +26,7 @@ bind C-k send-keys 'C-k' # Send CTRL + k (delete line) if typed after tmux prefi
 
 # Setup 'v' to begin selection as in Vim
 bind -T copy-mode-vi 'v' send -X begin-selection
-bind -T copy-mode-vi 'y' send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+#bind -T copy-mode-vi 'y' send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
 
 # Smart pane switching with awareness of vim splits
 # See: https://github.com/christoomey/vim-tmux-navigator
@@ -54,7 +54,7 @@ bind 'l' { resize-pane -R 10 }
 
 # Copy and paste
 setw -g mode-keys vi          # Vim keybindings in copy mode
-set-option -g default-command "reattach-to-user-namespace -l fish"
+#set-option -g default-command "reattach-to-user-namespace -l fish"
 
 # Status bar
 # Protip: Use `~/.dotfiles/bin/show-colors` script to show color options
