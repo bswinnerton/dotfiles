@@ -13,7 +13,7 @@ let g:lightline = {
   \ },
   \ 'separator': { 'left': '', 'right': '' },
   \ 'subseparator': { 'left': '', 'right': '' },
-  \ 'colorscheme': 'base16',
+  \ 'colorscheme': 'nord',
   \ }
 
 function! LightlineFugitive()

@@ -87,9 +87,9 @@ augroup END
 " Colors & Formatting
 "-------------------------------------------------------------------------------
 
-silent! colorscheme base16-ocean
-let base16colorspace=256
-set background=dark
+silent! colorscheme tokyonight-storm
+"let base16colorspace=256
+"set background=dark
 
 " Showcase comments in italics
 highlight Comment cterm=italic gui=italic
@@ -164,10 +164,10 @@ if has('nvim')
   autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
   " base16 colorscheme overrides
-  hi ColorColumn guibg=#2c323d
-  hi CursorColumn guibg=#2f3b44
-  hi CursorLine guibg=#2f3b44
-  hi CursorLineNr cterm=bold
+  "hi ColorColumn guibg=#2c323d
+  "hi CursorColumn guibg=#2f3b44
+  "hi CursorLine guibg=#2f3b44
+  "hi CursorLineNr cterm=bold
 endif
 
 

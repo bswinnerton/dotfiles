@@ -2,8 +2,8 @@
 # Tmux settings for @bswinnerton
 #
 
-set-option -g default-terminal 'tmux-256color-italic'
-set -as terminal-overrides ',xterm-256color-italic:Tc,tmux-256color-italic:Tc,xterm*:sitm=\E[3m'
+set-option -g default-terminal 'tmux-256color'
+#set -as terminal-overrides ',xterm-256color-italic:Tc,tmux-256color-italic:Tc,xterm*:sitm=\E[3m'
 set-option -g mouse on                  # Mouse support
 set-option -g base-index 1              # Start window numbers at 1
 set-window-option -g pane-base-index 1  # Start pane numbers at 1
@@ -26,7 +26,6 @@ bind C-k send-keys 'C-k' # Send CTRL + k (delete line) if typed after tmux prefi
 
 # Setup 'v' to begin selection as in Vim
 bind -T copy-mode-vi 'v' send -X begin-selection
-#bind -T copy-mode-vi 'y' send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
 
 # Smart pane switching with awareness of vim splits
 # See: https://github.com/christoomey/vim-tmux-navigator
@@ -36,7 +35,6 @@ bind-key -n C-h if-shell "$is_vim" "send-keys C-h"  "select-pane -L"
 bind-key -n C-j if-shell "$is_vim" "send-keys C-j"  "select-pane -D"
 bind-key -n C-k if-shell "$is_vim" "send-keys C-k"  "select-pane -U"
 bind-key -n C-l if-shell "$is_vim" "send-keys C-l"  "select-pane -R"
-#bind-key -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
 bind-key -T copy-mode-vi C-h select-pane -L
 bind-key -T copy-mode-vi C-j select-pane -D
 bind-key -T copy-mode-vi C-k select-pane -U
@@ -54,24 +52,22 @@ bind 'l' { resize-pane -R 10 }
 
 # Copy and paste
 setw -g mode-keys vi          # Vim keybindings in copy mode
-#set-option -g default-command "reattach-to-user-namespace -l fish"
 
 # Status bar
 # Protip: Use `~/.dotfiles/bin/show-colors` script to show color options
 set-option -g status on
 
 set -g status-position bottom   # Position on the bottom
-set -g status-bg colour18       # Status bar backgorund color
+set -g status-bg color8         # Status bar backgorund color
 set -g status-left ''           # Hide the default contents of [0]
 
 # Set date and time on the right hand side
-set -g status-right '#[fg=colour175,bold] %a %b %d #[fg=colour210,bold] %l:%M%p '
+set -g status-right '#[fg=color175,bold] %a %b %d #[fg=color210,bold] %l:%M%p '
 
-set -g window-status-current-format ' #I#[fg=colour250] #[fg=colour252]#W '
-set -g window-status-format ' #I#[fg=colour237] #[fg=colour250]#W '
-
-set -g window-status-current-style fg=colour220,bg=colour8,bold
-set -g window-status-style fg=colour11,bg=colour18,none
+set -g window-status-current-format ' #I#[fg=color235] #[fg=color255]#W '
+set -g window-status-format ' #[fg=color232]#I #[fg=color232]#W '
+set -g window-status-current-style fg=color214,bold
+set -g window-status-style fg=color235
 
 # Plugins
 set -g @plugin 'tmux-plugins/tpm'

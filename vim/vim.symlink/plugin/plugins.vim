@@ -55,6 +55,7 @@ Plug 'ludovicchabant/vim-gutentags'
 
 " Themes
 Plug 'chriskempson/base16-vim'
+Plug 'folke/tokyonight.nvim'
 
 " Testing
 Plug 'janko-m/vim-test'
