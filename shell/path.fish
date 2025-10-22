@@ -1,5 +1,4 @@
-set -g fish_user_paths ./bin $fish_user_paths
-set -g fish_user_paths ~/.dotfiles/bin $fish_user_paths
+set -gxp PATH ~/.dotfiles/bin
 
 if type -q brew
   set -g fish_user_paths /opt/homebrew/sbin $fish_user_paths

@@ -18,3 +18,6 @@ end
 for file in (rg --files ~/.dotfiles/ | rg ".*\.auto.sh\z")
   sh $file
 end
+
+# Ensure ./bin is first in PATH after all other configs have loaded
+set -gxp PATH ./bin
