@@ -5,17 +5,17 @@ if not status --is-interactive
 end
 
 # Autoload any files that update the $PATH first
-for file in (rg --files ~/.dotfiles/ | rg path.fish)
+for file in ~/.dotfiles/**/path.fish
   source $file
 end
 
 # Autoload any files that end in .auto.fish
-for file in (rg --files ~/.dotfiles/ | rg ".*\.auto.fish\z")
+for file in ~/.dotfiles/**/*.auto.fish
   source $file
 end
 
 # Autoload any files that end in auto.sh
-for file in (rg --files ~/.dotfiles/ | rg ".*\.auto.sh\z")
+for file in ~/.dotfiles/**/*.auto.sh
   sh $file
 end
 
