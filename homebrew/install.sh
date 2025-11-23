@@ -23,7 +23,6 @@ if [ $OS = "Darwin" ]; then
   fi
 
   # Install dependencies defined in Brewfile
-  brew tap Homebrew/bundle
   brew update
   brew bundle --file="$HOME/.dotfiles/homebrew/Brewfile"
 fi
