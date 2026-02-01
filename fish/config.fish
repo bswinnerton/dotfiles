@@ -21,3 +21,4 @@ end
 
 # Ensure ./bin is first in PATH after all other configs have loaded
 set -gxp PATH ./bin
+export PATH="$HOME/.local/bin:$PATH"
