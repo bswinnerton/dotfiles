@@ -1,3 +1,3 @@
 if type -q pyenv
-  status --is-interactive; and source (pyenv init -|psub)
+  pyenv init - fish | source
 end
