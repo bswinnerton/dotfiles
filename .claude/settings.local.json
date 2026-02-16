@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pyenv init:*)",
+      "Bash(pyenv --version:*)",
+      "Bash(pyenv versions:*)",
+      "Bash(fish:*)"
+    ]
+  }
+}
