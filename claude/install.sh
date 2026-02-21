@@ -8,5 +8,5 @@ fi
 
 # Seed ~/.claude.json with preferences to skip onboarding flow
 if [ ! -f ~/.claude.json ]; then
-  cp ~/.dotfiles/claude/claude.json ~/.claude.json
+  sed "s|\$HOME|$HOME|g" ~/.dotfiles/claude/claude.json > ~/.claude.json
 fi

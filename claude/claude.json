@@ -2,22 +2,22 @@
   "theme": "dark",
   "hasCompletedOnboarding": true,
   "projects": {
-    "/home/brooks/dev/dev": {
+    "$HOME/dev/dev": {
       "hasTrustDialogAccepted": true
     },
-    "/home/brooks/dev/neptune-networks/containers": {
+    "$HOME/dev/neptune-networks/containers": {
       "hasTrustDialogAccepted": true
     },
-    "/home/brooks/dev/neptune-networks/infrastructure": {
+    "$HOME/dev/neptune-networks/infrastructure": {
       "hasTrustDialogAccepted": true
     },
-    "/home/brooks/dev/neptune-networks/ipguide": {
+    "$HOME/dev/neptune-networks/ipguide": {
       "hasTrustDialogAccepted": true
     },
-    "/home/brooks/dev/neptune-networks/neptune": {
+    "$HOME/dev/neptune-networks/neptune": {
       "hasTrustDialogAccepted": true
     },
-    "/home/brooks/dev/neptune-networks/network": {
+    "$HOME/dev/neptune-networks/network": {
       "hasTrustDialogAccepted": true
     }
   }
