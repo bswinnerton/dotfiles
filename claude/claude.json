@@ -19,6 +19,24 @@
     },
     "$HOME/dev/neptune-networks/network": {
       "hasTrustDialogAccepted": true
+    },
+    "$HOME/Sites/dev": {
+      "hasTrustDialogAccepted": true
+    },
+    "$HOME/Sites/neptune-networks/containers": {
+      "hasTrustDialogAccepted": true
+    },
+    "$HOME/Sites/neptune-networks/infrastructure": {
+      "hasTrustDialogAccepted": true
+    },
+    "$HOME/Sites/neptune-networks/ipguide": {
+      "hasTrustDialogAccepted": true
+    },
+    "$HOME/Sites/neptune-networks/neptune": {
+      "hasTrustDialogAccepted": true
+    },
+    "$HOME/Sites/neptune-networks/network": {
+      "hasTrustDialogAccepted": true
     }
   }
 }
