@@ -38,12 +38,14 @@ function fish_prompt
     printf '|'
     set_color yellow
 
-    if test (pwd) != "$HOME/stripe/pay-server"
-      printf '%s' (__fish_git_prompt '%s')
-    else if test (pwd) != "$HOME/stripe/zoolander"
-      printf '%s' (__fish_git_prompt '%s')
-    else
+    if test (pwd) = "$HOME/stripe/pay-server"
       printf '%s' (git rev-parse --abbrev-ref HEAD)
+    else if test (pwd) = "$HOME/stripe/zoolander"
+      printf '%s' (git rev-parse --abbrev-ref HEAD)
+    else if test (pwd) = "$HOME/stripe/mint"
+      printf '%s' (git rev-parse --abbrev-ref HEAD)
+    else
+      printf '%s' (__fish_git_prompt '%s')
     end
   end
 

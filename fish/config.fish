@@ -11,7 +11,10 @@ end
 
 # Autoload any files that end in .auto.fish
 for file in ~/.dotfiles/**/*.auto.fish
-  source $file
+  # Skip vim undo files
+  if not string match -q '*/vim/*' $file
+    source $file
+  end
 end
 
 # Autoload any files that end in auto.sh
