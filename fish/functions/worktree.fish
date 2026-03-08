@@ -11,7 +11,7 @@ function worktree -d "Manage git worktrees"
     end
 
     if test "$argv[1]" = list
-        git worktree list
+        git worktree list --porcelain 2>/dev/null | string match 'worktree *' | string replace -r '.*/' '' | tail -n +2
         return $status
     end
 
@@ -50,6 +50,8 @@ function worktree -d "Manage git worktrees"
         or git worktree add "$wt_dir" "$branch"
         if test $status -eq 0
             cd "$wt_dir"
+            git push -u origin "$branch" 2>/dev/null
+            or git branch --set-upstream-to=origin/"$branch" "$branch" 2>/dev/null
         end
         return
     end
@@ -75,6 +77,26 @@ function worktree -d "Manage git worktrees"
             cd "$dir"
             return 0
         end
+    end
+
+    # Fall back to matching by git branch name
+    set -l porcelain (git worktree list --porcelain 2>/dev/null)
+    set -l wt_path
+    for i in (seq (count $porcelain))
+        if test "$porcelain[$i]" = "branch refs/heads/$branch"
+            # Walk back to find the worktree line
+            for j in (seq (math $i - 1) -1 1)
+                if string match -q "worktree *" $porcelain[$j]
+                    set wt_path (string replace "worktree " "" $porcelain[$j])
+                    break
+                end
+            end
+            break
+        end
+    end
+    if test -n "$wt_path"
+        cd "$wt_path"
+        return 0
     end
 
     echo "Worktree for branch '$branch' not found"
