@@ -2,6 +2,7 @@
 complete -c worktree -f
 
 # Subcommands
+complete -c worktree -n "test (count (commandline -opc)) -eq 1" -a base -d "CD into the main worktree"
 complete -c worktree -n "test (count (commandline -opc)) -eq 1" -a list -d "List all worktrees"
 complete -c worktree -n "test (count (commandline -opc)) -eq 1" -a create -d "Create a new worktree"
 

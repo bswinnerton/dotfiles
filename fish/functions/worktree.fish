@@ -5,6 +5,7 @@ function worktree -d "Manage git worktrees"
         echo "Commands:"
         echo "  worktree <branch>         CD into an existing worktree"
         echo "  worktree create <branch>  Create a new worktree in .claude/worktrees/"
+        echo "  worktree base             CD into the main worktree"
         echo "  worktree list             List all worktrees"
         return 0
     end
@@ -12,6 +13,17 @@ function worktree -d "Manage git worktrees"
     if test "$argv[1]" = list
         git worktree list
         return $status
+    end
+
+    if test "$argv[1]" = base
+        set -l base_path (git worktree list --porcelain 2>/dev/null | head -1 | string replace "worktree " "")
+        if test -n "$base_path"
+            cd "$base_path"
+        else
+            echo "Not in a git repository"
+            return 1
+        end
+        return 0
     end
 
     if test "$argv[1]" = create
