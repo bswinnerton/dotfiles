@@ -4,7 +4,8 @@
       "Bash(pyenv init:*)",
       "Bash(pyenv --version:*)",
       "Bash(pyenv versions:*)",
-      "Bash(fish:*)"
+      "Bash(fish:*)",
+      "Bash(head:*)"
     ]
   }
 }

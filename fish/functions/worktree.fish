@@ -6,6 +6,7 @@ function worktree -d "Manage git worktrees"
         echo "  worktree <branch>         CD into an existing worktree"
         echo "  worktree create <branch>  Create a new worktree in .claude/worktrees/"
         echo "  worktree base             CD into the main worktree"
+        echo "  worktree rm <name>        Remove a worktree"
         echo "  worktree list             List all worktrees"
         return 0
     end
@@ -26,6 +27,46 @@ function worktree -d "Manage git worktrees"
         return 0
     end
 
+    if test "$argv[1]" = rm
+        if test (count $argv) -lt 2
+            echo "Usage: worktree rm <name>"
+            return 1
+        end
+        set -l name $argv[2]
+        set -l git_root (git rev-parse --show-toplevel 2>/dev/null)
+        if test $status -ne 0
+            echo "Not in a git repository"
+            return 1
+        end
+
+        # Find the worktree path by directory name
+        set -l wt_dir "$git_root/.claude/worktrees/$name"
+        if not test -d "$wt_dir"
+            # Check ../<something>-<name> pattern
+            set -l parent (dirname $git_root)
+            for dir in $parent/*-$name
+                if test -d "$dir"; and test -d "$dir/.git" -o -f "$dir/.git"
+                    set wt_dir "$dir"
+                    break
+                end
+            end
+        end
+
+        if not test -d "$wt_dir"
+            echo "Worktree '$name' not found"
+            return 1
+        end
+
+        # If we're inside the worktree, cd to base first
+        if string match -q "$wt_dir*" (pwd)
+            set -l base_path (git worktree list --porcelain 2>/dev/null | head -1 | string replace "worktree " "")
+            cd "$base_path"
+        end
+
+        git worktree remove "$wt_dir"
+        return $status
+    end
+
     if test "$argv[1]" = create
         if test (count $argv) -lt 2
             echo "Usage: worktree create <branch>"
@@ -38,7 +79,8 @@ function worktree -d "Manage git worktrees"
             return 1
         end
 
-        set -l wt_dir "$git_root/.claude/worktrees/$branch"
+        set -l dir_name (string replace -a '/' '-' $branch)
+        set -l wt_dir "$git_root/.claude/worktrees/$dir_name"
         if test -d "$wt_dir"
             echo "Worktree already exists at $wt_dir"
             cd "$wt_dir"

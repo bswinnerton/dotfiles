@@ -14,9 +14,13 @@ complete -c worktree -f
 complete -c worktree -n "test (count (commandline -opc)) -eq 1" -a base -d "Command"
 complete -c worktree -n "test (count (commandline -opc)) -eq 1" -a create -d "Command"
 complete -c worktree -n "test (count (commandline -opc)) -eq 1" -a list -d "Command"
+complete -c worktree -n "test (count (commandline -opc)) -eq 1" -a rm -d "Command"
 
 # Complete existing worktree directory names
 complete -c worktree -n "test (count (commandline -opc)) -eq 1" -a "(__worktree_directories)" -d "Worktree"
 
 # Complete branch names for `worktree create <branch>`
 complete -c worktree -n "test (count (commandline -opc)) -eq 2; and test (commandline -opc)[2] = create" -a "(__worktree_branches)" -d "Branch"
+
+# Complete worktree names for `worktree rm <name>`
+complete -c worktree -n "test (count (commandline -opc)) -eq 2; and test (commandline -opc)[2] = rm" -a "(__worktree_directories)" -d "Worktree"
