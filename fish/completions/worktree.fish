@@ -14,6 +14,7 @@ complete -c worktree -f
 complete -c worktree -n "test (count (commandline -opc)) -eq 1" -a base -d "Command"
 complete -c worktree -n "test (count (commandline -opc)) -eq 1" -a create -d "Command"
 complete -c worktree -n "test (count (commandline -opc)) -eq 1" -a list -d "Command"
+complete -c worktree -n "test (count (commandline -opc)) -eq 1" -a prune -d "Command"
 complete -c worktree -n "test (count (commandline -opc)) -eq 1" -a rm -d "Command"
 
 # Complete existing worktree directory names
