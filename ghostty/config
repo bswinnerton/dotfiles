@@ -1,5 +1,5 @@
 confirm-close-surface = false
-font-family = Operator Mono Regular
-font-size = 15.5
+font-family = JetBrains Mono
+font-size = 15
 macos-icon = blueprint
 theme = TokyoNight Storm
