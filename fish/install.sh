@@ -12,10 +12,13 @@ fi
 
 current_user=$(whoami)
 fish_path=$(which fish)
+current_shell=$(dscl . -read /Users/"$current_user" UserShell 2>/dev/null | awk '{print $2}')
 
 #FIXME: Suppress the $fish_path from being outputted on the screen
 #grep -qF "fish" /etc/shells || echo $fish_path | sudo tee -a /etc/shells
 
-chsh -s $fish_path $current_user
+if [ "$current_shell" != "$fish_path" ]; then
+  chsh -s "$fish_path" "$current_user" || true
+fi
 
-unset current_user fish_path
+unset current_user fish_path current_shell
