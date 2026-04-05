@@ -5,7 +5,23 @@
       "Bash(pyenv --version:*)",
       "Bash(pyenv versions:*)",
       "Bash(fish:*)",
-      "Bash(head:*)"
+      "Bash(head:*)",
+      "mcp__Prometheus__list_metrics",
+      "mcp__Prometheus__execute_query",
+      "Bash(ls:*)",
+      "WebSearch",
+      "mcp__claude_ai_Sentry__find_organizations",
+      "mcp__claude_ai_Sentry__search_issues",
+      "mcp__Loki__loki_label_names",
+      "mcp__Loki__loki_label_values",
+      "mcp__Loki__loki_query",
+      "WebFetch(domain:tailscale.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:wiki.debian.org)",
+      "WebFetch(domain:manpages.debian.org)",
+      "WebFetch(domain:wiki.archlinux.org)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:packages.debian.org)"
     ]
   }
 }
