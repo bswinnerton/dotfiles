@@ -18,6 +18,7 @@ set encoding=utf-8
 let mapleader=','                     " Leader - override the default \
 
 set autoread                          " Auto reload changed files
+autocmd FocusGained,BufEnter * checktime " Check for external file changes on focus
 set wildmenu                          " Tab autocomplete in command mode
 set backspace=indent,eol,start        " http://vi.stackexchange.com/a/2163
 set laststatus=2                      " Show status line on startup
