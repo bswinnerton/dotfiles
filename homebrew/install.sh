@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # Homebrew
 #
@@ -24,5 +24,37 @@ if [ $OS = "Darwin" ]; then
 
   # Install dependencies defined in Brewfile
   brew update
-  brew bundle --file="$HOME/.dotfiles/homebrew/Brewfile"
+
+  BREWFILE="$HOME/.dotfiles/homebrew/Brewfile"
+  failed=()
+
+  while IFS= read -r line; do
+    # Skip blank lines and comments
+    [[ -z "$line" || "$line" =~ ^# ]] && continue
+
+    # Extract the package name (e.g. "brew 'git'" -> "git")
+    pkg=$(echo "$line" | sed "s/^brew '//;s/'.*//")
+
+    if brew ls --versions "$pkg" > /dev/null 2>&1; then
+      echo "Using $pkg"
+    else
+      echo "Installing $pkg"
+      if ! brew install "$pkg" 2>&1; then
+        echo "  ⚠ $pkg failed to install, trying with --force --overwrite..."
+        if ! brew install "$pkg" --force 2>&1; then
+          if ! brew link --overwrite "$pkg" 2>&1; then
+            echo "  ✗ $pkg could not be installed or linked"
+            failed+=("$pkg")
+          fi
+        fi
+      fi
+    fi
+  done < "$BREWFILE"
+
+  if [ ${#failed[@]} -gt 0 ]; then
+    echo ""
+    echo "The following packages failed to install:"
+    printf "  - %s\n" "${failed[@]}"
+    echo "You may need to resolve these manually."
+  fi
 fi
