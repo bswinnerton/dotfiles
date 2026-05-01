@@ -1,67 +1,62 @@
+model = "gpt-5.4"
+model_reasoning_effort = "high"
 [mcp_servers.clickhouse]
 command = "docker"
-args = [
-  "run",
-  "-i",
-  "--rm",
-  "-e",
-  "CLICKHOUSE_HOST",
-  "-e",
-  "CLICKHOUSE_PORT",
-  "-e",
-  "CLICKHOUSE_USER",
-  "-e",
-  "CLICKHOUSE_SECURE",
-  "-e",
-  "CLICKHOUSE_VERIFY",
-  "-e",
-  "CLICKHOUSE_MCP_SERVER_TRANSPORT",
-  "-e",
-  "CLICKHOUSE_CONNECT_TIMEOUT",
-  "-e",
-  "CLICKHOUSE_SEND_RECEIVE_TIMEOUT",
-  "-e",
-  "CLICKHOUSE_PASSWORD",
-  "mcp/clickhouse",
-]
-env_vars = [
-  "CLICKHOUSE_HOST",
-  "CLICKHOUSE_PORT",
-  "CLICKHOUSE_USER",
-  "CLICKHOUSE_SECURE",
-  "CLICKHOUSE_VERIFY",
-  "CLICKHOUSE_MCP_SERVER_TRANSPORT",
-  "CLICKHOUSE_CONNECT_TIMEOUT",
-  "CLICKHOUSE_SEND_RECEIVE_TIMEOUT",
-  "CLICKHOUSE_PASSWORD",
-]
+args = ["run", "-i", "--rm", "-e", "CLICKHOUSE_HOST", "-e", "CLICKHOUSE_PORT", "-e", "CLICKHOUSE_USER", "-e", "CLICKHOUSE_SECURE", "-e", "CLICKHOUSE_VERIFY", "-e", "CLICKHOUSE_MCP_SERVER_TRANSPORT", "-e", "CLICKHOUSE_CONNECT_TIMEOUT", "-e", "CLICKHOUSE_SEND_RECEIVE_TIMEOUT", "-e", "CLICKHOUSE_PASSWORD", "mcp/clickhouse"]
+env_vars = ["CLICKHOUSE_HOST", "CLICKHOUSE_PORT", "CLICKHOUSE_USER", "CLICKHOUSE_SECURE", "CLICKHOUSE_VERIFY", "CLICKHOUSE_MCP_SERVER_TRANSPORT", "CLICKHOUSE_CONNECT_TIMEOUT", "CLICKHOUSE_SEND_RECEIVE_TIMEOUT", "CLICKHOUSE_PASSWORD"]
+
+[mcp_servers.clickhouse.tools.list_databases]
+approval_mode = "approve"
+
+[mcp_servers.clickhouse.tools.list_tables]
+approval_mode = "approve"
+
+[mcp_servers.clickhouse.tools.run_select_query]
+approval_mode = "approve"
 
 [mcp_servers.loki]
 command = "docker"
 args = ["run", "-i", "--rm", "-e", "LOKI_URL", "loki-mcp-server"]
 env_vars = ["LOKI_URL"]
 
+[mcp_servers.loki.tools.loki_label_names]
+approval_mode = "approve"
+
+[mcp_servers.loki.tools.loki_query]
+approval_mode = "approve"
+
+[mcp_servers.loki.tools.loki_label_values]
+approval_mode = "approve"
+
 [mcp_servers.postgres]
 command = "docker"
-args = [
-  "run",
-  "-i",
-  "--rm",
-  "mcp/postgres",
-  "postgresql://postgres@compute.corp.neptunenetworks.net:5432/neptune-networks_production",
-]
+args = ["run", "-i", "--rm", "mcp/postgres", "postgresql://postgres@compute.corp.neptunenetworks.net:5432/neptune-networks_production"]
+
+[mcp_servers.postgres.tools.query]
+approval_mode = "approve"
 
 [mcp_servers.prometheus]
 command = "docker"
-args = [
-  "run",
-  "-i",
-  "--rm",
-  "-e",
-  "PROMETHEUS_URL",
-  "ghcr.io/pab1it0/prometheus-mcp-server:latest",
-]
+args = ["run", "-i", "--rm", "-e", "PROMETHEUS_URL", "ghcr.io/pab1it0/prometheus-mcp-server:latest"]
 env_vars = ["PROMETHEUS_URL"]
+
+[mcp_servers.sentry]
+url = "https://mcp.sentry.dev/mcp"
 
 [projects."/Users/brooks/Sites/neptune-networks"]
 trust_level = "trusted"
+
+[projects."/Users/brooks/Sites/neptune-networks/neptune"]
+trust_level = "trusted"
+
+[plugins."gmail@openai-curated"]
+enabled = true
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[plugins."sentry@openai-curated"]
+enabled = true
+
+[plugins."stripe@openai-curated"]
+enabled = true
