@@ -10,3 +10,5 @@ projections.json
 
 # Bundler
 .bundle/config
+
+**/.claude/settings.local.json
