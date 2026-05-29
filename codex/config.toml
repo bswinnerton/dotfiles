@@ -1,5 +1,7 @@
 model = "gpt-5.4"
 model_reasoning_effort = "high"
+notify = ["/Users/brooks/.codex/computer-use/Codex Computer Use.app/Contents/SharedSupport/SkyComputerUseClient.app/Contents/MacOS/SkyComputerUseClient", "turn-ended"]
+
 [mcp_servers.clickhouse]
 command = "docker"
 args = ["run", "-i", "--rm", "-e", "CLICKHOUSE_HOST", "-e", "CLICKHOUSE_PORT", "-e", "CLICKHOUSE_USER", "-e", "CLICKHOUSE_SECURE", "-e", "CLICKHOUSE_VERIFY", "-e", "CLICKHOUSE_MCP_SERVER_TRANSPORT", "-e", "CLICKHOUSE_CONNECT_TIMEOUT", "-e", "CLICKHOUSE_SEND_RECEIVE_TIMEOUT", "-e", "CLICKHOUSE_PASSWORD", "mcp/clickhouse"]
@@ -43,6 +45,23 @@ env_vars = ["PROMETHEUS_URL"]
 [mcp_servers.sentry]
 url = "https://mcp.sentry.dev/mcp"
 
+[mcp_servers.node_repl]
+args = []
+command = "/Applications/Codex.app/Contents/Resources/node_repl"
+startup_timeout_sec = 120
+
+[mcp_servers.node_repl.env]
+NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
+NODE_REPL_NODE_MODULE_DIRS = ""
+NODE_REPL_NODE_PATH = "/Applications/Codex.app/Contents/Resources/node"
+NODE_REPL_TRUSTED_CODE_PATHS = "/Users/brooks/.codex"
+CODEX_HOME = "/Users/brooks/.codex"
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "496c7b3cb95b4bc20cff49b513150606e0da0000c92bf752206bee5a6c248423"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+BROWSER_USE_MARKETPLACE_NAME = "openai-bundled"
+NODE_REPL_UNTRUSTED_ENV_ALLOWLIST = "BROWSER_USE_MARKETPLACE_NAME"
+CODEX_CLI_PATH = "/Applications/Codex.app/Contents/Resources/codex"
+
 [projects."/Users/brooks/Sites/neptune-networks"]
 trust_level = "trusted"
 
@@ -60,3 +79,34 @@ enabled = true
 
 [plugins."stripe@openai-curated"]
 enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."documents@openai-primary-runtime"]
+enabled = true
+
+[plugins."spreadsheets@openai-primary-runtime"]
+enabled = true
+
+[plugins."presentations@openai-primary-runtime"]
+enabled = true
+
+[desktop]
+mac-menu-bar-enabled = false
+
+[desktop.open-in-target-preferences]
+global = "zed"
+
+[marketplaces.openai-bundled]
+last_updated = "2026-05-29T04:02:24Z"
+source_type = "local"
+source = "/Users/brooks/.codex/.tmp/bundled-marketplaces/openai-bundled"
+
+[marketplaces.openai-primary-runtime]
+last_updated = "2026-05-29T04:02:48Z"
+source_type = "local"
+source = "/Users/brooks/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+
+[features]
+js_repl = false
