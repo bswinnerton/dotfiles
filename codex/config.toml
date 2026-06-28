@@ -47,19 +47,21 @@ url = "https://mcp.sentry.dev/mcp"
 
 [mcp_servers.node_repl]
 args = []
-command = "/Applications/Codex.app/Contents/Resources/node_repl"
+command = "/Applications/Codex.app/Contents/Resources/cua_node/bin/node_repl"
 startup_timeout_sec = 120
 
 [mcp_servers.node_repl.env]
 NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
-NODE_REPL_NODE_MODULE_DIRS = ""
-NODE_REPL_NODE_PATH = "/Applications/Codex.app/Contents/Resources/node"
+NODE_REPL_NODE_MODULE_DIRS = "/Applications/Codex.app/Contents/Resources/cua_node/lib/node_modules"
+NODE_REPL_NODE_PATH = "/Applications/Codex.app/Contents/Resources/cua_node/bin/node"
 NODE_REPL_TRUSTED_CODE_PATHS = "/Users/brooks/.codex"
 CODEX_HOME = "/Users/brooks/.codex"
-NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "496c7b3cb95b4bc20cff49b513150606e0da0000c92bf752206bee5a6c248423"
+NODE_REPL_TRUSTED_BROWSER_CLIENT_SHA256S = "27dca86fd6b571c49414a4b78e46b57bcf683a46cd1319799c11fbb6cfae3110"
 BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
-BROWSER_USE_MARKETPLACE_NAME = "openai-bundled"
-NODE_REPL_UNTRUSTED_ENV_ALLOWLIST = "BROWSER_USE_MARKETPLACE_NAME"
+NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = "Control the in-app browser in conjunction with the Browser Plugin."
+NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
+BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
+BROWSER_USE_CODEX_APP_VERSION = "26.609.41114"
 CODEX_CLI_PATH = "/Applications/Codex.app/Contents/Resources/codex"
 
 [projects."/Users/brooks/Sites/neptune-networks"]
@@ -69,6 +71,12 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [projects."/Users/brooks/Sites/neptune-networks/network"]
+trust_level = "trusted"
+
+[projects."/Users/brooks/Sites/neptune-networks/infrastructure"]
+trust_level = "trusted"
+
+[projects."/Users/brooks/Desktop/1dsq"]
 trust_level = "trusted"
 
 [plugins."gmail@openai-curated"]
@@ -83,9 +91,6 @@ enabled = true
 [plugins."stripe@openai-curated"]
 enabled = true
 
-[plugins."browser@openai-bundled"]
-enabled = true
-
 [plugins."documents@openai-primary-runtime"]
 enabled = true
 
@@ -95,6 +100,15 @@ enabled = true
 [plugins."presentations@openai-primary-runtime"]
 enabled = true
 
+[plugins."pdf@openai-primary-runtime"]
+enabled = true
+
+[plugins."browser@openai-bundled"]
+enabled = true
+
+[plugins."template-creator@openai-primary-runtime"]
+enabled = true
+
 [desktop]
 mac-menu-bar-enabled = false
 
@@ -102,12 +116,12 @@ mac-menu-bar-enabled = false
 global = "zed"
 
 [marketplaces.openai-bundled]
-last_updated = "2026-05-29T04:02:24Z"
+last_updated = "2026-06-15T19:04:13Z"
 source_type = "local"
 source = "/Users/brooks/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [marketplaces.openai-primary-runtime]
-last_updated = "2026-05-29T04:02:48Z"
+last_updated = "2026-06-23T12:54:38Z"
 source_type = "local"
 source = "/Users/brooks/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
 
@@ -115,10 +129,13 @@ source = "/Users/brooks/.cache/codex-runtimes/codex-primary-runtime/plugins/open
 js_repl = false
 
 [tui.model_availability_nux]
-"gpt-5.5" = 1
+"gpt-5.5" = 4
 
 [notice.model_migrations]
 "gpt-5.4" = "gpt-5.5"
 
 [apps.connector_76869538009648d5b282a4bb21c3d157.tools.github_create_pull_request]
+approval_mode = "approve"
+
+[apps.connector_76869538009648d5b282a4bb21c3d157.tools.github_update_pull_request]
 approval_mode = "approve"
