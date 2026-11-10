@@ -1,0 +1,113 @@
+#!/usr/bin/env bash
+# Usage: tweet [--json] URL|ID [URL|ID ...]
+#
+# Fetches a post from X/Twitter without logging in and prints it as plain text
+# (author, date, full text, quoted post, media and links). Handy for piping
+# into an LLM, e.g. `tweet https://x.com/user/status/123 | claude -p "..."`.
+#
+# Uses the public FxTwitter API, falling back to vxTwitter.
+#
+#   --json   print the raw API response instead of formatted text
+
+set -euo pipefail
+
+raw=false
+if [[ "${1:-}" == "--json" ]]; then
+  raw=true
+  shift
+fi
+
+if [[ $# -eq 0 ]]; then
+  sed -n '2,10s/^# \{0,1\}//p' "$0" >&2
+  exit 1
+fi
+
+command -v jq >/dev/null || { echo "tweet: jq is required" >&2; exit 1; }
+
+UA="tweet-cli/1.0"
+
+# Pull the status ID out of anything that looks like a post URL (x.com,
+# twitter.com, fxtwitter, mobile links, with ?s=46 tracking params, etc).
+status_id() {
+  local input="$1"
+  if [[ "$input" =~ /status(es)?/([0-9]+) ]]; then
+    echo "${BASH_REMATCH[2]}"
+  elif [[ "$input" =~ ^[0-9]+$ ]]; then
+    echo "$input"
+  else
+    return 1
+  fi
+}
+
+fetch_fx() {
+  curl -fsSL -m 15 -A "$UA" "https://api.fxtwitter.com/status/$1"
+}
+
+fetch_vx() {
+  curl -fsSL -m 15 -A "$UA" "https://api.vxtwitter.com/Twitter/status/$1"
+}
+
+format_fx() {
+  jq -r '
+    def post($t; $indent):
+      ($t.author.name // "?") as $name
+      | "\($indent)\($name) (@\($t.author.screen_name // "?")) · \($t.created_at // "")",
+        "\($indent)\($t.url // "")",
+        "",
+        ( ($t.raw_text.text // $t.text // "") | split("\n") | map($indent + .) | join("\n") ),
+        ( if $t.article then
+            "", "\($indent)[Article] \($t.article.title // "")",
+            ( ($t.article.preview_text // "") | split("\n") | map($indent + .) | join("\n") )
+          else empty end ),
+        ( ($t.media.all // [])[] | "\($indent)[\(.type)] \(.url)" ),
+        ( if $t.poll then
+            "", ($t.poll.choices[] | "\($indent)[poll] \(.label) — \(.percentage)%")
+          else empty end ),
+        ( if $t.quote then "", "\($indent)> Quoting:", post($t.quote; $indent + "> ") else empty end );
+
+    .tweet as $t
+    | post($t; ""),
+      "",
+      "♥ \($t.likes // 0)  ⟲ \($t.retweets // 0)  💬 \($t.replies // 0)"
+  '
+}
+
+format_vx() {
+  jq -r '
+    def post($t; $indent):
+      "\($indent)\($t.user_name // "?") (@\($t.user_screen_name // "?")) · \($t.date // "")",
+      "\($indent)\($t.tweetURL // "")",
+      "",
+      ( ($t.text // "") | split("\n") | map($indent + .) | join("\n") ),
+      ( ($t.mediaURLs // [])[] | "\($indent)[media] \(.)" ),
+      ( if $t.qrt then "", "\($indent)> Quoting:", post($t.qrt; $indent + "> ") else empty end );
+
+    post(.; ""),
+    "",
+    "♥ \(.likes // 0)  ⟲ \(.retweets // 0)  💬 \(.replies // 0)"
+  '
+}
+
+status=0
+first=true
+for arg in "$@"; do
+  if ! id=$(status_id "$arg"); then
+    echo "tweet: can't find a status ID in: $arg" >&2
+    status=1
+    continue
+  fi
+
+  $first || printf '\n%s\n\n' "────────────────────────────────────────"
+  first=false
+
+  if body=$(fetch_fx "$id") && [[ "$(jq -r '.code // 0' <<<"$body")" == "200" ]]; then
+    if $raw; then jq . <<<"$body"; else format_fx <<<"$body"; fi
+  elif body=$(fetch_vx "$id") && jq -e '.text' >/dev/null 2>&1 <<<"$body"; then
+    if $raw; then jq . <<<"$body"; else format_vx <<<"$body"; fi
+  else
+    echo "tweet: failed to fetch $id (deleted, private, or API unreachable)" >&2
+    status=1
+  fi
+done
+
+exit $status
