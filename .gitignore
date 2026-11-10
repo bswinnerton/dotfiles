@@ -10,3 +10,4 @@ tags*
 vim/vim.symlink/plugged
 vim/vim.symlink/spell
 vim/vim.symlink/undo
+.claude/settings.local.json
