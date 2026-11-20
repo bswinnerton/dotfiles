@@ -3,4 +3,4 @@ if not status is-interactive
 end
 
 set -g -x GOPATH $HOME/go
-set -g -x fish_user_paths $GOPATH/bin $fish_user_paths
+fish_add_path --move $GOPATH/bin

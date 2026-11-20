@@ -1,1 +1,1 @@
-fish_add_path $HOME/bin $HOME/.local/bin
+fish_add_path --move $HOME/bin $HOME/.local/bin
