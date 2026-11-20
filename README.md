@@ -99,7 +99,8 @@ work_exclude = [
 ]
 ```
 
-`is_work` is a boolean, defaulting to `false` if absent. It gates the legacy
+`home/.chezmoidata.toml` supplies personal defaults, which machine config
+overrides. `is_work` is a boolean, defaulting to `false` if absent. It gates the legacy
 Stripe login snippet. `work_exclude` is a list of target paths relative to
 `$HOME`, defaulting to an empty list if absent. The template
 `home/.chezmoiignore` loops over every entry in addition to OS exclusions; the

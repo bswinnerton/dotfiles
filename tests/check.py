@@ -51,7 +51,7 @@ def check_mode(root, work):
     for target in EXCLUDED[1:]:
         assert (target in managed) == (not work), target
     cm('apply', '--dry-run', data=linux)
-    assert cm('execute-template', '{{ get . "is_work" | default false }}') == str(work).lower()
+    assert cm('execute-template', '{{ .is_work }}') == str(work).lower()
     gitconfig = cm('cat', str(home / '.gitconfig'), data=linux)
     assert gitconfig.endswith('[include]\n  path = ~/.config/git/config.local\n')
     assert 'editor = nvim' in gitconfig
