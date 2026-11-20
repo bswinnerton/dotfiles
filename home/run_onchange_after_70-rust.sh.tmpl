@@ -1,0 +1,9 @@
+{{ if or (eq .chezmoi.os "darwin") (eq .chezmoi.os "linux") -}}
+#!/bin/sh
+set -eu
+if [ ! -x "$HOME/.cargo/bin/rustc" ]; then
+  curl -fsSL https://sh.rustup.rs -o "${TMPDIR:-/tmp}/dotfiles-rustup-$$.sh"
+  sh "${TMPDIR:-/tmp}/dotfiles-rustup-$$.sh" -y --no-modify-path
+  rm -f "${TMPDIR:-/tmp}/dotfiles-rustup-$$.sh"
+fi
+{{ end -}}

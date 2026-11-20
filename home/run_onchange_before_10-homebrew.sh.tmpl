@@ -1,0 +1,18 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+set -eu
+export NONINTERACTIVE=1
+export HOMEBREW_NO_AUTO_UPDATE=1
+if ! command -v brew >/dev/null 2>&1; then
+  for prefix in /opt/homebrew /usr/local; do
+    if [ -x "$prefix/bin/brew" ]; then
+      PATH="$prefix/bin:$PATH"; export PATH; break
+    fi
+  done
+fi
+if ! command -v brew >/dev/null 2>&1; then
+  curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh -o "${TMPDIR:-/tmp}/dotfiles-homebrew-$$.sh"
+  /bin/bash "${TMPDIR:-/tmp}/dotfiles-homebrew-$$.sh"
+  rm -f "${TMPDIR:-/tmp}/dotfiles-homebrew-$$.sh"
+fi
+{{ end -}}

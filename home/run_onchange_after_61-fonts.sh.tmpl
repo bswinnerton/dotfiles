@@ -1,0 +1,11 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+set -eu
+if [ ! -d "$HOME/.local/share/dotfiles-fonts" ]; then
+  mkdir -p "$HOME/.local/share"
+  git clone --no-checkout https://github.com/bswinnerton/dotfiles-fonts.git "$HOME/.local/share/dotfiles-fonts"
+  git -C "$HOME/.local/share/dotfiles-fonts" checkout --detach 4b19680612cbee9aa26be7af2824c5285c6060a8
+fi
+mkdir -p "$HOME/Library/Fonts"
+find "$HOME/.local/share/dotfiles-fonts" -type f \( -name '*.otf' -o -name '*.ttf' \) -exec cp -f {} "$HOME/Library/Fonts/" \;
+{{ end -}}

@@ -1,0 +1,19 @@
+{{ if or (eq .chezmoi.os "darwin") (eq .chezmoi.os "linux") -}}
+#!/bin/sh
+set -eu
+if ! command -v go >/dev/null 2>&1; then
+{{ if eq .chezmoi.os "darwin" }}
+  for prefix in /opt/homebrew /usr/local; do
+    if [ -x "$prefix/bin/brew" ]; then "$prefix/bin/brew" install go; break; fi
+  done
+{{ else }}
+  # A devbox/package manager provisions Go; never prompt for sudo on apply.
+  if command -v sudo >/dev/null 2>&1 && sudo -n true 2>/dev/null; then
+    sudo -n apt-get update
+    sudo -n env DEBIAN_FRONTEND=noninteractive apt-get -y install golang
+  else
+    echo "Go is not installed; install it with your system package manager." >&2
+  fi
+{{ end }}
+fi
+{{ end -}}

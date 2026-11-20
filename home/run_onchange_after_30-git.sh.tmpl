@@ -1,0 +1,13 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+set -eu
+for prefix in /opt/homebrew /usr/local; do
+  if [ -x "$prefix/bin/pinentry-mac" ]; then
+    mkdir -p "$HOME/.gnupg"
+    line="pinentry-program $prefix/bin/pinentry-mac"
+    touch "$HOME/.gnupg/gpg-agent.conf"
+    grep -qxF "$line" "$HOME/.gnupg/gpg-agent.conf" || printf '%s\n' "$line" >> "$HOME/.gnupg/gpg-agent.conf"
+    break
+  fi
+done
+{{ end -}}

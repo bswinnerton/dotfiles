@@ -1,0 +1,8 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+set -eu
+if command -v zed >/dev/null 2>&1 || [ -d /Applications/Zed.app ] || [ -d /Applications/Zed\ Preview.app ]; then
+  defaults write zed.Zed-Preview ApplePressAndHoldEnabled -bool false
+  defaults write zed.Zed ApplePressAndHoldEnabled -bool false
+fi
+{{ end -}}

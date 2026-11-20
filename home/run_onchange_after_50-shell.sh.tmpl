@@ -1,0 +1,11 @@
+{{ if or (eq .chezmoi.os "darwin") (eq .chezmoi.os "linux") -}}
+#!/bin/sh
+set -eu
+if command -v tic >/dev/null 2>&1; then
+  mkdir -p "$HOME/.terminfo"
+  tic -x -o "$HOME/.terminfo" "$HOME/.config/terminfo/xterm-256color-italic.terminfo"
+  tic -x -o "$HOME/.terminfo" "$HOME/.config/terminfo/tmux-256color-italic.terminfo"
+fi
+# {{ include "dot_config/terminfo/xterm-256color-italic.terminfo" | sha256sum }}
+# {{ include "dot_config/terminfo/tmux-256color-italic.terminfo" | sha256sum }}
+{{ end -}}

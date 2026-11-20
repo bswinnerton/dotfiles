@@ -1,1 +1,0 @@
-/Users/brooks/.dotfiles/vim/vimrc.symlink

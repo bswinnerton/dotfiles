@@ -1,0 +1,26 @@
+{{ if ne .chezmoi.os "darwin" }}
+.hammerspoon
+.config/ghostty
+.config/homebrew
+.config/tampermonkey
+Library
+Pictures
+.config/fish/conf.d/09-homebrew-path.fish
+bin/copy-as-rtf
+bin/drac-proxy
+bin/gitio
+bin/lock-screen
+bin/mosh
+bin/spoof-mac
+bin/vnc-to-virsh
+10-homebrew.sh
+20-brew-bundle.sh
+30-git.sh
+40-osx.sh
+41-zed.sh
+61-fonts.sh
+62-launchbar.sh
+{{ end }}
+{{ range (get . "work_exclude" | default (list)) }}
+{{ . }}
+{{ end }}
