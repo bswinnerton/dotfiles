@@ -1,0 +1,11 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+set -eu
+for prefix in /opt/homebrew /usr/local; do
+  if [ -x "$prefix/bin/brew" ]; then PATH="$prefix/bin:$PATH"; export PATH; break; fi
+done
+export HOMEBREW_NO_AUTO_UPDATE=1
+brew bundle --file="$HOME/.config/homebrew/Brewfile" --no-upgrade
+# Brewfile changes also trigger this installer.
+# {{ include "dot_config/homebrew/Brewfile" | sha256sum }}
+{{ end -}}

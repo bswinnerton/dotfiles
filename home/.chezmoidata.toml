@@ -1,0 +1,3 @@
+# Personal defaults; machine configuration and overlay data take precedence.
+is_work = false
+work_exclude = []

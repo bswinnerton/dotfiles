@@ -1,0 +1,9 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+set -eu
+target="$HOME/Library/Application Support/LaunchBar/Actions/github.lbaction"
+if [ ! -d "$target" ]; then
+  git clone --no-checkout https://github.com/bswinnerton/launchbar-github.git "$target"
+  git -C "$target" checkout --detach 0fbbce3a6fe591072c92533513a6581f88d49afd
+fi
+{{ end -}}

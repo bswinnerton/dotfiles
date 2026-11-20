@@ -1,0 +1,12 @@
+{{ if or (eq .chezmoi.os "darwin") (eq .chezmoi.os "linux") -}}
+#!/bin/sh
+set -eu
+mkdir -p "$HOME/.tmux/plugins"
+if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+  git clone https://github.com/tmux-plugins/tpm.git "$HOME/.tmux/plugins/tpm"
+fi
+if [ ! -d "$HOME/.tmux/plugins/tmux-resurrect" ]; then
+  git clone --no-checkout https://github.com/tmux-plugins/tmux-resurrect.git "$HOME/.tmux/plugins/tmux-resurrect"
+  git -C "$HOME/.tmux/plugins/tmux-resurrect" checkout --detach 9dc3f8c639cb8b1d868002a037b7edbf39f3dd12
+fi
+{{ end -}}
