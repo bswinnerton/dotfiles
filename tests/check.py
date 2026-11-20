@@ -55,6 +55,7 @@ def check_mode(root, work):
     gitconfig = cm('cat', str(home / '.gitconfig'), data=linux)
     assert gitconfig.endswith('[include]\n  path = ~/.config/git/config.local\n')
     assert 'editor = nvim' in gitconfig
+    assert 'root: ' + json.dumps(str(SOURCE)) in cm('cat', str(home / '.tmuxinator/personal.yml'), data=linux)
 
     # Darwin is template-only: no brew, defaults, clones, or downloads execute.
     darwin = {'chezmoi': {'os': 'darwin'}}
@@ -99,14 +100,18 @@ def check_mode(root, work):
             if set -q DOTFILES_TEST_SECRET; exit 1; end
             if contains -- ./bin $PATH; exit 2; end
             type -q fish_prompt; or exit 3
-            set -l before (string join : -- $PATH)
+            set -l before (string join : -- $fish_user_paths)
             for file in ~/.config/fish/conf.d/*.fish
                 source $file
             end
-            test (string join : -- $PATH) = "$before"; or exit 4
+            # Optional tools (e.g. distro rbenv) manage their own PATH state.
+            # Re-sourcing base snippets must keep our managed path list stable.
+            test (string join : -- $fish_user_paths) = "$before"; or exit 4
         '''
-        subprocess.run([FISH, '-i', '-c', startup], check=True, env=env,
-                       stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        result = subprocess.run([FISH, '-i', '-c', startup], env=env, text=True,
+                                stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        assert result.returncode == 0, result.stderr
+        assert 'test:' not in result.stderr and 'Unknown command' not in result.stderr, result.stderr
         if not work:
             secret = home / '.config/fish/conf.d/38-shell-secrets.fish'
             subprocess.run([FISH, '-i', '-c',
